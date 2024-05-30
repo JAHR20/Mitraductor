@@ -1,0 +1,3561 @@
+{
+  "metadata": {
+    "device": {
+      "deviceId": "c3c58e9ba9e1",
+      "name": "Xiaomi 2201116SG",
+      "serialNumber": "c3c58e9ba9e1",
+      "isOnline": true,
+      "release": "13",
+      "sdk": 33,
+      "model": "2201116SG",
+      "isEmulator": false
+    },
+    "filter": "package:com.itsa.mitraductor",
+    "projectApplicationIds": [
+      "com.itsa.mitraductor",
+      "com.itsa.mitraductor.test"
+    ]
+  },
+  "logcatMessages": [
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 0,
+        "tid": 0,
+        "applicationId": "",
+        "processName": "",
+        "tag": "",
+        "timestamp": {
+          "seconds": 0,
+          "nanos": 0
+        }
+      },
+      "message": "--------- beginning of main"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2504,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 929000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_3D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2494,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 930000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_15 uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2494,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 930000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071354db780, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2504,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 930000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071355e9940, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 931000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 931000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb400007156343bc0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2507,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 931000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_4D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2495,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 931000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_1D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2507,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 931000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071356ac640, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2495,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 932000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb40000713557d5c0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713405982,
+          "nanos": 956000000
+        }
+      },
+      "message": "invalid attributes { Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_UNKNOWN Source: AUDIO_SOURCE_INVALID Flags: 0x800 Tags:  } when converting to stream"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 15000000
+        }
+      },
+      "message": "set(sessionId\u003d36385), mcallback is 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 15000000
+        }
+      },
+      "message": "set(): streamType 3, sampleRate 16000, format 0x1, channelMask 0x1, frameCount 8320, flags #2, notificationFrames 0, sessionId 36385, transferType 0, uid 10376, pid 28136"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 21000000
+        }
+      },
+      "message": "getOutputForAttrInt()+ attributes\u003d{ Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_MEDIA Source: AUDIO_SOURCE_DEFAULT Flags: 0x0 Tags:  } stream\u003dAUDIO_STREAM_MUSIC session 36385 output 0 selectedDeviceId 0 device AUDIO_DEVICE_NONE sampling rate 16000 format 0x1channel mask 0x1 flags 0x2 stream AUDIO_STREAM_MUSIC uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 21000000
+        }
+      },
+      "message": "getOutputForAttrInt() device {AUDIO_DEVICE_OUT_SPEAKER, @:}, sampling rate 16000, format 0x1, channel mask 0x1, flags 0x2 stream AUDIO_STREAM_MUSIC"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 24000000
+        }
+      },
+      "message": "getOutputForAttrInt()- attributes\u003d{ Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_MEDIA Source: AUDIO_SOURCE_DEFAULT Flags: 0x0 Tags:  } stream\u003dAUDIO_STREAM_MUSIC session 36385 output 13 selectedDeviceId 0 device {AUDIO_DEVICE_OUT_SPEAKER, @:} sampling rate 16000 format 0x1channel mask 0x1 flags 0x2 stream AUDIO_STREAM_MUSIC uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 24000000
+        }
+      },
+      "message": "getOutputForAttr() returns output 13 requestedPortId 0 selectedDeviceId 3 for port ID 5034"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 25000000
+        }
+      },
+      "message": "Client defaulted notificationFrames to 4160 for frameCount 8320"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 27000000
+        }
+      },
+      "message": "OpPlayAudio: track:4983 usage:1 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 29000000
+        }
+      },
+      "message": "isInWhiteList curPkgName com.itsa.mitraductor  uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 29000000
+        }
+      },
+      "message": "Track(4983): usage \u003d 1 mbIsAttrNeedFade \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 32000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000 and the pakage is com.itsa.mitraductor"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 32000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 33000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000 and the pakage is com.itsa.mitraductor"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 33000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 33000000
+        }
+      },
+      "message": "start(5034): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 34000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2494,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 34000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_15 uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2495,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 34000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_1D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2494,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 35000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071354db780, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2495,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 35000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb40000713557d5c0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 35000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb400007156343bc0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2504,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 35000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_3D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2504,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 35000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071355e9940, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2507,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 36000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_4D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2507,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 36000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071356ac640, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 4913,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 37000000
+        }
+      },
+      "message": "setFadeIn isFadeNeeded \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 39000000
+        }
+      },
+      "message": "The package name(android) provided does not correspond to the uid 1041"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 53000000
+        }
+      },
+      "message": "startOutput() output 13, stream 3, session 36385, appname com.itsa.mitraductor, uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 55000000
+        }
+      },
+      "message": "setOutputDevices output 13 device {AUDIO_DEVICE_OUT_SPEAKER, @:} delayMs 0 force 0 requiresMuteCheck 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 55000000
+        }
+      },
+      "message": "setOutputDevices() prevDevice {AUDIO_DEVICE_OUT_SPEAKER, @:}"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 55000000
+        }
+      },
+      "message": "AudioCommandThread() sending outputdevice changed(id\u003d2)  to 2"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 55000000
+        }
+      },
+      "message": "checkAndSetVolume: set volumeSource 7 volume index 12 for device 0x2, volumeDb \u003d -3.000000"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 67000000
+        }
+      },
+      "message": "AudioCommandThread() processing output device changed 2 2"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1838,
+        "tid": 4701,
+        "applicationId": "system_server",
+        "processName": "system_server",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 68000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 69000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1515,
+        "tid": 26112,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 69000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 3006,
+        "tid": 26535,
+        "applicationId": "com.android.systemui",
+        "processName": "com.android.systemui",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 68000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 13872,
+        "tid": 13915,
+        "applicationId": "com.wt.secret_code_manager",
+        "processName": "com.wt.secret_code_manager",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 68000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 2126,
+        "tid": 2167,
+        "applicationId": "com.android.phone",
+        "processName": "com.android.phone",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 69000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 5022,
+        "tid": 29510,
+        "applicationId": "com.miui.securitycenter.remote",
+        "processName": "com.miui.securitycenter.remote",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 69000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 28395,
+        "tid": 28407,
+        "applicationId": "com.android.bluetooth",
+        "processName": "com.android.bluetooth",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 70000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 70000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb400007156343bc0, event 8"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406007,
+          "nanos": 71000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:10376 "
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 382000000
+        }
+      },
+      "message": "stop(sessionID\u003d36385)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 383000000
+        }
+      },
+      "message": "stop(5034): prior state:STATE_ACTIVE"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 383000000
+        }
+      },
+      "message": "stop(5034): called with 25600 frames delivered"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 384000000
+        }
+      },
+      "message": "setFadeOut isFadeNeeded \u003d 0 isFadingOut \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 384000000
+        }
+      },
+      "message": "setFadeOut Done"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 817000000
+        }
+      },
+      "message": " pause(sessionID\u003d36385)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 817000000
+        }
+      },
+      "message": "pause(5034): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 827000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 860000000
+        }
+      },
+      "message": "stopOutput portId 5034"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 860000000
+        }
+      },
+      "message": "stopOutput() output 13, stream 3, session 36385"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 861000000
+        }
+      },
+      "message": "setOutputDevices output 13 device AUDIO_DEVICE_NONE delayMs 96 force 0 requiresMuteCheck 1"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 861000000
+        }
+      },
+      "message": "setOutputDevices() prevDevice {AUDIO_DEVICE_OUT_SPEAKER, @:}"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 861000000
+        }
+      },
+      "message": "AudioCommandThread() sending outputdevice changed(id\u003d2)  to 0"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 890000000
+        }
+      },
+      "message": "AudioCommandThread() processing output device changed 0 2"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1838,
+        "tid": 2636,
+        "applicationId": "system_server",
+        "processName": "system_server",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 891000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 3006,
+        "tid": 26535,
+        "applicationId": "com.android.systemui",
+        "processName": "com.android.systemui",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 892000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 5022,
+        "tid": 29510,
+        "applicationId": "com.miui.securitycenter.remote",
+        "processName": "com.miui.securitycenter.remote",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 892000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 13872,
+        "tid": 13915,
+        "applicationId": "com.wt.secret_code_manager",
+        "processName": "com.wt.secret_code_manager",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 892000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 892000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 28395,
+        "tid": 28407,
+        "applicationId": "com.android.bluetooth",
+        "processName": "com.android.bluetooth",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 892000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1515,
+        "tid": 26112,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 892000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 2126,
+        "tid": 2167,
+        "applicationId": "com.android.phone",
+        "processName": "com.android.phone",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406008,
+          "nanos": 892000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 177000000
+        }
+      },
+      "message": "set(sessionId\u003d36393), mcallback is 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 177000000
+        }
+      },
+      "message": "set(): streamType 3, sampleRate 16000, format 0x1, channelMask 0x1, frameCount 8320, flags #2, notificationFrames 0, sessionId 36393, transferType 0, uid 10376, pid 28136"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 184000000
+        }
+      },
+      "message": "getOutputForAttrInt()+ attributes\u003d{ Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_MEDIA Source: AUDIO_SOURCE_DEFAULT Flags: 0x0 Tags:  } stream\u003dAUDIO_STREAM_MUSIC session 36393 output 0 selectedDeviceId 0 device AUDIO_DEVICE_NONE sampling rate 16000 format 0x1channel mask 0x1 flags 0x2 stream AUDIO_STREAM_MUSIC uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 184000000
+        }
+      },
+      "message": "getOutputForAttrInt() device {AUDIO_DEVICE_OUT_SPEAKER, @:}, sampling rate 16000, format 0x1, channel mask 0x1, flags 0x2 stream AUDIO_STREAM_MUSIC"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 188000000
+        }
+      },
+      "message": "getOutputForAttrInt()- attributes\u003d{ Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_MEDIA Source: AUDIO_SOURCE_DEFAULT Flags: 0x0 Tags:  } stream\u003dAUDIO_STREAM_MUSIC session 36393 output 13 selectedDeviceId 0 device {AUDIO_DEVICE_OUT_SPEAKER, @:} sampling rate 16000 format 0x1channel mask 0x1 flags 0x2 stream AUDIO_STREAM_MUSIC uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 189000000
+        }
+      },
+      "message": "getOutputForAttr() returns output 13 requestedPortId 0 selectedDeviceId 3 for port ID 5035"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 190000000
+        }
+      },
+      "message": "Client defaulted notificationFrames to 4160 for frameCount 8320"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 193000000
+        }
+      },
+      "message": "OpPlayAudio: track:4984 usage:1 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 194000000
+        }
+      },
+      "message": "isInWhiteList curPkgName com.itsa.mitraductor  uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 194000000
+        }
+      },
+      "message": "Track(4984): usage \u003d 1 mbIsAttrNeedFade \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 196000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000 and the pakage is com.itsa.mitraductor"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 197000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 197000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000 and the pakage is com.itsa.mitraductor"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 197000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 197000000
+        }
+      },
+      "message": "start(5035): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 198000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2494,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 198000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_15 uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 198000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb400007156343bc0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2504,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 199000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_3D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2507,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 199000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_4D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2504,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 199000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071355e9940, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2494,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 199000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071354db780, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2507,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 199000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071356ac640, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 200000000
+        }
+      },
+      "message": "setFadeIn isFadeNeeded \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2495,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 200000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_1D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2495,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 200000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb40000713557d5c0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 202000000
+        }
+      },
+      "message": "The package name(android) provided does not correspond to the uid 1041"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 211000000
+        }
+      },
+      "message": "startOutput() output 13, stream 3, session 36393, appname com.itsa.mitraductor, uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 212000000
+        }
+      },
+      "message": "setOutputDevices output 13 device {AUDIO_DEVICE_OUT_SPEAKER, @:} delayMs 0 force 0 requiresMuteCheck 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 212000000
+        }
+      },
+      "message": "setOutputDevices() prevDevice {AUDIO_DEVICE_OUT_SPEAKER, @:}"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 212000000
+        }
+      },
+      "message": "AudioCommandThread() sending outputdevice changed(id\u003d2)  to 2"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 212000000
+        }
+      },
+      "message": "checkAndSetVolume: set volumeSource 7 volume index 12 for device 0x2, volumeDb \u003d -3.000000"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 217000000
+        }
+      },
+      "message": "AudioCommandThread() processing output device changed 2 2"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 2126,
+        "tid": 2167,
+        "applicationId": "com.android.phone",
+        "processName": "com.android.phone",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 28395,
+        "tid": 28407,
+        "applicationId": "com.android.bluetooth",
+        "processName": "com.android.bluetooth",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1515,
+        "tid": 26112,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 3006,
+        "tid": 26535,
+        "applicationId": "com.android.systemui",
+        "processName": "com.android.systemui",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1838,
+        "tid": 2636,
+        "applicationId": "system_server",
+        "processName": "system_server",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 5022,
+        "tid": 29510,
+        "applicationId": "com.miui.securitycenter.remote",
+        "processName": "com.miui.securitycenter.remote",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb400007156343bc0, event 8"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 218000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:10376 "
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 13872,
+        "tid": 13915,
+        "applicationId": "com.wt.secret_code_manager",
+        "processName": "com.wt.secret_code_manager",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 219000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (2, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 514000000
+        }
+      },
+      "message": "set(sessionId\u003d36401), mcallback is 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 514000000
+        }
+      },
+      "message": "set(): streamType 3, sampleRate 16000, format 0x1, channelMask 0x1, frameCount 8320, flags #2, notificationFrames 0, sessionId 36401, transferType 0, uid 10376, pid 28136"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 521000000
+        }
+      },
+      "message": "getOutputForAttrInt()+ attributes\u003d{ Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_MEDIA Source: AUDIO_SOURCE_DEFAULT Flags: 0x0 Tags:  } stream\u003dAUDIO_STREAM_MUSIC session 36401 output 0 selectedDeviceId 0 device AUDIO_DEVICE_NONE sampling rate 16000 format 0x1channel mask 0x1 flags 0x2 stream AUDIO_STREAM_MUSIC uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 521000000
+        }
+      },
+      "message": "getOutputForAttrInt() device {AUDIO_DEVICE_OUT_SPEAKER, @:}, sampling rate 16000, format 0x1, channel mask 0x1, flags 0x2 stream AUDIO_STREAM_MUSIC"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 525000000
+        }
+      },
+      "message": "getOutputForAttrInt()- attributes\u003d{ Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_MEDIA Source: AUDIO_SOURCE_DEFAULT Flags: 0x0 Tags:  } stream\u003dAUDIO_STREAM_MUSIC session 36401 output 13 selectedDeviceId 0 device {AUDIO_DEVICE_OUT_SPEAKER, @:} sampling rate 16000 format 0x1channel mask 0x1 flags 0x2 stream AUDIO_STREAM_MUSIC uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 525000000
+        }
+      },
+      "message": "getOutputForAttr() returns output 13 requestedPortId 0 selectedDeviceId 3 for port ID 5036"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 526000000
+        }
+      },
+      "message": "Client defaulted notificationFrames to 4160 for frameCount 8320"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 529000000
+        }
+      },
+      "message": "OpPlayAudio: track:4985 usage:1 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 530000000
+        }
+      },
+      "message": "isInWhiteList curPkgName com.itsa.mitraductor  uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 530000000
+        }
+      },
+      "message": "Track(4985): usage \u003d 1 mbIsAttrNeedFade \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 533000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000 and the pakage is com.itsa.mitraductor"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 533000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2495,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 534000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb40000713557d5c0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2494,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 534000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071354db780, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2504,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 534000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071355e9940, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 535000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000 and the pakage is com.itsa.mitraductor"
+    },
+    {
+      "header": {
+        "logLevel": "INFO",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 535000000
+        }
+      },
+      "message": "AudioTrack::setVolume L:1.000000 R:1.000000"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2507,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 535000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb4000071356ac640, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 535000000
+        }
+      },
+      "message": "start(5036): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 536000000
+        }
+      },
+      "message": "setFadeIn isFadeNeeded \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 538000000
+        }
+      },
+      "message": "The package name(android) provided does not correspond to the uid 1041"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 551000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb400007156343bc0, event 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 555000000
+        }
+      },
+      "message": "startOutput() output 13, stream 3, session 36401, appname com.itsa.mitraductor, uid 10376"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 571000000
+        }
+      },
+      "message": "PlaybackThread::ioConfigChanged, thread 0xb400007156343bc0, event 8"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 573000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:10376 "
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 26112,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406012,
+          "nanos": 590000000
+        }
+      },
+      "message": "getTimestamp_l(5036): device stall time corrected using current time 119193463865363"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 530000000
+        }
+      },
+      "message": "stop(sessionID\u003d36393)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 530000000
+        }
+      },
+      "message": "stop(5035): prior state:STATE_ACTIVE"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 530000000
+        }
+      },
+      "message": "stop(5035): called with 25600 frames delivered"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 531000000
+        }
+      },
+      "message": "setFadeOut isFadeNeeded \u003d 0 isFadingOut \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 531000000
+        }
+      },
+      "message": "setFadeOut Done"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 868000000
+        }
+      },
+      "message": "stop(sessionID\u003d36401)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 868000000
+        }
+      },
+      "message": "stop(5036): prior state:STATE_ACTIVE"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 868000000
+        }
+      },
+      "message": "stop(5036): called with 25600 frames delivered"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 869000000
+        }
+      },
+      "message": "setFadeOut isFadeNeeded \u003d 0 isFadingOut \u003d 0"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 8684,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::Track",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 869000000
+        }
+      },
+      "message": "setFadeOut Done"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 944000000
+        }
+      },
+      "message": " pause(sessionID\u003d36393)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 945000000
+        }
+      },
+      "message": "pause(5035): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 955000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:10376 "
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 960000000
+        }
+      },
+      "message": "stopOutput portId 5035"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406013,
+          "nanos": 960000000
+        }
+      },
+      "message": "stopOutput() output 13, stream 3, session 36393"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 223000000
+        }
+      },
+      "message": " pause(sessionID\u003d36401)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 223000000
+        }
+      },
+      "message": "pause(5036): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 233000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 267000000
+        }
+      },
+      "message": "stopOutput portId 5036"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 267000000
+        }
+      },
+      "message": "stopOutput() output 13, stream 3, session 36401"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 268000000
+        }
+      },
+      "message": "setOutputDevices output 13 device AUDIO_DEVICE_NONE delayMs 96 force 0 requiresMuteCheck 1"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 268000000
+        }
+      },
+      "message": "setOutputDevices() prevDevice {AUDIO_DEVICE_OUT_SPEAKER, @:}"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 269000000
+        }
+      },
+      "message": "AudioCommandThread() sending outputdevice changed(id\u003d2)  to 0"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioPolicyService",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 297000000
+        }
+      },
+      "message": "AudioCommandThread() processing output device changed 0 2"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1838,
+        "tid": 2636,
+        "applicationId": "system_server",
+        "processName": "system_server",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 298000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 3006,
+        "tid": 13965,
+        "applicationId": "com.android.systemui",
+        "processName": "com.android.systemui",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 298000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 13872,
+        "tid": 13915,
+        "applicationId": "com.wt.secret_code_manager",
+        "processName": "com.wt.secret_code_manager",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 298000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 28395,
+        "tid": 28407,
+        "applicationId": "com.android.bluetooth",
+        "processName": "com.android.bluetooth",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 299000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 5022,
+        "tid": 29510,
+        "applicationId": "com.miui.securitycenter.remote",
+        "processName": "com.miui.securitycenter.remote",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 299000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 2126,
+        "tid": 2167,
+        "applicationId": "com.android.phone",
+        "processName": "com.android.phone",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 299000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 299000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "ERROR",
+        "pid": 1515,
+        "tid": 26112,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioSystem",
+        "timestamp": {
+          "seconds": 1713406014,
+          "nanos": 299000000
+        }
+      },
+      "message": "onAudioOutputDeviceChanged (0, 2)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406046,
+          "nanos": 570000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 1713,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger::EffectHandle",
+        "timestamp": {
+          "seconds": 1713406046,
+          "nanos": 608000000
+        }
+      },
+      "message": "disconnect Effect handle 0xb40000713d8dfe00 disconnected after thread destruction"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger::EffectHandle",
+        "timestamp": {
+          "seconds": 1713406046,
+          "nanos": 609000000
+        }
+      },
+      "message": "disconnect Effect handle 0xb40000713d8dfcc0 disconnected after thread destruction"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 831000000
+        }
+      },
+      "message": " pause(sessionID\u003d36385)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 831000000
+        }
+      },
+      "message": "pause(5034): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 832000000
+        }
+      },
+      "message": "stop(sessionID\u003d36385)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28535,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 832000000
+        }
+      },
+      "message": "stop(5034): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 832000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 840000000
+        }
+      },
+      "message": "stop(sessionID\u003d36385)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 840000000
+        }
+      },
+      "message": "stop(5034): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 841000000
+        }
+      },
+      "message": "~AudioTrack(sessionID\u003d36385)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 841000000
+        }
+      },
+      "message": "stop(sessionID\u003d36385)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 841000000
+        }
+      },
+      "message": "stop(5034): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 842000000
+        }
+      },
+      "message": "session id 36385 not found for pid 28136"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 844000000
+        }
+      },
+      "message": " pause(sessionID\u003d36393)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 844000000
+        }
+      },
+      "message": "pause(5035): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 846000000
+        }
+      },
+      "message": "stop(sessionID\u003d36393)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28550,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 846000000
+        }
+      },
+      "message": "stop(5035): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 847000000
+        }
+      },
+      "message": "releaseOutput portId 5034"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 847000000
+        }
+      },
+      "message": "releaseOutput() output 13, stream 3, session 36385 [uid\u003d10376]"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 863000000
+        }
+      },
+      "message": "stop(sessionID\u003d36393)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 863000000
+        }
+      },
+      "message": "stop(5035): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 863000000
+        }
+      },
+      "message": "~AudioTrack(sessionID\u003d36393)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 867000000
+        }
+      },
+      "message": "stop(sessionID\u003d36393)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 867000000
+        }
+      },
+      "message": "stop(5035): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 1713,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 868000000
+        }
+      },
+      "message": "session id 36393 not found for pid 28136"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 871000000
+        }
+      },
+      "message": " pause(sessionID\u003d36401)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 871000000
+        }
+      },
+      "message": "pause(5036): prior state:STATE_STOPPED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 872000000
+        }
+      },
+      "message": "stop(sessionID\u003d36401)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 28559,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 872000000
+        }
+      },
+      "message": "stop(5036): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 872000000
+        }
+      },
+      "message": "releaseOutput portId 5035"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 872000000
+        }
+      },
+      "message": "releaseOutput() output 13, stream 3, session 36393 [uid\u003d10376]"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 882000000
+        }
+      },
+      "message": "stop(sessionID\u003d36401)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 882000000
+        }
+      },
+      "message": "stop(5036): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 882000000
+        }
+      },
+      "message": "~AudioTrack(sessionID\u003d36401)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 884000000
+        }
+      },
+      "message": "stop(sessionID\u003d36401)"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1515,
+        "tid": 1833,
+        "applicationId": "mediaserver",
+        "processName": "mediaserver",
+        "tag": "AudioTrack",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 884000000
+        }
+      },
+      "message": "stop(5036): prior state:STATE_FLUSHED"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 25861,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 888000000
+        }
+      },
+      "message": "session id 36401 not found for pid 28136"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 897000000
+        }
+      },
+      "message": "releaseOutput portId 5036"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1652,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "APM_AudioPolicyManager",
+        "timestamp": {
+          "seconds": 1713406051,
+          "nanos": 897000000
+        }
+      },
+      "message": "releaseOutput() output 13, stream 3, session 36401 [uid\u003d10376]"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406059,
+          "nanos": 328000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406059,
+          "nanos": 333000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406059,
+          "nanos": 334000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406059,
+          "nanos": 337000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1713,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406059,
+          "nanos": 338000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1713,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406223,
+          "nanos": 860000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 1713,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406223,
+          "nanos": 860000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 25861,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406223,
+          "nanos": 861000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 25861,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406223,
+          "nanos": 862000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 25861,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406223,
+          "nanos": 863000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2489,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger",
+        "timestamp": {
+          "seconds": 1713406263,
+          "nanos": 925000000
+        }
+      },
+      "message": "updateWakeLockUids_l AudioOut_D uids:"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 25861,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger::EffectHandle",
+        "timestamp": {
+          "seconds": 1713406263,
+          "nanos": 960000000
+        }
+      },
+      "message": "disconnect Effect handle 0xb40000713d8de8c0 disconnected after thread destruction"
+    },
+    {
+      "header": {
+        "logLevel": "WARN",
+        "pid": 1077,
+        "tid": 1713,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AudioFlinger::EffectHandle",
+        "timestamp": {
+          "seconds": 1713406263,
+          "nanos": 960000000
+        }
+      },
+      "message": "disconnect Effect handle 0xb40000713d8df040 disconnected after thread destruction"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406323,
+          "nanos": 727000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406323,
+          "nanos": 729000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2527,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406323,
+          "nanos": 730000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2526,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406323,
+          "nanos": 735000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    },
+    {
+      "header": {
+        "logLevel": "DEBUG",
+        "pid": 1077,
+        "tid": 2526,
+        "applicationId": "audioserver",
+        "processName": "audioserver",
+        "tag": "AF::TrackHandle",
+        "timestamp": {
+          "seconds": 1713406323,
+          "nanos": 737000000
+        }
+      },
+      "message": "OpPlayAudio: track:1893 usage:3 not muted"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.mySplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/mySplashScreenColor</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splasscreem</item>
+        <item name="postSplashScreenTheme">@style/Theme.Mitraductor</item>
+    </style>
+    <style name="Theme.Mitraductor" parent="android:Theme.Material.Light.NoActionBar" />
+
+</resources>
