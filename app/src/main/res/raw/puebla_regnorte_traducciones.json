@@ -35,6 +35,7 @@
     "Guayaba": "Xalxocotl",
     "Aguacate": "Ahuacatl",
     "Platano": "Xochihcuali",
+    "Manzana": "Xocotl",
     "Tuna": "Nochtli",
     "Elote": "Yelotl",
     "Quelite": "Quilitl",
@@ -92,7 +93,6 @@
     "Hueso": "Ohmitl",
 
     "Pasto": "Sacatl",
-    "Papá": "Itata",
 
     "Arbol": "Cohuitl",
     "Arcoiris": "Cosemalotl",
@@ -198,9 +198,17 @@
     "Hamaca": "Tanuili",
     "Hablar": "Tlahtohua",
     "Haba": "Ahuax",
+    "Nuez": "Coucacahuatl",
 
     "Hija": "Ichpocau",
     "Hijo": "Iconeu",
+    "Mamá": "Inana",
+    "Papá": "Itata",
+    "Hermano": "Icniu",
+    "Hermana": "Ihueltiu",
+    "Abuelo": "Icoltzin",
+    "Abuela": "Isitzin",
+
     "Hielo": "Setl",
     "Iglesia": "Tiopantli",
     "Idioma": "Itlahtol",
@@ -208,5 +216,6 @@
     "Imagen": "Iixnesca",
     "Insolente": "Temoutihtic",
     "Inútil": "San tlaluis"
+
   }
 }

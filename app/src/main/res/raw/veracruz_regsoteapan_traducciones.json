@@ -20,6 +20,7 @@
     "Hombro": "Keewe",
     "Rodilla": "Kooso",
     "Codo": "Suutkuy",
+    "Mano": "Kɨ",
     "Dedos": "Waaykɨ",
     "Pie": "Puy",
     "Uña": "Kɨɨtɨs",
@@ -93,6 +94,7 @@
     "Donde": "Juuty",
     "Engorda": "Pɨɨpa",
     "Animal": "Animat",
+
     "Caballo": "Kawaj",
     "Tortuga": "Tyuki",
     "Pollo": "Piyu’",
@@ -109,7 +111,7 @@
     "Gato": "Missi",
     "Perico": "Katsa’",
     "Paloma": "Ku’uku",
-    "Raton": "Tsuk",
+    "Ratón": "Tsuk",
     "Lagartija": "Kuñi paachi",
     "Cocodrilo": "Uxpiñ",
     "Tecolote": "Juŋ",
@@ -188,7 +190,7 @@
 
     "Aguacate": "Kuytyɨm",
     "Plátano": "Samñi",
-    "Guanabana": "Kachyatyi",
+    "Guanábana": "Kachyatyi",
     "Naranja": "Tsootso’",
     "Limón": "Pichkuy",
     "Ciruela": "Jamsaŋpichkuy",

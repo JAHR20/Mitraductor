@@ -69,43 +69,63 @@ class EmojiViewModel : ViewModel() {
                     // Agrega las imágenes para la región 1...
                 ),
                 "Animales" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula"),
+                    ImageModel(R.drawable.img_memorama_soteapan_cocodrilo, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_conejo, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_paloma, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_perro, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_pollo, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_raton, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_tortuga, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_tucan, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_cocodrilo, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_conejo, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_paloma, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_perro, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_pollo, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_raton, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_tortuga, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_tucan, ""),
                     // ... elementos de la subcategoría Animales
                 )
             ),
             "Sayula" to mapOf(
+                "Familia" to mutableListOf(
+
+                ),
                 "Animales" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_sayula_abanico, "palabra_Abanico_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_naranja, "palabra_Naranja_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_tortilla, "palabra_Tortilla_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_abanico, "palabra_Abanico_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_naranja, "palabra_Naranja_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula"),
-                    ImageModel(R.drawable.img_memorama_sayula_tortilla, "palabra_Tortilla_regionsayula"),
+                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_armadillo, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_caballo, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_burro, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_armadillo, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_caballo, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_burro, "palabra_Puerco_regionsayula.mp3"),
                     // Agrega las imágenes para la región 2...
+                ),
+                "Frutas" to mutableListOf(
+                    ImageModel(R.drawable.img_memorama_sayula_naranja,""),
+                    ImageModel(R.drawable.img_memorama_sayula_guanabana,""),
+                    ImageModel(R.drawable.img_memorama_sayula_platano,""),
+
+                    ImageModel(R.drawable.img_memorama_sayula_naranja,""),
+                    ImageModel(R.drawable.img_memorama_sayula_guanabana,""),
+                    ImageModel(R.drawable.img_memorama_sayula_platano,""),
                 )
             ),
             "Oluta" to mapOf(
+                "Familia" to mutableListOf(
+
+                ),
                 "Frutas" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_oluta_arania, ""),
                     ImageModel(R.drawable.img_memorama_oluta_jaula, ""),
                     ImageModel(R.drawable.img_memorama_oluta_lapiz, ""),
                     ImageModel(R.drawable.img_memorama_oluta_machete, ""),
@@ -113,7 +133,6 @@ class EmojiViewModel : ViewModel() {
                     ImageModel(R.drawable.img_memorama_oluta_sombrero, ""),
                     ImageModel(R.drawable.img_memorama_oluta_tijeras, ""),
                     ImageModel(R.drawable.img_memorama_oluta_tomate, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_arania, ""),
                     ImageModel(R.drawable.img_memorama_oluta_jaula, ""),
                     ImageModel(R.drawable.img_memorama_oluta_lapiz, ""),
                     ImageModel(R.drawable.img_memorama_oluta_machete, ""),
@@ -121,9 +140,31 @@ class EmojiViewModel : ViewModel() {
                     ImageModel(R.drawable.img_memorama_oluta_sombrero, ""),
                     ImageModel(R.drawable.img_memorama_oluta_tijeras, ""),
                     ImageModel(R.drawable.img_memorama_oluta_tomate, ""),
+                ),
+                "Animales" to mutableListOf(
+                    ImageModel(R.drawable.img_memorama_oluta_arania, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_ardilla, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_armadillo, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_caballo, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_iguana, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_venado, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_mapache, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_colibri, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_arania, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_ardilla, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_armadillo, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_caballo, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_iguana, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_venado, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_mapache, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_colibri, ""),
+
                 )
             ),
             "Texistepec" to mapOf(
+                "Familia" to mutableListOf(
+
+                ),
                 "Animales" to mutableListOf(
                     ImageModel(R.drawable.img_memorama_texistepec_arbol, ""),
                     ImageModel(R.drawable.img_memorama_texistepec_caracol, ""),
@@ -145,26 +186,32 @@ class EmojiViewModel : ViewModel() {
                 )
             ),
             "San Gabriel Chilac" to mapOf(
-                "Verduras" to mutableListOf(
+                "Familia" to mutableListOf(
+
+                ),
+                "Animales" to mutableListOf(
                     ImageModel(R.drawable.img_memorama_pueblanorte_abeja, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_cama, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_elote, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_cielo, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_flor, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_iglesia, ""),
                     ImageModel(R.drawable.img_memorama_pueblanorte_raton, ""),
                     ImageModel(R.drawable.img_memorama_pueblanorte_pavo, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_alacran, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_murcielago, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_pescado, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_zorrillo, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_puerco, ""),
                     ImageModel(R.drawable.img_memorama_pueblanorte_abeja, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_cama, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_elote, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_cielo, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_flor, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_iglesia, ""),
                     ImageModel(R.drawable.img_memorama_pueblanorte_raton, ""),
                     ImageModel(R.drawable.img_memorama_pueblanorte_pavo, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_alacran, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_murcielago, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_pescado, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_zorrillo, ""),
+                    ImageModel(R.drawable.img_memorama_sangabriel_puerco, ""),
                 )
             ),
             "Ocotepec" to mapOf(
+                "Familia" to mutableListOf(
+                    
+                ),
                 "Animales" to mutableListOf(
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_caballo, ""),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_nopal, ""),

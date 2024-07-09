@@ -51,7 +51,7 @@ fun MemoramaGameComposable(navController: NavController, region: String) {
     val context = LocalContext.current
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     val musicViewModel: MusicViewModel = viewModel(factory = MusicViewModelFactory(lifecycle))
-    val subcategories = listOf("Familia", "Animales", "Objetos") // Las subcategorías disponibles para la región
+    val subcategories = listOf("Familia", "Animales", "Frutas") // Las subcategorías disponibles para la región
     var selectedSubcategory by remember { mutableStateOf(subcategories[0]) }
 
     viewModel.audioToPlay.observeAsState().value?.let { audioFileName ->
@@ -160,7 +160,7 @@ fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: Stri
             modifier = Modifier.padding(top = 60.dp, start = 16.dp, end = 16.dp)
         ) {
             SubcategorySelectionButton(
-                subcategories = listOf("Familia", "Animales", "Otros"), // Ejemplo de subcategorías disponibles
+                subcategories = listOf("Familia", "Animales", "Frutas"), // Ejemplo de subcategorías disponibles
                 onSubcategorySelected = { selectedSubcategory ->
                     viewModel.loadImages(region, selectedSubcategory)
                 }

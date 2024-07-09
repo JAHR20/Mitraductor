@@ -95,12 +95,14 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.zIndex
@@ -170,7 +172,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BienvenidaScreen(navController: NavController) {
-    val nombrejuego = "MɨCHUY IANNA"
+    val nombrejuego = "MICHUY IANNA"
     val descripcionjuego = "Juego de apredizaje de lengua materna"
     Box(
         modifier = Modifier
@@ -190,19 +192,34 @@ fun BienvenidaScreen(navController: NavController) {
             lifecycle = LocalLifecycleOwner.current.lifecycle
         )
 
-        Text(
-            fontSize = 35.sp,
-            fontWeight = FontWeight.ExtraBold,
-            fontFamily = FontFamily.SansSerif,
-            text = nombrejuego + "\n" + descripcionjuego,
+        Column(
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .zIndex(2f)
-                .padding(top = 50.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.titleLarge,
-            color = Color(0xFF1F54AF) // Cambiar el color del texto si es necesario para que sea legible en la imagen de fondo
-        )
+                .padding(top = 40.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = nombrejuego,
+                fontSize = 45.sp,
+                fontWeight = FontWeight.ExtraBold,
+                fontFamily = FontFamily(Font(R.font.bonanovascbold)),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge,
+                color = Color(0xFF092885) // Cambiar el color del texto si es necesario
+            )
+            //Spacer(modifier = Modifier.height(2.dp)) // Espacio entre el nombre del juego y la descripción
+            Text(
+                text = descripcionjuego,
+                fontSize = 32.sp, // Cambiar el tamaño de la fuente según sea necesario
+                fontWeight = FontWeight.ExtraBold,
+                fontFamily = FontFamily(Font(R.font.lxgwwenkaitcbold)),
+                textAlign = TextAlign.Center,
+                lineHeight = 1.em,
+                style = MaterialTheme.typography.bodyLarge,
+                color = Color(0xFF092885) // Cambiar el color del texto si es necesario
+            )
+        }
+
         Column(
             modifier = Modifier
                 .padding(16.dp)
@@ -478,10 +495,27 @@ fun MenuRegiones(
     navController: NavController
 ) {
     Scaffold(
-        topBar = { ToolbarWithBackButton(
+        topBar = {
+            ToolbarWithBackButton(
             title = "Regiones de $estado",
             navController = navController
-        ) }
+            )
+        },
+        bottomBar = {
+            NavigationBar(
+                content = {
+                    Row(
+                        modifier = Modifier
+                            .background(color = MaterialTheme.colorScheme.primary)
+                            .fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                    }
+                }
+            )
+        },
     ) {
         LazyColumn(
             modifier = Modifier.padding(top = 70.dp),
@@ -1236,7 +1270,7 @@ fun AcercaDeScreen(navController: NavController) {
                         }
                         item {
                             Text(
-                                text = "Desarrollado por: \n Equipo MɨCHKUY IANNA",
+                                text = "Desarrollado por: \n Equipo MiCHUY IANNA",
                                 textAlign = TextAlign.Center,
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = Color.Black
@@ -1257,6 +1291,17 @@ fun AcercaDeScreen(navController: NavController) {
                             EmailLink(email = "sgjesus2000@gmail.com")
                         }
                         item {
+                            Text(
+                                text = "Redes sociales: ",
+                                textAlign = TextAlign.Center,
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = Color.Black
+                            )
+                        }
+                        item {
+                            SocialMediaButtons()
+                        }
+                        item {
                             Spacer(modifier = Modifier.height(35.dp))
                         }
                         // Agrega más elementos según sea necesario
@@ -1267,7 +1312,56 @@ fun AcercaDeScreen(navController: NavController) {
     }
 }
 
+@Composable
+fun SocialMediaButtons() {
+    val context = LocalContext.current
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        SocialMediaButton(
+            iconRes = R.drawable.facebook_icon,
+            contentDescription = "Facebook",
+            onClick = { openFacebookProfile(context, "profile.php?id=61562206343053&mibextid=ZbWKwL") }
+        )
+        SocialMediaButton(
+            iconRes = R.drawable.tiktok_icon,
+            contentDescription = "Twitter",
+            onClick = { /* Acción para Twitter */ }
+        )
+        SocialMediaButton(
+            iconRes= R.drawable.instagram_icon,
+            contentDescription = "Instagram",
+            onClick = { /* Acción para Instagram */ }
+        )
+    }
+}
 
+@Composable
+fun SocialMediaButton(iconRes: Int, contentDescription: String, onClick: () -> Unit) {
+    IconButton(onClick = onClick) {
+        Icon(painter = painterResource(id = iconRes), contentDescription = contentDescription, tint = Color.Unspecified)
+    }
+}
+fun openUrl(context: Context, url: String) {
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse(url)
+    }
+    context.startActivity(Intent.createChooser(intent, "Abrir con"))
+}
+
+fun openFacebookProfile(context: Context, profileId: String) {
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse("fb://facewebmodal/f?href=https://www.facebook.com/$profileId")
+    }
+    try {
+        context.startActivity(intent)
+    } catch (e: Exception) {
+        // Si no se puede abrir la aplicación de Facebook, abrir en el navegador
+        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/$profileId"))
+        context.startActivity(Intent.createChooser(webIntent, "Abrir con"))
+    }
+}
 
 @Composable
 fun EmailLink(email: String) {
@@ -1305,38 +1399,38 @@ fun EmailLink(email: String) {
 val games = mapOf(
     "Veracruz" to mapOf(
         "Soteapan" to mapOf(
-            "Básico" to listOf("Memorama", "Colorear"),
-            "Medio" to listOf("Sopa de letras", "Crucigrama", "Ahorcado"),
-            "Avanzado" to listOf("Acompletar la oración", "Partes del cuerpo")
+            "Básico" to listOf("Memorama", "Colorear", "Partes del cuerpo"),
+            "Medio" to listOf("Sopa de letras", "Ahorcado", "Acompletar la oración" ),
+            "Avanzado" to listOf("Crucigrama")
         ),
         "Sayula" to mapOf(
-            "Básico" to listOf("Memorama", "Colorear"),
-            "Medio" to listOf("Sopa de letras", "Crucigrama", "Ahorcado"),
-            "Avanzado" to listOf()
+            "Básico" to listOf("Memorama", "Colorear", "Partes del cuerpo"),
+            "Medio" to listOf("Sopa de letras", "Ahorcado"),
+            "Avanzado" to listOf("Crucigrama")
         ),
         "Oluta" to mapOf(
-            "Básico" to listOf("Memorama", "Colorear"),
+            "Básico" to listOf("Memorama", "Colorear", "Partes del cuerpo"),
             "Medio" to listOf("Sopa de letras", "Crucigrama", "Ahorcado"),
-            "Avanzado" to listOf()
+            "Avanzado" to listOf("Crucigrama")
         ),
         "Texistepec" to mapOf(
-            "Básico" to listOf("Memorama", "Colorear"),
-            "Medio" to listOf("Sopa de letras", "Crucigrama", "Ahorcado"),
-            "Avanzado" to listOf()
+            "Básico" to listOf("Memorama", "Colorear", "Partes del cuerpo"),
+            "Medio" to listOf("Sopa de letras", "Ahorcado"),
+            "Avanzado" to listOf("Crucigrama")
         )
     ),
     "Puebla" to mapOf(
         "San Gabriel Chilac" to mapOf(
-            "Básico" to listOf("Memorama", "Colorear"),
-            "Medio" to listOf("Sopa de letras", "Crucigrama", "Ahorcado"),
-            "Avanzado" to listOf()
+            "Básico" to listOf("Memorama", "Colorear", "Partes del cuerpo"),
+            "Medio" to listOf("Sopa de letras", "Ahorcado"),
+            "Avanzado" to listOf("Crucigrama")
         )
     ),
     "Oaxaca" to mapOf(
         "Ocotepec" to mapOf(
-            "Básico" to listOf("Memorama", "Colorear"),
-            "Medio" to listOf("Sopa de letras", "Crucigrama", "Ahorcado"),
-            "Avanzado" to listOf()
+            "Básico" to listOf("Memorama", "Colorear", "Partes del cuerpo"),
+            "Medio" to listOf("Sopa de letras", "Ahorcado"),
+            "Avanzado" to listOf("Crucigrama")
         )
     )
 )
@@ -1494,6 +1588,21 @@ fun StateRegionsScreen(navController: NavController, state: String) {
                 navController = navController
             )
         },
+        bottomBar = {
+            NavigationBar(
+                content = {
+                    Row(
+                        modifier = Modifier
+                            .background(color = MaterialTheme.colorScheme.primary)
+                            .fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                    }
+                }
+            )
+        },
         content = { paddingValues ->
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
@@ -1557,6 +1666,21 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
                 navController = navController
             )
         },
+        bottomBar = {
+            NavigationBar(
+                content = {
+                    Row(
+                        modifier = Modifier
+                            .background(color = MaterialTheme.colorScheme.primary)
+                            .fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                    }
+                }
+            )
+        },
         content = { paddingValues ->
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
@@ -1618,6 +1742,21 @@ fun CategorySelectionScreen(navController: NavController, state: String, region:
             ToolbarWithBackButton(
                 title = "$region - Categorías",
                 navController = navController
+            )
+        },
+        bottomBar = {
+            NavigationBar(
+                content = {
+                    Row(
+                        modifier = Modifier
+                            .background(color = MaterialTheme.colorScheme.primary)
+                            .fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                    }
+                }
             )
         },
         content = { paddingValues ->

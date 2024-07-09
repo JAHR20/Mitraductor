@@ -7,17 +7,22 @@ import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,32 +30,41 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.ToolbarWithBackButton
 import com.itsa.mitraductor.ui.theme.MitraductorTheme
 import java.io.IOException
+import java.util.Locale
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun Cuerpo(navController: NavController, region: String) {
+fun Cuerpo(navController: NavController, region : String) {
     val context = LocalContext.current
-    val region=region
+    val regionlowercase= region.lowercase(Locale.getDefault())
+    val (dialogMessage, setDialogMessage) = remember { mutableStateOf<String?>(null) }
+
     Scaffold(
         topBar = {
             ToolbarWithBackButton(
-                title = "Colorear",
+                title = "Partes del cuerpo",
                 navController = navController
             )
         },
         content = {
 
             BoxWithConstraints(
-                modifier = Modifier.fillMaxSize().padding(top = 40.dp),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 40.dp),
                 contentAlignment = Alignment.Center
             ) {
                 val imageWidth = constraints.maxWidth
@@ -58,10 +72,12 @@ fun Cuerpo(navController: NavController, region: String) {
 
                 Box(
                     modifier = Modifier
+                        .padding(horizontal = 8.dp)
+                        .padding(top = 30.dp, bottom = 5.dp)
                         .size(imageWidth.toDp(), imageHeight.toDp())
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.body),
+                        painter = painterResource(id = R.drawable.cuerpo),
                         contentDescription = "Cuerpo Humano",
                         contentScale = ContentScale.FillBounds,
                         modifier = Modifier.matchParentSize()
@@ -69,30 +85,88 @@ fun Cuerpo(navController: NavController, region: String) {
 
                     // Lista de botones con sus proporciones
                     val buttons = listOf(
-                        Triple(0.51f, 0.08f, "palabra_Cabeza_regionsoteapan.mp3"),
-                        Triple(0.31f, 0.31f, "palabra_Brazo_regionsoteapan.mp3"),
-                        Triple(0.72f, 0.31f, "palabra_Brazo_regionsoteapan.mp3"),
-                        Triple(0.18f, 0.48f, "palabra_Mano_regionsayula.mp3"),
-                        Triple(0.83f, 0.48f, "palabra_Mano_regionsayula.mp3"),
-                        Triple(0.33f, 0.22f, "palabra_Hombro_regionsoteapan.mp3"),
-                        Triple(0.68f, 0.22f, "palabra_Hombro_regionsoteapan.mp3"),
-                        Triple(0.43f, 0.9f, "palabra_Pie_regionsoteapan.mp3"),
-                        Triple(0.6f, 0.9f, "palabra_Pie_regionsoteapan.mp3"),
-                        Triple(0.41f, 0.57f, "palabra_Pierna_regionsoteapan.mp3"),
-                        Triple(0.62f, 0.57f, "palabra_Pierna_regionsoteapan.mp3"),
-                        Triple(0.41f, 0.7f, "palabra_Rodilla_regionsoteapan.mp3"),
-                        Triple(0.61f, 0.7f, "palabra_Rodilla_regionsoteapan.mp3")
+                        Triple(0.24f, 0.09f, "palabra_Cabeza_region${regionlowercase}.mp3" to "Cabeza"),
+                        Triple(0.72f, 0.09f, "palabra_Ojo_region${regionlowercase}.mp3" to "Ojo"),
+                        Triple(0.84f, 0.25f, "palabra_Nariz_region${regionlowercase}.mp3" to "Nariz"),
+                        Triple(0.12f, 0.25f, "palabra_Oreja_region${regionlowercase}.mp3" to "Oreja"),
+                        Triple(0.87f, 0.47f, "palabra_Mano_region${regionlowercase}.mp3" to "Mano"),
+                        Triple(0.09f, 0.47f, "palabra_Boca_region${regionlowercase}.mp3" to "Boca"),
+                        Triple(0.24f, 0.87f, "palabra_Rodilla_region${regionlowercase}.mp3" to "Rodilla"),
+                        Triple(0.72f, 0.87f, "palabra_Pie_region${regionlowercase}.mp3" to "Pie"),
+                        Triple(0.84f, 0.68f, "palabra_Pierna_region${regionlowercase}.mp3" to "Pierna"),
+                        Triple(0.12f, 0.68f, "palabra_Brazo_region${regionlowercase}.mp3" to "Brazo")
                     )
 
-                    buttons.forEach { (xProportion, yProportion, audioFileName) ->
+                    // Lista de textos con sus proporciones
+                    val texts = listOf(
+                        Triple(0.08f, 0.05f,"Cabeza"),
+                        Triple(0.86f, 0.05f, "Ojo"),
+                        Triple(0.87f, 0.17f, "Nariz"),
+                        Triple(0.1f, 0.165f,"Oreja"),
+                        Triple(0.87f, 0.385f, "Mano"),
+                        Triple(0.09f, 0.38f, "Boca"),
+                        Triple(0.24f, 0.78f, "Rodilla"),
+                        Triple(0.74f, 0.78f, "Pie"),
+                        Triple(0.84f, 0.595f, "Pierna"),
+                        Triple(0.12f, 0.59f, "Brazo")
+                    )
+
+                    buttons.forEach { (xProportion, yProportion, audioAndText) ->
+                        val (audioFileName, messageKey) = audioAndText
                         ProportionalButton(
-                            modifier = Modifier.size(40.dp),
+                            modifier = Modifier.size(60.dp),
                             xProportion = xProportion,
                             yProportion = yProportion,
                             audioFileName = audioFileName,
                             context = context,
                             imageWidth = imageWidth,
+                            imageHeight = imageHeight,
+                            setDialogMessage = setDialogMessage,
+                            messageKey = messageKey,
+                            region = regionlowercase
+                        )
+                    }
+                    // Añadir textos
+                    texts.forEach { (xProportion, yProportion, text) ->
+                        ProportionalText(
+                            modifier = Modifier.size(60.dp),
+                            xProportion = xProportion,
+                            yProportion = yProportion,
+                            text = text,
+                            imageWidth = imageWidth,
                             imageHeight = imageHeight
+                        )
+                    }
+
+                    // Mostrar el diálogo si hay un mensaje
+                    dialogMessage?.let { message ->
+                        AlertDialog(
+                            onDismissRequest = { setDialogMessage(null) },
+                            title = { Text(text = "Tradución") },
+                            text = {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .wrapContentHeight()
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = message,
+                                        textAlign = TextAlign.Center,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 25.sp,
+                                        modifier = Modifier.align(Alignment.Center)
+                                    )
+                                }
+                            },
+                            confirmButton = {
+                                TextButton(
+                                    onClick = { setDialogMessage(null) }
+                                ) {
+                                    Text("OK", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                                }
+                            }
                         )
                     }
                 }
@@ -109,12 +183,15 @@ fun ProportionalButton(
     audioFileName: String,
     context: Context,
     imageWidth: Int,
-    imageHeight: Int
+    imageHeight: Int,
+    setDialogMessage: (String?) -> Unit,
+    messageKey: String,
+    region: String
 ) {
     val density = LocalDensity.current
     Box(
         modifier = Modifier
-            .offset{
+            .offset {
                 val offsetX = (xProportion * imageWidth).toInt()
                 val offsetY = (yProportion * imageHeight).toInt()
                 IntOffset(
@@ -124,11 +201,40 @@ fun ProportionalButton(
             }
     ) {
         Button(
-            onClick = { playAudio(audioFileName, context) },
+            onClick = {
+                playAudio(audioFileName, context)
+                val message = regionMessages[region.lowercase(Locale.getDefault())]?.get(messageKey)
+                setDialogMessage(message)
+            },
             colors = ButtonDefaults.buttonColors(Color.Transparent),
             shape = CircleShape,
             modifier = modifier
         ) {}
+    }
+}
+
+@Composable
+fun ProportionalText(
+    modifier: Modifier,
+    xProportion: Float,
+    yProportion: Float,
+    text: String,
+    imageWidth: Int,
+    imageHeight: Int
+) {
+    val density = LocalDensity.current
+    Box(
+        modifier = Modifier
+            .offset {
+                val offsetX = (xProportion * imageWidth).toInt()
+                val offsetY = (yProportion * imageHeight).toInt()
+                IntOffset(
+                    x = with(density) { (offsetX.toDp() - 25.dp).toPx() }.toInt(),
+                    y = with(density) { (offsetY.toDp() - 25.dp).toPx() }.toInt()
+                )
+            }
+    ) {
+        Text(text = text, modifier = modifier, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -151,7 +257,10 @@ fun playAudio(audioFileName: String, context: Context) {
 @Composable
 fun DefaultPreview() {
     MitraductorTheme {
-        //Cuerpo(navController, region)
+        // Simular un NavController
+        val navController = rememberNavController()
+        // Proporcionar un valor de región para la vista previa
+        Cuerpo(navController = navController, region = "Soteapan")
     }
 }
 
