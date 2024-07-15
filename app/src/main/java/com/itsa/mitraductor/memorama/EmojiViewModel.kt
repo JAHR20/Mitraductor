@@ -1,8 +1,7 @@
-package com.itsa.mitraductor.ui.theme
+package com.itsa.mitraductor.memorama
 
 import android.content.Context
 import android.media.MediaPlayer
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

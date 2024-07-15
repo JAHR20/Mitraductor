@@ -1,4 +1,4 @@
-package com.itsa.mitraductor.ui.theme
+package com.itsa.mitraductor.memorama
 
 import java.util.*
 

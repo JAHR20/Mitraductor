@@ -1,4 +1,4 @@
-package com.itsa.mitraductor.ui.theme
+package com.itsa.mitraductor.memorama
 
 import android.content.Context
 import android.media.MediaPlayer
@@ -6,7 +6,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.itsa.mitraductor.R
 
 class MusicViewModel(lifecycle: Lifecycle) : ViewModel(), LifecycleObserver {

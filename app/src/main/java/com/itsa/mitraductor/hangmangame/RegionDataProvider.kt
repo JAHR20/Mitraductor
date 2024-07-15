@@ -1,7 +1,4 @@
-package com.itsa.mitraductor.ui.theme
-
-
-
+package com.itsa.mitraductor.hangmangame
 
 interface WordImageProvider {
     val wordToImageMap: Map<String, Int>

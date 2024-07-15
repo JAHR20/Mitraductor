@@ -3,6 +3,7 @@ package com.itsa.mitraductor.ui.theme
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.itsa.mitraductor.memorama.MusicViewModel
 
 class MusicViewModelFactory(private val lifecycle: Lifecycle) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

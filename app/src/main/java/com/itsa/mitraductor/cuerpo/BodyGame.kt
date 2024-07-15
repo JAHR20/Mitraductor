@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.itsa.mitraductor.R
-import com.itsa.mitraductor.ToolbarWithBackButton
+import com.itsa.mitraductor.app.ToolbarWithBackButton
 import com.itsa.mitraductor.ui.theme.MitraductorTheme
 import java.io.IOException
 import java.util.Locale

@@ -1,0 +1,121 @@
+package com.itsa.mitraductor.traductorscreems
+
+import android.annotation.SuppressLint
+import android.net.Uri
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.itsa.mitraductor.R
+import com.itsa.mitraductor.app.BottomMenuItem
+import com.itsa.mitraductor.app.MenuButton
+import com.itsa.mitraductor.app.ToolbarWithBackButton
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@Composable
+fun MenuEstados(
+    estados: Map<String, List<String>>,
+    navController: NavController
+) {
+    var selectedButton by remember { mutableStateOf(MenuButton.traductor) }
+
+    fun navigateTo(destination: String) {
+        navController.popBackStack()
+        navController.navigate(destination)
+    }
+
+    Scaffold(
+        topBar = {
+            ToolbarWithBackButton(
+                title = "Estados",
+                navController = navController
+            )
+        },
+        bottomBar = {
+            NavigationBar(
+                content = {
+                    Row(
+                        modifier = Modifier
+                            .background(color = MaterialTheme.colorScheme.primary)
+                            .fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        BottomMenuItem(
+                            iconRes = R.drawable.translate_icon,
+                            text = "Traductor - Ikakpa'ap aŋmatyi",
+                            isSelected = selectedButton == MenuButton.traductor,
+                            onClick = { selectedButton = MenuButton.traductor },
+                            modifier = Modifier.weight(1f)
+                        )
+                        BottomMenuItem(
+                            iconRes = R.drawable.games_icon,
+                            text = "Juegos - Michkuyyaj",
+                            isSelected = selectedButton == MenuButton.minijuegos,
+                            onClick = {
+                                selectedButton = MenuButton.minijuegos
+                                navigateTo("minijuegos")
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                        BottomMenuItem(
+                            iconRes = R.drawable.acercade_icon,
+                            text = "Acerca de - Tyi iniitypa'ap",
+                            isSelected = selectedButton == MenuButton.acercade,
+                            onClick = {
+                                selectedButton = MenuButton.acercade
+                                navigateTo("acercade")
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                }
+            )
+        },
+        content = {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Image(
+                    painter = painterResource(id = R.drawable.logodejuego),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .aspectRatio(1f)
+                        .align(Alignment.Center)
+                )
+                LazyColumn(
+                    modifier = Modifier
+                        .padding(top = 70.dp)
+                        .fillMaxWidth(),
+                    contentPadding = PaddingValues(all = 20.dp),
+                    verticalArrangement = Arrangement.spacedBy(5.dp)
+                ) {
+                    items(estados.keys.toList()) { estado ->
+                        ListItemRow(item = estado) {
+                            navController.navigate("traductor_regiones/${Uri.encode(estado)}")
+                        }
+                    }
+                }
+            }
+        }
+    )
+}

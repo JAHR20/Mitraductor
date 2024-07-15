@@ -1,10 +1,8 @@
-package com.itsa.mitraductor.ui.theme
+package com.itsa.mitraductor.soupgame
 import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
@@ -23,11 +21,9 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.itsa.mitraductor.R
-import com.itsa.mitraductor.ToolbarWithBackButton
+import com.itsa.mitraductor.app.ToolbarWithBackButton
 import kotlin.math.abs
 import kotlin.random.Random
-
-
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun SopaDeLetras(navController: NavController, region: String) {

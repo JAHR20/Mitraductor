@@ -1,8 +1,8 @@
-package com.itsa.mitraductor.ui.theme
+package com.itsa.mitraductor.hangmangame
 
 import com.itsa.mitraductor.R
 
-class SoteapanRegionDataProvider : WordImageProvider  {
+class SoteapanRegionDataProvider : WordImageProvider {
     override val wordToImageMap: Map<String, Int> = mapOf(
         // Asocia palabras con imágenes para la región Soteapan
         "CHOOMO’" to R.drawable.img_memorama_abuela,
@@ -53,7 +53,7 @@ class SoteapanRegionDataProvider : WordImageProvider  {
 
 }
 
-class SayulaRegionDataProvider : WordImageProvider  {
+class SayulaRegionDataProvider : WordImageProvider {
     override val wordToImageMap: Map<String, Int> = mapOf(
         // Asocia palabras con imágenes para la región Sayula
         "JOJN" to R.drawable.pajaro,
@@ -81,7 +81,7 @@ class SayulaRegionDataProvider : WordImageProvider  {
 
 }
 
-class OlutaRegionDataProvider : WordImageProvider  {
+class OlutaRegionDataProvider : WordImageProvider {
     override val wordToImageMap: Map<String, Int> = mapOf(
         // Asocia palabras con imágenes para la región Sayula
         "JAYA'N" to R.drawable.img_ahorcado_oluta_lapiz,
@@ -113,7 +113,7 @@ class OlutaRegionDataProvider : WordImageProvider  {
 
 }
 
-class TexistepecRegionDataProvider : WordImageProvider  {
+class TexistepecRegionDataProvider : WordImageProvider {
     override val wordToImageMap: Map<String, Int> = mapOf(
         // Asocia palabras con imágenes para la región Sayula
         "PA:č" to R.drawable.img_ahorcado_texistepec_iguana,
@@ -141,7 +141,7 @@ class TexistepecRegionDataProvider : WordImageProvider  {
 
 }
 
-class PueblanorteRegionDataProvider : WordImageProvider  {
+class PueblanorteRegionDataProvider : WordImageProvider {
     override val wordToImageMap: Map<String, Int> = mapOf(
         // Asocia palabras con imágenes para la región Sayula
         "JAMBRE" to R.drawable.img_ahorcado_puebla_abeja,
@@ -174,7 +174,7 @@ class PueblanorteRegionDataProvider : WordImageProvider  {
 
 }
 
-class OaxacaIstmoDataProvider : WordImageProvider  {
+class OaxacaIstmoDataProvider : WordImageProvider {
     override val wordToImageMap: Map<String, Int> = mapOf(
         // Asocia palabras con imágenes para la región Sayula
         "KWAAY" to R.drawable.img_ahorcado_itsmo_caballo,

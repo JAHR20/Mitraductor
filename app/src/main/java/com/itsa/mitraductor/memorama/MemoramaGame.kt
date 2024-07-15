@@ -1,5 +1,4 @@
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -11,7 +10,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,12 +35,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.itsa.mitraductor.ToolbarWithBackButton
-import com.itsa.mitraductor.ui.theme.EmojiViewModel
-import com.itsa.mitraductor.ui.theme.ImageModel
-import com.itsa.mitraductor.ui.theme.MusicViewModel
+import com.itsa.mitraductor.app.ToolbarWithBackButton
+import com.itsa.mitraductor.memorama.EmojiViewModel
+import com.itsa.mitraductor.memorama.ImageModel
+import com.itsa.mitraductor.memorama.MusicViewModel
+import com.itsa.mitraductor.memorama.subcategoriesByRegion
 import com.itsa.mitraductor.ui.theme.MusicViewModelFactory
-
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -51,18 +49,19 @@ fun MemoramaGameComposable(navController: NavController, region: String) {
     val context = LocalContext.current
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     val musicViewModel: MusicViewModel = viewModel(factory = MusicViewModelFactory(lifecycle))
-    val subcategories = listOf("Familia", "Animales", "Frutas") // Las subcategorías disponibles para la región
-    var selectedSubcategory by remember { mutableStateOf(subcategories[0]) }
+
+    val subcategories = subcategoriesByRegion[region] ?: listOf() // Obtén las subcategorías disponibles para la región
+    var selectedSubcategory by remember { mutableStateOf(subcategories.firstOrNull() ?: "") }
 
     viewModel.audioToPlay.observeAsState().value?.let { audioFileName ->
         viewModel.playAudio(audioFileName, context)
     }
 
-
-    // Carga los emojis cuando se compone el juego
     LaunchedEffect(key1 = true) {
-        viewModel.loadImages(region, selectedSubcategory)
-        musicViewModel.playMusic(context)
+        if (selectedSubcategory.isNotEmpty()) {
+            viewModel.loadImages(region, selectedSubcategory)
+            musicViewModel.playMusic(context)
+        }
     }
 
     val cards: List<ImageModel> by viewModel.getImages().observeAsState(listOf())
@@ -71,22 +70,20 @@ fun MemoramaGameComposable(navController: NavController, region: String) {
         topBar = {
             ToolbarWithBackButton(
                 title = "Memorama",
-                navController = navController // Pasa el NavController al composable del botón de retroceso
+                navController = navController
             )
         },
         content = {
-
-            Box(modifier = Modifier.padding(top = 70.dp)) { // Agrega un padding en la parte superior
+            Box(modifier = Modifier.padding(top = 70.dp)) {
                 if (allCardsMatched) {
                     CongratsMessage(viewModel, region, selectedSubcategory)
                 } else {
-                    MainContent(cards, viewModel, region,selectedSubcategory)
+                    MainContent(cards, viewModel, region, selectedSubcategory, subcategories)
                 }
             }
         }
     )
 }
-
 @Composable
 fun SubcategorySelectionButton(
     subcategories: List<String>,
@@ -137,7 +134,7 @@ fun SubcategorySelectionButton(
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: String,subcategory: String) {
+fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: String, subcategory: String, subcategories: List<String>) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -155,12 +152,11 @@ fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: Stri
             )
         }
     ) {
-
         Column(
             modifier = Modifier.padding(top = 60.dp, start = 16.dp, end = 16.dp)
         ) {
             SubcategorySelectionButton(
-                subcategories = listOf("Familia", "Animales", "Frutas"), // Ejemplo de subcategorías disponibles
+                subcategories = subcategories,
                 onSubcategorySelected = { selectedSubcategory ->
                     viewModel.loadImages(region, selectedSubcategory)
                 }
@@ -172,9 +168,8 @@ fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: Stri
         }
     }
 }
-
 @Composable
-fun CardsGrid(cards: List<ImageModel>, viewModel: EmojiViewModel,region: String, subcategory: String) {
+fun CardsGrid(cards: List<ImageModel>, viewModel: EmojiViewModel, region: String, subcategory: String) {
     LazyVerticalGrid(
         GridCells.Fixed(4)
     ) {
@@ -185,7 +180,7 @@ fun CardsGrid(cards: List<ImageModel>, viewModel: EmojiViewModel,region: String,
 }
 
 @Composable
-fun CardItem(image: ImageModel, viewModel: EmojiViewModel,region: String, subcategory: String) {
+fun CardItem(image: ImageModel, viewModel: EmojiViewModel, region: String, subcategory: String) {
     Box(
         modifier = Modifier
             .padding(all = 10.dp)
