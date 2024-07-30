@@ -39,6 +39,7 @@ import com.itsa.mitraductor.app.ToolbarWithBackButton
 import com.itsa.mitraductor.memorama.EmojiViewModel
 import com.itsa.mitraductor.memorama.ImageModel
 import com.itsa.mitraductor.memorama.MusicViewModel
+import com.itsa.mitraductor.memorama.getWordForRegion
 import com.itsa.mitraductor.memorama.subcategoriesByRegion
 import com.itsa.mitraductor.ui.theme.MusicViewModelFactory
 
@@ -52,6 +53,7 @@ fun MemoramaGameComposable(navController: NavController, region: String) {
 
     val subcategories = subcategoriesByRegion[region] ?: listOf() // Obtén las subcategorías disponibles para la región
     var selectedSubcategory by remember { mutableStateOf(subcategories.firstOrNull() ?: "") }
+    val lenguaMaterna = getWordForRegion(region)
 
     viewModel.audioToPlay.observeAsState().value?.let { audioFileName ->
         viewModel.playAudio(audioFileName, context)
@@ -69,7 +71,7 @@ fun MemoramaGameComposable(navController: NavController, region: String) {
     Scaffold(
         topBar = {
             ToolbarWithBackButton(
-                title = "Memorama",
+                title = "Memorama de la lengua materna $lenguaMaterna",
                 navController = navController
             )
         },
@@ -137,30 +139,43 @@ fun SubcategorySelectionButton(
 fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: String, subcategory: String, subcategories: List<String>) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text("Memorama de Lenguaje Popoluca")
-                },
-                actions = {
-                    IconButton(onClick = { viewModel.loadImages(region, subcategory) }) {
-                        Icon(
-                            Icons.Filled.Refresh,
-                            contentDescription = "Reload Game"
-                        )
-                    }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp) // Añadir padding horizontal si es necesario
+            ) {
+                // Botón de subcategorías centrado
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .fillMaxWidth()
+                ) {
+                    SubcategorySelectionButton(
+                        subcategories = subcategories,
+                        onSubcategorySelected = { selectedSubcategory ->
+                            viewModel.loadImages(region, selectedSubcategory)
+                        }
+                    )
                 }
-            )
+
+                // Botón de refrescar a la derecha
+                IconButton(
+                    onClick = { viewModel.loadImages(region, subcategory) },
+                    modifier = Modifier
+                        .align(Alignment.CenterEnd)
+                        .padding(end = 8.dp) // Añadir padding al final si es necesario
+                ) {
+                    Icon(
+                        Icons.Filled.Refresh,
+                        contentDescription = "Reload Game"
+                    )
+                }
+            }
         }
     ) {
         Column(
-            modifier = Modifier.padding(top = 60.dp, start = 16.dp, end = 16.dp)
+            modifier = Modifier.padding(top = 60.dp, start = 10.dp, end = 10.dp)
         ) {
-            SubcategorySelectionButton(
-                subcategories = subcategories,
-                onSubcategorySelected = { selectedSubcategory ->
-                    viewModel.loadImages(region, selectedSubcategory)
-                }
-            )
 
             Spacer(modifier = Modifier.height(2.dp))
 
@@ -183,7 +198,7 @@ fun CardsGrid(cards: List<ImageModel>, viewModel: EmojiViewModel, region: String
 fun CardItem(image: ImageModel, viewModel: EmojiViewModel, region: String, subcategory: String) {
     Box(
         modifier = Modifier
-            .padding(all = 10.dp)
+            .padding(all = 7.dp)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

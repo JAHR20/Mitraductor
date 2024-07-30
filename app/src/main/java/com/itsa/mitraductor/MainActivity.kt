@@ -30,16 +30,13 @@ class MainActivity : ComponentActivity() {
         deviceWidthInPixel = deviceMatrics.widthPixels.toFloat()
         deviceDensity = deviceMatrics.density
 
-        val inputStream: InputStream = resources.openRawResource(R.raw.traducciones)
-        val traducciones = cargarTraducciones(inputStream)
-
         installSplashScreen()
 
         setContent {
 
             MitraductorTheme {
 
-                Navigation(estadosRegionesMap, traducciones, applicationContext)
+                Navigation(estadosRegionesMap, applicationContext)
 
             }
         }

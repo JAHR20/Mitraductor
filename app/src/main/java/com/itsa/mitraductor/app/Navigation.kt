@@ -32,15 +32,15 @@ import com.itsa.mitraductor.traductorscreems.cargarTraducciones
 import com.itsa.mitraductor.traductorscreems.getResourceIdForRegion
 
 @Composable
-fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<String, String>, context: Context) {
+fun Navigation(estadosRegionesMap: Map<String, List<String>>, context: Context) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "bienvenida") {
         composable("bienvenida",
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) }
+            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
+            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) {
             BienvenidaScreen(navController = navController)
         }
@@ -48,25 +48,25 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
             enterTransition = {
                 slideInVertically(
                     initialOffsetY = { fullHeight -> -fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             exitTransition = {
                 slideOutVertically(
                     targetOffsetY = { fullHeight -> fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             popEnterTransition = {
                 slideInVertically(
                     initialOffsetY = { fullHeight -> -fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             popExitTransition = {
                 slideOutVertically(
                     targetOffsetY = { fullHeight -> fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             }
         ) {
@@ -76,25 +76,25 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
             enterTransition = {
                 slideInVertically(
                     initialOffsetY = { fullHeight -> -fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             exitTransition = {
                 slideOutVertically(
                     targetOffsetY = { fullHeight -> fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             popEnterTransition = {
                 slideInVertically(
                     initialOffsetY = { fullHeight -> -fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             popExitTransition = {
                 slideOutVertically(
                     targetOffsetY = { fullHeight -> fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             }
         ) {
@@ -104,25 +104,25 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
             enterTransition = {
                 slideInVertically(
                     initialOffsetY = { fullHeight -> -fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             exitTransition = {
                 slideOutVertically(
                     targetOffsetY = { fullHeight -> fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             popEnterTransition = {
                 slideInVertically(
                     initialOffsetY = { fullHeight -> -fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             },
             popExitTransition = {
                 slideOutVertically(
                     targetOffsetY = { fullHeight -> fullHeight },
-                    animationSpec = tween(700)
+                    animationSpec = tween(300)
                 )
             }
         ) {
@@ -131,10 +131,10 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
         composable(
             route = "traductor_regiones/{estado}",
             arguments = listOf(navArgument("estado") { type = NavType.StringType }),
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) }
+            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
+            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
             val estado = backStackEntry.arguments?.getString("estado")
             estado?.let {
@@ -145,10 +145,10 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
         composable(
             route = "juegos_regiones/{estado}",
             arguments = listOf(navArgument("estado") { type = NavType.StringType }),
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) }
+            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
+            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
             val estado = backStackEntry.arguments?.getString("estado")
             estado?.let {
@@ -158,10 +158,10 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
         composable(
             route = "juegos_categorias/{estado}/{region}",
             arguments = listOf(navArgument("estado") { type = NavType.StringType }, navArgument("region") { type = NavType.StringType }),
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) }
+            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
+            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
             val estado = backStackEntry.arguments?.getString("estado")
             val region = backStackEntry.arguments?.getString("region")
@@ -172,10 +172,10 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
         composable(
             route = "juegos/{estado}/{region}/{categoria}",
             arguments = listOf(navArgument("estado") { type = NavType.StringType }, navArgument("region") { type = NavType.StringType }, navArgument("categoria") { type = NavType.StringType }),
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) }
+            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
+            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
             val estado = backStackEntry.arguments?.getString("estado")
             val region = backStackEntry.arguments?.getString("region")
@@ -187,10 +187,10 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
         composable(
             route = "traductor/{region}",
             arguments = listOf(navArgument("region") { type = NavType.StringType }),
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) }
+            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
+            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
             val region = backStackEntry.arguments?.getString("region")
             region?.let {
@@ -202,10 +202,10 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, traducciones: Map<
         }
         composable(
             route = "{region}/{categoria}/{game}",
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(700)) },
-            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(700)) }
+            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
+            popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
+            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
             val region = backStackEntry.arguments?.getString("region") ?: ""
             val categoria = backStackEntry.arguments?.getString("categoria") ?: ""

@@ -46,7 +46,7 @@ fun ToolbarWithBackButton(
                 // Ajusta el espacio según tu preferencia
                 Text(text = title,
                     color = colorResource(id = R.color.white),
-                    modifier = Modifier.padding(start = 4.dp)
+                    modifier = Modifier.padding(start = 4.dp, end = 4.dp)
                 )
             }
         },

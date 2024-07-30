@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
+import kotlinx.coroutines.delay
 import kotlin.random.Random
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -268,6 +269,7 @@ class GameManager(private val provider: WordImageProvider) {
 
     private fun getGameState(): GameState {
         if (underscoreWord.replace(" ", "").equals(wordToGuess, true)) {
+
             return GameState.Won(wordToGuess)
         }
 

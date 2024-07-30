@@ -40,6 +40,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.MutableLiveData
@@ -78,6 +79,7 @@ fun ColoringScreen(navController: NavController, region: String) {
     )
 
     var showDialog by remember { mutableStateOf(false) }
+    var showDialoglimpiar by remember { mutableStateOf(false) }
     var selectedDrawing by remember { mutableStateOf(vectorList[0]) }
 
     Scaffold(
@@ -196,7 +198,7 @@ fun ColoringScreen(navController: NavController, region: String) {
                             Button(
                                 colors = ButtonDefaults.buttonColors(Color.DarkGray),
                                 onClick = {
-                                    lines.clear()
+                                    showDialoglimpiar = true
                                 },
                                 modifier = Modifier
                                     .padding(3.dp)
@@ -222,6 +224,32 @@ fun ColoringScreen(navController: NavController, region: String) {
                                 .padding(5.dp)) {
                             Button(onClick = { showDialog = true }) {
                                 Text(text = "Seleccionar Dibujo")
+                            }
+
+                            if (showDialoglimpiar) {
+                                AlertDialog(
+                                    onDismissRequest = { showDialoglimpiar = false },
+                                    title = { Text(text = "Confirmación", color=Color.Black, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold) },
+                                    text = {
+                                        Text(text = "¿Desea Borrar lo coloreado?", color=Color.Black, fontSize = 17.sp)
+                                    },
+                                    confirmButton = {
+                                        Button(
+                                            onClick = {
+                                                lines.clear()
+                                                showDialoglimpiar = false }
+                                        ) {
+                                            Text("Si")
+                                        }
+                                    },
+                                    dismissButton = {
+                                        Button(
+                                            onClick = { showDialoglimpiar = false }
+                                        ){
+                                            Text("No")
+                                        }
+                                    }
+                                )
                             }
 
                             // Código para AlertDialog

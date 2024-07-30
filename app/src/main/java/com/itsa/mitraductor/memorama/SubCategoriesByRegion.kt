@@ -9,3 +9,17 @@ val subcategoriesByRegion = mapOf(
     "Ocotepec" to listOf("Animales")
     // Añade más regiones y sus respectivas subcategorías
 )
+
+val lenguaMaterna = mapOf(
+    "Soteapan" to "Popoluca",
+    "Oluta" to "Popoluca",
+    "Texistepec" to "Popoluca",
+    "Sayula" to "Popoluca",
+    "Ocotepec" to "Mixe",
+    "San Gabriel Chilac" to "Náhuatl",
+    "default" to "DefaultPalabra"
+)
+
+fun getWordForRegion(region: String): String {
+    return lenguaMaterna[region] ?: lenguaMaterna["default"] ?: "Memorama"
+}

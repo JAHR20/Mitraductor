@@ -15,6 +15,12 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,11 +38,17 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import com.itsa.mitraductor.R
+import com.itsa.mitraductor.app.debounce
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun BienvenidaScreen(navController: NavController) {
     val nombrejuego = "MICHUY IANNA"
     val descripcionjuego = "Juego de apredizaje de lengua materna"
+    var isButtonEnabled by remember { mutableStateOf(true) }
+    val coroutineScope = rememberCoroutineScope()
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -89,7 +101,17 @@ fun BienvenidaScreen(navController: NavController) {
                 .align(Alignment.BottomEnd)
         ) {
             Button(
-                onClick = { navController.navigate("minijuegos") },
+                onClick = {
+                    if (isButtonEnabled) {
+                        isButtonEnabled = false
+                        navController.navigate("minijuegos")
+                        // Rehabilitar el botón después de un retraso
+                        coroutineScope.launch {
+                            delay(700) // 1 segundo, ajusta según sea necesario
+                            isButtonEnabled = true
+                        }
+                    }
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 16.dp)

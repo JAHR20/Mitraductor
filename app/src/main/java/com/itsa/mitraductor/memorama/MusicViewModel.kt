@@ -29,6 +29,7 @@ class MusicViewModel(lifecycle: Lifecycle) : ViewModel(), LifecycleObserver {
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(context, R.raw.music_memorama_bajo).apply {
                 isLooping = true // Esto hará que la música se repita
+                setVolume(0.35f, 0.35f)
                 start() // Iniciar la música
             }
         }

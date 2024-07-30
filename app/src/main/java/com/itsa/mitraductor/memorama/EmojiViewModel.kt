@@ -111,13 +111,13 @@ class EmojiViewModel : ViewModel() {
                     // Agrega las imágenes para la región 2...
                 ),
                 "Frutas" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_sayula_naranja,""),
-                    ImageModel(R.drawable.img_memorama_sayula_guanabana,""),
-                    ImageModel(R.drawable.img_memorama_sayula_platano,""),
+                    ImageModel(R.drawable.img_memorama_sayula_naranja,"palabra_Naranja_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_guanabana,"palabra_Guanabana_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_platano,"palabra_Platano_regionsayula.mp3"),
 
-                    ImageModel(R.drawable.img_memorama_sayula_naranja,""),
-                    ImageModel(R.drawable.img_memorama_sayula_guanabana,""),
-                    ImageModel(R.drawable.img_memorama_sayula_platano,""),
+                    ImageModel(R.drawable.img_memorama_sayula_naranja,"palabra_Naranja_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_guanabana,"palabra_Guanabana_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_platano,"palabra_Platano_regionsayula.mp3"),
                 )
             ),
             "Oluta" to mapOf(
@@ -143,17 +143,17 @@ class EmojiViewModel : ViewModel() {
                 "Animales" to mutableListOf(
                     ImageModel(R.drawable.img_memorama_oluta_arania, ""),
                     ImageModel(R.drawable.img_memorama_oluta_ardilla, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_armadillo, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_caballo, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_iguana, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_armadillo, "palabra_Armadillo_regionoluta.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_caballo, "palabra_Caballo_regionoluta.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_iguana, "palabra_Iguana_regionoluta.mp3"),
                     ImageModel(R.drawable.img_memorama_oluta_venado, ""),
                     ImageModel(R.drawable.img_memorama_oluta_mapache, ""),
                     ImageModel(R.drawable.img_memorama_oluta_colibri, ""),
                     ImageModel(R.drawable.img_memorama_oluta_arania, ""),
                     ImageModel(R.drawable.img_memorama_oluta_ardilla, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_armadillo, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_caballo, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_iguana, ""),
+                    ImageModel(R.drawable.img_memorama_oluta_armadillo, "palabra_Armadillo_regionoluta.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_caballo, "palabra_Caballo_regionoluta.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_iguana, "palabra_Iguana_regionoluta.mp3"),
                     ImageModel(R.drawable.img_memorama_oluta_venado, ""),
                     ImageModel(R.drawable.img_memorama_oluta_mapache, ""),
                     ImageModel(R.drawable.img_memorama_oluta_colibri, ""),

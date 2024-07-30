@@ -148,12 +148,11 @@ fun AcercaDeScreen(navController: NavController) {
                         }
                         item {
                             Text(
-                                text = "Esta aplicación esta diseñada para ayudar a los usuarios a aprender a comunicarse eficazmente " +
-                                        "en diversas lenguas maternas de mexico en todo el mundo. Con un enfoque en la " +
-                                        "preservación y promoción de la diversidad lingüística, esta aplicación ofrece una " +
-                                        "plataforma intuitiva y accesible que permite a los usuarios Jugar y traducir entre una " +
-                                        "amplia gama de idiomas nativos, facilitando así la comunicación entre personas de " +
-                                        "diferentes culturas y trasfondos lingüísticos.",
+                                text = "MICHUY IANNA es una herramienta de aprendizaje lingüístico, y " +
+                                        "un puente cultural que permita a los usuarios sumergirse en las " +
+                                        "ricas tradiciones de las comunidades indígenas de Veracruz, Puebla " +
+                                        "y Oaxaca, contribuyendo así a la preservación y revitalización de " +
+                                        "lenguas indígenas en peligro de extinción.",
                                 textAlign = TextAlign.Center,
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = Color.Black
@@ -164,7 +163,7 @@ fun AcercaDeScreen(navController: NavController) {
                         }
                         item {
                             Text(
-                                text = "Desarrollado por: \n Equipo MiCHUY IANNA",
+                                text = "Desarrollado por: \n Equipo MICHUY IANNA",
                                 textAlign = TextAlign.Center,
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = Color.Black

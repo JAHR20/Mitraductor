@@ -13,7 +13,7 @@
     "Nariz": "Kiiñi",
     "Cejas": "Ixkapak",
     "Oreja": "Taatsɨk",
-    "Cuello": "ɨskɨ",
+    "Cuello": "Ɨskɨ",
     "Cara": "Wiñpak",
     "Pestañas": "Ixkuypɨk",
     "Garganta": "Kɨnkɨ",
@@ -65,7 +65,7 @@
     "Ocho": "Mosna tukuten",
     "Nueve": "Mosna maktasteen",
     "Diez": "Makna",
-    "Yo": "ɨch",
+    "Yo": "Ɨch",
     "Tu": "Mich",
     "El": "Je’",
     "Ella": "Je’",
@@ -78,7 +78,7 @@
     "Bailo": "Ets",
     "Cuñada": "Cuñada",
     "Lagarto": "Uxpiñ",
-    "Desgrano": "ɨks",
+    "Desgrano": "Ɨks",
     "Cicatriz": "Sas",
     "Horcon": "Kom",
     "Arbol": "Kuy",
@@ -176,6 +176,8 @@
     "Chejere": "tseeje",
     "Colibri": "Tuchchi",
 
+    "Prueba": "Aa̲e̲i̲o̲u̲",
+
 
     "Ropa": "Puktuku’",
     "Vestido": "Tekxe’",
@@ -222,7 +224,7 @@
 
 
     "Milpa": "Kaama",
-    "Maiz": "ɨkxi",
+    "Maiz": "Ɨkxi",
     "Frijol": "Sɨk",
     "Cafe": "Kapel",
     "Pimienta": "Uksuk",
@@ -350,6 +352,8 @@
 
 
     "Sueño": "Mawiñ",
-    "Miel": "Chiñu"
+    "Miel": "Chiñu",
+
+    "1": "Uno"
   }
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -13,12 +14,17 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.itsa.mitraductor.app.CustomKeyboard
+import com.itsa.mitraductor.app.KeyboardVisibilityObserver
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 import java.util.Locale
 
@@ -92,6 +98,7 @@ class CrosswordBoard(private val size: Int) {
 @Composable
 fun CrosswordGame(navController: NavController, region: String) {
     val crosswordBoard = remember { CrosswordBoard(size = 12) }
+    val focusManager = LocalFocusManager.current
 
     when (region) {
         "Soteapan" -> loadWordsForSoteapan(crosswordBoard)
@@ -104,24 +111,29 @@ fun CrosswordGame(navController: NavController, region: String) {
     }
 
     var specialLetter by remember { mutableStateOf<Char?>(null) }
-
     val clues = remember { calculateClues(crosswordBoard.words) } // Calcular las pistas una vez
-
-    var enteredWord by remember { mutableStateOf("")}
-    enteredWord.lowercase(Locale.ROOT)
+    var enteredWord by remember { mutableStateOf("") }
+    enteredWord = enteredWord.lowercase(Locale.ROOT)
         .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
     var message by remember { mutableStateOf("") }
 
     // Comprobar si todas las palabras están completadas
     val allWordsCompleted = crosswordBoard.words.all { word ->
         word.word.all { char ->
-            crosswordBoard.correctWordPositions.value.contains(word.row to word.column) ||
-                    char == ' '
+            crosswordBoard.correctWordPositions.value.contains(word.row to word.column) || char == ' '
         }
     }
 
     if (allWordsCompleted) {
         message = "¡Felicidades, ganaste!"
+    }
+
+    var isEditing by remember { mutableStateOf(false) }
+    var keyboardHeight by remember { mutableStateOf(0) }
+
+    // Observer para la visibilidad del teclado y la altura
+    KeyboardVisibilityObserver { isVisible, height ->
+        keyboardHeight = if (isVisible) height else 0
     }
 
     Scaffold(
@@ -132,61 +144,92 @@ fun CrosswordGame(navController: NavController, region: String) {
             )
         },
         content = {
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(), // Establece el tamaño máximo del LazyColumn
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(bottom = keyboardHeight.dp) // Ajustar el padding inferior según la altura del teclado
             ) {
-                item {
-                    Spacer(modifier = Modifier.height(65.dp))
-                    CrosswordBoardView(
-                        crosswordBoard = crosswordBoard,
-                        clues = clues, // Pasar las pistas como parámetro
-                        enteredWord = enteredWord,
-                        onCheck = {
-                            if (enteredWord.isNotBlank()) {
-                                if (crosswordBoard.checkWord(enteredWord.trim())) {
-                                    message = "Correcto!"
-                                    enteredWord =
-                                        "" // Limpiar la palabra ingresada después de verificarla
-                                } else {
-                                    message = "Incorrecto! Inténtalo de nuevo."
+                LazyColumn(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    item {
+                        CrosswordBoardView(
+                            crosswordBoard = crosswordBoard,
+                            clues = clues, // Pasar las pistas como parámetro
+                            enteredWord = enteredWord,
+                            onCheck = {
+                                if (enteredWord.isNotBlank()) {
+                                    if (crosswordBoard.checkWord(enteredWord.trim())) {
+                                        message = "Correcto!"
+                                        enteredWord = "" // Limpiar la palabra ingresada después de verificarla
+                                    } else {
+                                        message = "Incorrecto! Inténtalo de nuevo."
+                                    }
                                 }
+                            },
+                            onSpecialLetterClick = { specialLetter = it }
+                        )
 
+                        // Actualizar TextField con el valor de enteredWord y specialLetter
+                        LaunchedEffect(enteredWord, specialLetter) {
+                            specialLetter?.let {
+                                enteredWord += it
+                                specialLetter = null // Restablecer la letra especial después de agregarla al TextField
+                            }
+                        }
+
+                        TextField(
+                            value = enteredWord,
+                            onValueChange = { enteredWord = it },
+                            label = { Text("Ingresa una palabra", fontSize = 18.sp) },
+                            //keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+                            modifier = Modifier
+                                .onFocusChanged { focusState ->
+                                    isEditing = focusState.isFocused
+                                },
+                            readOnly = true,
+                            // Se usa un teclado personalizado
+                            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Text),
+                            keyboardActions = KeyboardActions.Default
+                        )
+
+                        Spacer(modifier = Modifier.height(10.dp))
+
+                        MessageWithFormat(message = message)
+
+                        Spacer(modifier = Modifier.height(30.dp))
+                    }
+                }
+
+                // Mostrar el teclado personalizado si el TextField está en foco
+                if (isEditing) {
+                    CustomKeyboard(
+                        onCharClick = { char ->
+                            enteredWord += char
+                        },
+                        onDeleteClick = {
+                            if (enteredWord.isNotEmpty()) {
+                                enteredWord = enteredWord.dropLast(1)
                             }
                         },
-                        onSpecialLetterClick = { specialLetter = it }
+                        onSpaceClick = {
+                            enteredWord += " "
+                        },
+                        onHideKeyboard = {
+                            isEditing = false
+                            focusManager.clearFocus() },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(310.dp) // Ajusta la altura del teclado según el diseño
                     )
-
-                    Spacer(modifier = Modifier.height(10.dp))
-
-                    // Actualizar TextField con el valor de enteredWord y specialLetter
-                    LaunchedEffect(enteredWord, specialLetter) {
-                        specialLetter?.let {
-                            enteredWord += it
-                            specialLetter = null // Restablecer la letra especial después de agregarla al TextField
-                        }
-                    }
-
-                    TextField(
-                        value = enteredWord,
-                        onValueChange = { enteredWord = it },
-                        label = { Text("Ingresa una palabra") },
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
-                    )
-
-                    Spacer(modifier = Modifier.height(10.dp))
-
-                    //Text(message)
-                    MessageWithFormat(message = message)
-
-                    Spacer(modifier = Modifier.height(30.dp))
                 }
             }
         }
     )
-
 }
+
 
 // Función para cargar las palabras para la región de Soteapan
 fun loadWordsForSoteapan(crosswordBoard: CrosswordBoard) {
@@ -488,13 +531,6 @@ fun CrosswordBoardView(
                 }
             }
         }
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            SpecialLetterButton(letter = 'ɨ', onSpecialLetterClick = onSpecialLetterClick)
-            SpecialLetterButton(letter = '’', onSpecialLetterClick = onSpecialLetterClick)
-        }
 
         Spacer(modifier = Modifier.height(10.dp))
 
@@ -520,18 +556,6 @@ fun getClueNumber(row: Int, column: Int, words: List<CrosswordWord>): Int? {
     }
 }
 
-@Composable
-fun SpecialLetterButton(
-    letter: Char,
-    onSpecialLetterClick: (Char) -> Unit
-) {
-    Button(
-        onClick = { onSpecialLetterClick(letter) },
-        modifier = Modifier.padding(horizontal = 4.dp)
-    ) {
-        Text(letter.toString())
-    }
-}
 
 @Composable
 fun MessageWithFormat(message: String) {

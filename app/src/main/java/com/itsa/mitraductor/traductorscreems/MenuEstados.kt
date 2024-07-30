@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,6 +32,8 @@ import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.BottomMenuItem
 import com.itsa.mitraductor.app.MenuButton
 import com.itsa.mitraductor.app.ToolbarWithBackButton
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -39,6 +42,8 @@ fun MenuEstados(
     navController: NavController
 ) {
     var selectedButton by remember { mutableStateOf(MenuButton.traductor) }
+    var isButtonEnabled by remember { mutableStateOf(true) }
+    val coroutineScope = rememberCoroutineScope()
 
     fun navigateTo(destination: String) {
         navController.popBackStack()
@@ -111,7 +116,14 @@ fun MenuEstados(
                 ) {
                     items(estados.keys.toList()) { estado ->
                         ListItemRow(item = estado) {
-                            navController.navigate("traductor_regiones/${Uri.encode(estado)}")
+                            if (isButtonEnabled) {
+                                isButtonEnabled = false
+                                navController.navigate("traductor_regiones/${Uri.encode(estado)}")
+                                coroutineScope.launch {
+                                    delay(700) // 1 segundo, ajusta según sea necesario
+                                    isButtonEnabled = true
+                                }
+                            }
                         }
                     }
                 }
