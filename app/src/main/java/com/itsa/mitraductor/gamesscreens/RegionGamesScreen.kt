@@ -85,7 +85,7 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
                     GameCard(game = game){
                         if (isButtonEnabled) {
                             isButtonEnabled = false
-                            navController.navigate("$region/$category/$game")
+                            navController.navigate("game/$state/$region/$category/$game")
                             // Rehabilitar el botón después de un retraso
                             coroutineScope.launch {
                                 delay(700) // 1 segundo, ajusta según sea necesario

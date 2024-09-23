@@ -185,28 +185,38 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, context: Context) 
             }
         }
         composable(
-            route = "traductor/{region}",
-            arguments = listOf(navArgument("region") { type = NavType.StringType }),
+            route = "traductor/{estado}/{region}",
+            arguments = listOf(navArgument("estado") { type = NavType.StringType }, navArgument("region") { type = NavType.StringType }),
             enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
             exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
             popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
             popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
+            val estado = backStackEntry.arguments?.getString("estado")
             val region = backStackEntry.arguments?.getString("region")
-            region?.let {
-                val resourceId = getResourceIdForRegion(it)
-                val inputStream = context.resources.openRawResource(resourceId)
-                val traduccionesRegion = cargarTraducciones(inputStream)
-                TraductorScreen(region, navController, traduccionesRegion, context)
+            estado?.let {
+                region?.let {
+                    val resourceId = getResourceIdForRegion(it)
+                    val inputStream = context.resources.openRawResource(resourceId)
+                    val traduccionesRegion = cargarTraducciones(inputStream)
+                    TraductorScreen(estado, region, navController, traduccionesRegion, context)
+                }
             }
         }
         composable(
-            route = "{region}/{categoria}/{game}",
+            route = "game/{state}/{region}/{categoria}/{game}",
+            arguments = listOf(
+                navArgument("state") { type = NavType.StringType },
+                navArgument("region") { type = NavType.StringType },
+                navArgument("categoria") { type = NavType.StringType },
+                navArgument("game") { type = NavType.StringType }
+            ),
             enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
             exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(300)) },
             popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) },
             popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(300)) }
         ) { backStackEntry ->
+            val state = backStackEntry.arguments?.getString("state") ?: ""
             val region = backStackEntry.arguments?.getString("region") ?: ""
             val categoria = backStackEntry.arguments?.getString("categoria") ?: ""
             val game = backStackEntry.arguments?.getString("game") ?: ""
@@ -216,8 +226,8 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, context: Context) 
                 "Crucigrama" -> CrosswordGame(navController, region)
                 "Acompletar la oración" -> FillInTheBlanksGame(navController, region)
                 "Ahorcado" -> HangmanScreen(navController, region)
-                "Colorear" -> ColoringScreen(navController, region)
-                "Partes del cuerpo" -> Cuerpo(navController, region)
+                "Colorear" -> ColoringScreen(navController, state, region)
+                "Partes del cuerpo" -> Cuerpo(navController, state, region)
                 "Colores" -> {
                     startGameLoop(context)
                 }
@@ -225,4 +235,5 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, context: Context) 
         }
     }
 }
+
 

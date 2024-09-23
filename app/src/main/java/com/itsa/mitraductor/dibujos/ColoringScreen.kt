@@ -48,18 +48,26 @@ import androidx.navigation.NavController
 import androidx.wear.compose.material.Text
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
+import com.itsa.mitraductor.app.playAudio
+import com.itsa.mitraductor.traductorscreems.quitarAcentos
 import java.io.IOException
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ColoringScreen(navController: NavController, region: String) {
+fun ColoringScreen(navController: NavController, estado:String, region: String) {
     val lines = remember { mutableStateListOf<Line>() }
     var currentColor by remember { mutableStateOf(Color.Black) }
     var isEraserMode by remember { mutableStateOf(false) }
     val GoldColor = Color(0xFFFFD600)
     var selectedButton by remember { mutableStateOf(Color.Black) }
     val context = LocalContext.current
-    val region = region.lowercase()
+    val state = when(estado){
+        "Puebla" -> "pueblanahuatl"
+        "Oaxaca"-> "oaxacamixe"
+        "Veracruz" -> "veracruzpopoluca"
+        else -> {""}
+    }
+    val regionformat = "region_" + quitarAcentos(region.lowercase().replace(" ", "_"))
     val Cafe = Color(0xF3663529)
     val Rosa = Color(0xF3E245A9)
     val Morado = Color(0xF37F24B8)
@@ -118,25 +126,25 @@ fun ColoringScreen(navController: NavController, region: String) {
                                 currentColor = Color.Black
                                 isEraserMode = false
                                 selectedButton = Color.Black
-                                playAudio("palabra_Negro_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Negro.mp3", context)
                             }
                             ColorButton(Color.Red, GoldColor, selectedButton) {
                                 currentColor = Color.Red
                                 isEraserMode = false
                                 selectedButton = Color.Red
-                                playAudio("palabra_Rojo_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Rojo.mp3", context)
                             }
                             ColorButton(Color.Green, GoldColor, selectedButton) {
                                 currentColor = Color.Green
                                 isEraserMode = false
                                 selectedButton = Color.Green
-                                playAudio("palabra_Verde_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Verde.mp3", context)
                             }
                             ColorButton(Color.Blue, GoldColor, selectedButton) {
                                 currentColor = Color.Blue
                                 isEraserMode = false
                                 selectedButton = Color.Blue
-                                playAudio("palabra_Azul_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Azul.mp3", context)
                             }
                             Button(
                                 colors = ButtonDefaults.buttonColors(Color.Gray),
@@ -169,31 +177,31 @@ fun ColoringScreen(navController: NavController, region: String) {
                                 currentColor = Color.Yellow
                                 isEraserMode = false
                                 selectedButton = Color.Yellow
-                                playAudio("palabra_Amarillo_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Amarillo.mp3", context)
                             }
                             ColorButton(Cafe, GoldColor, selectedButton) {
                                 currentColor = Cafe
                                 isEraserMode = false
                                 selectedButton = Cafe
-                                playAudio("palabra_Cafe_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Cafe.mp3", context)
                             }
                             ColorButton(Rosa, GoldColor, selectedButton) {
                                 currentColor = Rosa
                                 isEraserMode = false
                                 selectedButton = Rosa
-                                playAudio("palabra_Rosa_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Rosa.mp3", context)
                             }
                             ColorButton(Color.LightGray, GoldColor, selectedButton) {
                                 currentColor = Color.LightGray
                                 isEraserMode = false
                                 selectedButton = Color.LightGray
-                                playAudio("palabra_Gris_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Gris.mp3", context)
                             }
                             ColorButton(Morado, GoldColor, selectedButton) {
                                 currentColor = Morado
                                 isEraserMode = false
                                 selectedButton = Morado
-                                playAudio("palabra_Morado_region${region}.mp3", context)
+                                playAudio("${state}/${regionformat}/Morado.mp3", context)
                             }
                             Button(
                                 colors = ButtonDefaults.buttonColors(Color.DarkGray),
@@ -360,24 +368,7 @@ private fun Line.isNear(position: Offset, threshold: Float = 20f): Boolean {
     return (start - position).getDistance() < threshold || (end - position).getDistance() < threshold
 }
 
-fun playAudio(audioFileName: String, context: Context) {
-    val _audioToPlay = MutableLiveData<String>()
-    _audioToPlay
 
-    var mediaPlayer: MediaPlayer? = null
-    try {
-        mediaPlayer?.release()
-        val assetFileDescriptor = context.assets.openFd("audios/$audioFileName")
-        MediaPlayer().apply {
-            setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.length)
-            prepare()
-            start()
-        }
-        _audioToPlay.value = audioFileName
-    } catch (e: IOException) {
-        e.printStackTrace()
-    }
-}
 
 
 

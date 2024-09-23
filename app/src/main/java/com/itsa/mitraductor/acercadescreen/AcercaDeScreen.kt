@@ -181,7 +181,7 @@ fun AcercaDeScreen(navController: NavController) {
                             )
                         }
                         item {
-                            EmailLink(email = "sgjesus2000@gmail.com")
+                            EmailLink(email = "jahr30062000@gmail.com")
                         }
                         item {
                             Text(

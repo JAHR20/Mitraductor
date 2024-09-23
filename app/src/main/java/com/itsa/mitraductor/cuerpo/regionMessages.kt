@@ -17,13 +17,39 @@ val regionMessages = mapOf(
         "Cabeza" to "Kopak",
         "Ojo" to "Wijn",
         "Nariz" to "Jɨjp",
-        "Oreja" to "Mensaje para Oreja en región 2",
+            "Oreja" to "Taatsɨk",
         "Mano" to "Kɨ’ɨ",
-        "Boca" to "Mensaje para Boca en región 2",
+            "Boca" to "Jɨp",
         "Rodilla" to "Koxk",
         "Pie" to "Ta’an",
         "Pierna" to "Pujy",
-        "Brazo" to "Mensaje para Brazo en región 2"
+            "Brazo" to "Ja’ŋku"
+    ),
+    "oluta" to mapOf(
+        "Cabeza" to "Co'pa'c",
+        "Ojo" to "Vimni",
+        "Nariz" to "Jupu",
+            "Oreja" to "Taatsɨk",
+        "Mano" to "Cu'",
+            "Boca" to "Jɨp",
+        "Rodilla" to "Cosho",
+        "Pie" to "Cu'shta",
+        "Pierna" to "Cu'pa'",
+            "Brazo" to "Ja’ŋku"
+    ),
+    "san gabriel chilac" to mapOf(
+        "Cabeza" to "Zonteco",
+        "Ojo" to "Ixtolotl",
+        "Nariz" to "Yecatzol",
+        "Oreja" to "Nacash",
+        "Mano" to "Momatl",
+        "Boca" to "Camac",
+        "Rodilla" to "Motlancuatl",
+        "Pie" to "Mocshitl",
+        "Pierna" to "Mometz",
+        "Brazo" to "Ahkolli"
     )
+
+
     // Añade más regiones y mensajes personalizados según sea necesario
 )

@@ -61,7 +61,7 @@ fun CustomKeyboard(
     val letters = listOf("q", "w", "e", "r", "t", "y", "u", "i", "o", "p")
     val numbers = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
     val punctuation = listOf(".", ",", "?", "!", ";", ":", "-", "_", "¿", "¡")
-    val specialChars = listOf("a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ", "z", "x", "c", "v", "b", "n", "m", "ɨ", "ŋ", "’", "ʉ", "s̈", "a̲", "e̲", "i̲", "o̲", "u̲")
+    val specialChars = listOf("a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ", "z", "x", "c", "v", "b", "n", "m", "ɨ", "ŋ", "’", "ʉ", "s̈", "a̲", "e̲", "i̲", "o̲", "u̲", "ë", "ꞌ")
 
     // Función para mapear las vocales a sus versiones con acento
     fun mapChars(chars: List<String>, useAccents: Boolean): List<String> {
@@ -84,7 +84,7 @@ fun CustomKeyboard(
     }
     val specialCharsRow = mapChars(specialChars, useAccents)
 
-    Column(modifier = modifier.background(teclado).padding(8.dp)) {
+    Column(modifier = modifier.background(teclado).padding(5.dp)) {
         val numRows = (specialCharsRow.size + 9) / 10
         val totalChars = specialCharsRow.size
         val maxCharsInRow = 10
@@ -152,7 +152,7 @@ fun Key(char: String, width: Dp, height: Dp, onClick: () -> Unit) {
         modifier = Modifier
             .width(width)
             .height(height)
-            .padding(3.dp)
+            .padding(2.dp)
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.small,
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)  // Ajusta este valor según la elevación que desees

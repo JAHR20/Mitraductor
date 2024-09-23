@@ -39,6 +39,7 @@ fun ViewContainerContent(
     onBotonTraducirClick: (String) -> Unit,
     onTraduccionReady: (String) -> Unit,
     traducciones: Map<String, String>,
+    estado: String,
     regionSeleccionada: String,
     context: Context
 ) {
@@ -169,7 +170,7 @@ fun ViewContainerContent(
                 Row {
                     Button(
                         onClick = {
-                            reproducirAudio(textoOriginal, regionSeleccionada, context)
+                            reproducirAudio(estado, textoOriginal, regionSeleccionada, context)
                         }
                     ) {
                         Text("Reproducir Audio")

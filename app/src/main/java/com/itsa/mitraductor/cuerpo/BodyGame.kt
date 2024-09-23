@@ -41,16 +41,24 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
+import com.itsa.mitraductor.app.playAudio
+import com.itsa.mitraductor.traductorscreems.quitarAcentos
 import com.itsa.mitraductor.ui.theme.MitraductorTheme
-import java.io.IOException
 import java.util.Locale
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun Cuerpo(navController: NavController, region : String) {
+fun Cuerpo(navController: NavController, estado : String, region : String) {
     val context = LocalContext.current
     val regionlowercase= region.lowercase(Locale.getDefault())
     val (dialogMessage, setDialogMessage) = remember { mutableStateOf<String?>(null) }
+    val state = when(estado){
+        "Puebla" -> "pueblanahuatl"
+        "Oaxaca"-> "oaxacamixe"
+        "Veracruz" -> "veracruzpopoluca"
+        else -> {""}
+    }
+    val regionformat = "region_" + quitarAcentos(region.lowercase().replace(" ", "_"))
 
     Scaffold(
         topBar = {
@@ -85,16 +93,16 @@ fun Cuerpo(navController: NavController, region : String) {
 
                     // Lista de botones con sus proporciones
                     val buttons = listOf(
-                        Triple(0.24f, 0.09f, "palabra_Cabeza_region${regionlowercase}.mp3" to "Cabeza"),
-                        Triple(0.72f, 0.09f, "palabra_Ojo_region${regionlowercase}.mp3" to "Ojo"),
-                        Triple(0.84f, 0.25f, "palabra_Nariz_region${regionlowercase}.mp3" to "Nariz"),
-                        Triple(0.12f, 0.25f, "palabra_Oreja_region${regionlowercase}.mp3" to "Oreja"),
-                        Triple(0.87f, 0.47f, "palabra_Mano_region${regionlowercase}.mp3" to "Mano"),
-                        Triple(0.09f, 0.47f, "palabra_Boca_region${regionlowercase}.mp3" to "Boca"),
-                        Triple(0.24f, 0.87f, "palabra_Rodilla_region${regionlowercase}.mp3" to "Rodilla"),
-                        Triple(0.72f, 0.87f, "palabra_Pie_region${regionlowercase}.mp3" to "Pie"),
-                        Triple(0.84f, 0.68f, "palabra_Pierna_region${regionlowercase}.mp3" to "Pierna"),
-                        Triple(0.12f, 0.68f, "palabra_Brazo_region${regionlowercase}.mp3" to "Brazo")
+                        Triple(0.24f, 0.09f, "${state}/${regionformat}/Cabeza.mp3" to "Cabeza"),
+                        Triple(0.72f, 0.09f, "${state}/${regionformat}/Ojo.mp3" to "Ojo"),
+                        Triple(0.84f, 0.25f, "${state}/${regionformat}/Nariz.mp3" to "Nariz"),
+                        Triple(0.12f, 0.25f, "${state}/${regionformat}/Oreja.mp3" to "Oreja"),
+                        Triple(0.87f, 0.47f, "${state}/${regionformat}/Mano.mp3" to "Mano"),
+                        Triple(0.09f, 0.47f, "${state}/${regionformat}/Boca.mp3" to "Boca"),
+                        Triple(0.24f, 0.87f, "${state}/${regionformat}/Rodilla.mp3" to "Rodilla"),
+                        Triple(0.72f, 0.87f, "${state}/${regionformat}/Pie.mp3" to "Pie"),
+                        Triple(0.84f, 0.68f, "${state}/${regionformat}/Pierna.mp3" to "Pierna"),
+                        Triple(0.12f, 0.68f, "${state}/${regionformat}/Brazo.mp3" to "Brazo")
                     )
 
                     // Lista de textos con sus proporciones
@@ -238,20 +246,7 @@ fun ProportionalText(
     }
 }
 
-fun playAudio(audioFileName: String, context: Context) {
-    var mediaPlayer: MediaPlayer? = null
-    try {
-        mediaPlayer?.release()
-        val assetFileDescriptor = context.assets.openFd("audios/$audioFileName")
-        MediaPlayer().apply {
-            setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.length)
-            prepare()
-            start()
-        }
-    } catch (e: IOException) {
-        e.printStackTrace()
-    }
-}
+
 
 @Preview(showBackground = true)
 @Composable
@@ -260,7 +255,7 @@ fun DefaultPreview() {
         // Simular un NavController
         val navController = rememberNavController()
         // Proporcionar un valor de región para la vista previa
-        Cuerpo(navController = navController, region = "Soteapan")
+        Cuerpo(navController = navController, estado = "Veracruz", region = "Soteapan")
     }
 }
 

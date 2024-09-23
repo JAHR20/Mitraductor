@@ -7,7 +7,7 @@ import com.itsa.mitraductor.R
 @DrawableRes
 fun getIconResourceId(estado: String): Int {
     return when (estado) {
-        "Puebla(Nahualt)" -> R.drawable.puebla_icon
+        "Puebla(Náhuatl)" -> R.drawable.puebla_icon
         "Oaxaca(Mixe)" -> R.drawable.oaxaca_icon
         "Veracruz(Popoluca)" -> R.drawable.veracruz_icon
         // Agrega más casos según sea necesario para otros estados

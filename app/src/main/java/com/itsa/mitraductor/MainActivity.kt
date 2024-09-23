@@ -16,7 +16,7 @@ var deviceDensity by Delegates.notNull<Float>()
 class MainActivity : ComponentActivity() {
 
     val estadosRegionesMap: Map<String, List<String>> = mapOf(
-        "Puebla(Nahualt)" to listOf("Region San Gabriel Chilac"),
+        "Puebla(Náhuatl)" to listOf("Region San Gabriel Chilac"),
         "Oaxaca(Mixe)" to listOf("Region Ocotepec"),
         "Veracruz(Popoluca)" to listOf("Region Soteapan", "Region Sayula", "Region Texistepec", "Region Oluta")
     )

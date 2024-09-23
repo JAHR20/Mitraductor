@@ -28,14 +28,9 @@ fun SocialMediaButtons() {
             onClick = { openFacebookProfile(context, "profile.php?id=61562206343053&mibextid=ZbWKwL") }
         )
         SocialMediaButton(
-            iconRes = R.drawable.tiktok_icon,
+            iconRes = R.drawable.twitter_icon,
             contentDescription = "Twitter",
-            onClick = { /* Acción para Twitter */ }
-        )
-        SocialMediaButton(
-            iconRes= R.drawable.instagram_icon,
-            contentDescription = "Instagram",
-            onClick = { /* Acción para Instagram */ }
+            onClick = { openXProfile(context, "https://x.com/MichuyIanna5221?t=0aWGpzRafPdWEApbSyksuQ&s=08")}
         )
     }
 }
@@ -52,6 +47,21 @@ fun openFacebookProfile(context: Context, profileId: String) {
         context.startActivity(Intent.createChooser(webIntent, "Abrir con"))
     }
 }
+fun openXProfile(context: Context, profileUrl: String) {
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+        // Abre la aplicación de X (Twitter) si está instalada
+        data = Uri.parse("twitter://user?screen_name=${Uri.parse(profileUrl).lastPathSegment}")
+    }
+    try {
+        context.startActivity(intent)
+    } catch (e: Exception) {
+        // Si no se puede abrir la aplicación, abrir en el navegador
+        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(profileUrl))
+        context.startActivity(Intent.createChooser(webIntent, "Abrir con"))
+    }
+}
+
+
 
 @Composable
 fun SocialMediaButton(iconRes: Int, contentDescription: String, onClick: () -> Unit) {

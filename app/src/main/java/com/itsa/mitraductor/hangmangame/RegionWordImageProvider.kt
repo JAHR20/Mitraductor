@@ -30,7 +30,7 @@ class SoteapanRegionDataProvider : WordImageProvider {
         // Palabras para la región Soteapan
         //"PɨɨXIÑ",
         //"YOOMO",
-        "MɨJTAY",
+        //"MɨJTAY",
         "KOOBAK",
         "JA’ŋKU",
         "WɨɨTYPUY",
@@ -144,32 +144,32 @@ class TexistepecRegionDataProvider : WordImageProvider {
 class PueblanorteRegionDataProvider : WordImageProvider {
     override val wordToImageMap: Map<String, Int> = mapOf(
         // Asocia palabras con imágenes para la región Sayula
-        "JAMBRE" to R.drawable.img_ahorcado_puebla_abeja,
+        "CIHUALT" to R.drawable.img_ahorcado_puebla_abeja,// MUJER
         "AHUACATL" to R.drawable.img_ahorcado_puebla_aguacate,
-        "COSEMALOTL" to R.drawable.img_ahorcado_puebla_arcoiris,
+        "TLACATL" to R.drawable.img_ahorcado_puebla_arcoiris,//HOMBRE
         "TLAPECHTLI" to R.drawable.img_ahorcado_puebla_camas,
-        "NELUICAC" to R.drawable.img_ahorcado_puebla_cielo,
-        "YELOTL" to R.drawable.img_ahorcado_puebla_elote,
+        "CHIQUIHUITL" to R.drawable.img_ahorcado_puebla_cielo,//CANASTA
+        "ELOTL" to R.drawable.img_ahorcado_puebla_elote,
         "XOCHITL" to R.drawable.img_ahorcado_puebla_flor,
         "TIOPANTLI" to R.drawable.img_ahorcado_puebla_iglesia,
-        "HUEXOLOTL" to R.drawable.img_ahorcado_puebla_pavo,
-        "QUIMICHI" to R.drawable.img_ahorcado_puebla_raton,
+        "HUEHUEXOTL" to R.drawable.img_ahorcado_puebla_pavo,
+        "CAMICHI" to R.drawable.img_ahorcado_puebla_raton,
 
-        // Agrega más asociaciones según sea necesario para la región 2
+        // Agrega más asociaciones Según sea necesario para la región 2
     )
 
     override val gameWords: List<String> = listOf(
         // Palabras para la región Sayula
-        "JAMBRE",
+        "CIHUALT",
         "AHUACATL",
-        "COSEMALOTL",
+        "TLACATL",
         "TLAPECHTLI",
-        "NELUICAC",
-        "YELOTL",
+        "CHIQUIHUITL",
+        "ELOTL",
         "XOCHITL",
         "TIOPANTLI",
-        "HUEXOLOTL",
-        "QUIMICHI",
+        "HUEHUEXOTL",
+        "CAMICHI",
     )
 
 }

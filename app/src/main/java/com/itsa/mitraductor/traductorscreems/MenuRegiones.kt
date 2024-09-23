@@ -87,7 +87,7 @@ fun MenuRegiones(
                     // Aquí es donde navegamos a la pantalla del traductor cuando se selecciona una región
                     if (isButtonEnabled) {
                         isButtonEnabled = false
-                        navController.navigate("traductor/$region")
+                        navController.navigate("traductor/$estado/$region")
                         coroutineScope.launch {
                             delay(700) // 1 segundo, ajusta según sea necesario
                             isButtonEnabled = true

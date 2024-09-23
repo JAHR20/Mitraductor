@@ -14,6 +14,7 @@ import com.itsa.mitraductor.app.ToolbarWithBackButton
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun TraductorScreen(
+    estado : String,
     region: String,
     navController: NavController,
     traducciones: Map<String, String>, // Agregar traducciones como parámetro
@@ -42,6 +43,7 @@ fun TraductorScreen(
             onTraduccionReady = {},
             traducciones = traducciones, // Pasar traducciones como argumento
             regionSeleccionada = region, // Pasar la región seleccionada como argumento
+            estado = estado,
             context = context // Pasar context como argumento
         )
     }

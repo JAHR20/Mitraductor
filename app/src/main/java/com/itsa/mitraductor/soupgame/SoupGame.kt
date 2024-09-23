@@ -74,11 +74,11 @@ fun SopaDeLetras(navController: NavController, region: String) {
             "AGUA" to "ATL",
             "CASA" to "CALI",
             "PESCADO" to "MICHI",
-            "ELOTE" to "YELOTL",
+            "ELOTE" to "ELOTL",
             "CAÑA" to "OHUATL",
             "PUERCO" to "PITZOTL",
             "ALGODÓN" to "ICHCATL",
-            "TABACO" to "IXUATL",
+            "CERRO" to "TEPETL",
             "ARENA" to "XALI",
             "PIEDRA" to "TETL"
         ),

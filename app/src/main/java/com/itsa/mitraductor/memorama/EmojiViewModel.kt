@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.itsa.mitraductor.R
+import com.itsa.mitraductor.traductorscreems.quitarAcentos
 import java.io.IOException
 
 class EmojiViewModel : ViewModel() {
@@ -46,44 +47,49 @@ class EmojiViewModel : ViewModel() {
     }
 
     fun loadImages(region: String, subcategory: String) {
+        val regionFormateada = quitarAcentos(region.lowercase().replace(" ", "_"))
+        val pue="pueblanahuatl/region_$regionFormateada"
+        val oax="oaxacamixe/region_$regionFormateada"
+        val ver="veracruzpopoluca/region_$regionFormateada"
+
         val imageSetsByRegion = mapOf(
             "Soteapan" to mapOf(
                 "Familia" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_abuela, "palabra_Abuela_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_mujer, "palabra_Mujer_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_tia, "palabra_Tia_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_abuelo, "palabra_Abuelo_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_ninia, "palabra_Niña_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_ninio, "palabra_Niño_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_tio, "palabra_Tio_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_hombre, "palabra_Hombre_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_abuela, "palabra_Abuela_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_mujer, "palabra_Mujer_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_tia, "palabra_Tia_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_abuelo, "palabra_Abuelo_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_ninia, "palabra_Niña_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_ninio, "palabra_Niño_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_tio, "palabra_Tio_regionsoteapan.mp3"),
-                    ImageModel(R.drawable.img_memorama_hombre, "palabra_Hombre_regionsoteapan.mp3")
+                    ImageModel(R.drawable.img_memorama_abuela, "${ver}/Abuela.mp3"),
+                    ImageModel(R.drawable.img_memorama_mujer, "${ver}/Mujer.mp3"),
+                    ImageModel(R.drawable.img_memorama_tia, "${ver}/Tia.mp3"),
+                    ImageModel(R.drawable.img_memorama_abuelo, "${ver}/Abuelo.mp3"),
+                    ImageModel(R.drawable.img_memorama_ninia, "${ver}/Niña.mp3"),
+                    ImageModel(R.drawable.img_memorama_ninio, "${ver}/Niño.mp3"),
+                    ImageModel(R.drawable.img_memorama_tio, "${ver}/Tio.mp3"),
+                    ImageModel(R.drawable.img_memorama_hombre, "${ver}/Hombre.mp3"),
+                    ImageModel(R.drawable.img_memorama_abuela, "${ver}/Abuela.mp3"),
+                    ImageModel(R.drawable.img_memorama_mujer, "${ver}/Mujer.mp3"),
+                    ImageModel(R.drawable.img_memorama_tia, "${ver}/Tia.mp3"),
+                    ImageModel(R.drawable.img_memorama_abuelo, "${ver}/Abuelo.mp3"),
+                    ImageModel(R.drawable.img_memorama_ninia, "${ver}/Niña.mp3"),
+                    ImageModel(R.drawable.img_memorama_ninio, "${ver}/Niño.mp3"),
+                    ImageModel(R.drawable.img_memorama_tio, "${ver}/Tio.mp3"),
+                    ImageModel(R.drawable.img_memorama_hombre, "${ver}/Hombre.mp3")
                     // Agrega las imágenes para la región 1...
                 ),
                 "Animales" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_soteapan_cocodrilo, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_conejo, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_paloma, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_perro, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_pollo, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_raton, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_tortuga, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_tucan, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_cocodrilo, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_conejo, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_paloma, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_perro, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_pollo, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_raton, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_tortuga, ""),
-                    ImageModel(R.drawable.img_memorama_soteapan_tucan, ""),
+                    ImageModel(R.drawable.img_memorama_soteapan_cocodrilo, "${ver}/Cocodrilo.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_conejo, "${ver}/Conejo.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_paloma, "${ver}/Paloma.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_perro, "${ver}/Perro.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_pollo, "${ver}/Pollo.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_raton, "${ver}/Raton.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_tortuga, "${ver}/Tortuga.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_tucan, "${ver}/Tucan.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_cocodrilo, "${ver}/Cocodrilo.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_conejo, "${ver}/Conejo.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_paloma, "${ver}/Paloma.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_perro, "${ver}/Perro.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_pollo, "${ver}/Pollo.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_raton, "${ver}/Raton.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_tortuga, "${ver}/Tortuga.mp3"),
+                    ImageModel(R.drawable.img_memorama_soteapan_tucan, "${ver}/Tucan.mp3"),
                     // ... elementos de la subcategoría Animales
                 )
             ),
@@ -92,22 +98,22 @@ class EmojiViewModel : ViewModel() {
 
                 ),
                 "Animales" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_armadillo, "palabra_Puerco_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_caballo, "palabra_Puerco_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_burro, "palabra_Puerco_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_camaron, "palabra_Camaron_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "palabra_Mosquito_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "palabra_Pajaro_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_pescado, "palabra_Pescado_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_puerco, "palabra_Puerco_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_armadillo, "palabra_Puerco_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_caballo, "palabra_Puerco_regionsayula.mp3"),
-                    ImageModel(R.drawable.img_memorama_sayula_burro, "palabra_Puerco_regionsayula.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_camaron, "${ver}/Camaron.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "${ver}/Mosquito.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "${ver}/Pajaro.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pescado, "${ver}/Pescado.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_puerco, "${ver}/Puerco.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_armadillo, "${ver}/Armadillo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_caballo, "${ver}/Caballo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_burro, "${ver}/Burro.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_camaron, "${ver}/Camaron.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_mosquito, "${ver}/Mosquito.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pajaro, "${ver}/Pajaro.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_pescado, "${ver}/Pescado.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_puerco, "${ver}/Puerco.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_armadillo, "${ver}/Armadillo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_caballo, "${ver}/Caballo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sayula_burro, "${ver}/Burro.mp3"),
                     // Agrega las imágenes para la región 2...
                 ),
                 "Frutas" to mutableListOf(
@@ -143,17 +149,17 @@ class EmojiViewModel : ViewModel() {
                 "Animales" to mutableListOf(
                     ImageModel(R.drawable.img_memorama_oluta_arania, ""),
                     ImageModel(R.drawable.img_memorama_oluta_ardilla, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_armadillo, "palabra_Armadillo_regionoluta.mp3"),
-                    ImageModel(R.drawable.img_memorama_oluta_caballo, "palabra_Caballo_regionoluta.mp3"),
-                    ImageModel(R.drawable.img_memorama_oluta_iguana, "palabra_Iguana_regionoluta.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_armadillo, "${ver}/Armadillo.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_caballo, "${ver}/Caballo.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_iguana, "${ver}/Iguana.mp3"),
                     ImageModel(R.drawable.img_memorama_oluta_venado, ""),
                     ImageModel(R.drawable.img_memorama_oluta_mapache, ""),
                     ImageModel(R.drawable.img_memorama_oluta_colibri, ""),
                     ImageModel(R.drawable.img_memorama_oluta_arania, ""),
                     ImageModel(R.drawable.img_memorama_oluta_ardilla, ""),
-                    ImageModel(R.drawable.img_memorama_oluta_armadillo, "palabra_Armadillo_regionoluta.mp3"),
-                    ImageModel(R.drawable.img_memorama_oluta_caballo, "palabra_Caballo_regionoluta.mp3"),
-                    ImageModel(R.drawable.img_memorama_oluta_iguana, "palabra_Iguana_regionoluta.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_armadillo, "${ver}/Armadillo.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_caballo, "${ver}/Caballo.mp3"),
+                    ImageModel(R.drawable.img_memorama_oluta_iguana, "${ver}/Iguana.mp3"),
                     ImageModel(R.drawable.img_memorama_oluta_venado, ""),
                     ImageModel(R.drawable.img_memorama_oluta_mapache, ""),
                     ImageModel(R.drawable.img_memorama_oluta_colibri, ""),
@@ -186,25 +192,40 @@ class EmojiViewModel : ViewModel() {
             ),
             "San Gabriel Chilac" to mapOf(
                 "Familia" to mutableListOf(
-
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_abuela, "${pue}/Abuela.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_abuelo, "${pue}/Abuelo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_hermana, "${pue}/Hermana.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_hermano, "${pue}/Hermano.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_hombre, "${pue}/Hombre.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_mujer, "${pue}/Mujer.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_papa, "${pue}/Papá.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_mama, "${pue}/Mamá.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_abuela, "${pue}/Abuela.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_abuelo, "${pue}/Abuelo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_hermana, "${pue}/Hermana.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_hermano, "${pue}/Hermano.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_hombre, "${pue}/Hombre.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_mujer, "${pue}/Mujer.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_papa, "${pue}/Papá.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_mama, "${pue}/Mamá.mp3"),
                 ),
                 "Animales" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_pueblanorte_abeja, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_raton, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_pavo, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_alacran, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_murcielago, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_pescado, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_zorrillo, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_puerco, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_abeja, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_raton, ""),
-                    ImageModel(R.drawable.img_memorama_pueblanorte_pavo, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_alacran, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_murcielago, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_pescado, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_zorrillo, ""),
-                    ImageModel(R.drawable.img_memorama_sangabriel_puerco, ""),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_lagartija, "${pue}/Lagartija.mp3"),//
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_raton, "${pue}/Ratón.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_pavo, "${pue}/Pavo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabriel_alacran, "${pue}/Alacrán.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_rana, "${pue}/Rana.mp3"),//
+                    ImageModel(R.drawable.img_memorama_sangabriel_pescado, "${pue}/Pescado.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_tecolote, "${pue}/Tecolote.mp3"),//
+                    ImageModel(R.drawable.img_memorama_sangabriel_puerco, "${pue}/Puerco.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_lagartija, "${pue}/Lagartija.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_raton, "${pue}/Ratón.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_pavo, "${pue}/Pavo.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabriel_alacran, "${pue}/Alacrán.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_rana, "${pue}/Rana.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabriel_pescado, "${pue}/Pescado.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabrielchilac_tecolote, "${pue}/Tecolote.mp3"),
+                    ImageModel(R.drawable.img_memorama_sangabriel_puerco, "${pue}/Puerco.mp3"),
                 )
             ),
             "Ocotepec" to mapOf(
@@ -212,7 +233,7 @@ class EmojiViewModel : ViewModel() {
                     
                 ),
                 "Animales" to mutableListOf(
-                    ImageModel(R.drawable.img_memorama_oaxacaitsmo_caballo, ""),
+                    ImageModel(R.drawable.img_memorama_oaxacaitsmo_caballo, "${oax}/Oaxaca.mp3"),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_nopal, ""),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_ajo, ""),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_calabaza, ""),
@@ -220,7 +241,7 @@ class EmojiViewModel : ViewModel() {
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_nube, ""),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_metate, ""),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_mango, ""),
-                    ImageModel(R.drawable.img_memorama_oaxacaitsmo_caballo, ""),
+                    ImageModel(R.drawable.img_memorama_oaxacaitsmo_caballo, "${oax}/Oaxaca.mp3"),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_nopal, ""),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_ajo, ""),
                     ImageModel(R.drawable.img_memorama_oaxacaitsmo_calabaza, ""),

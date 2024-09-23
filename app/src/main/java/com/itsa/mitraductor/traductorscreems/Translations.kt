@@ -7,6 +7,7 @@ import com.itsa.mitraductor.ui.theme.TraduccionesData
 import kotlinx.serialization.json.Json
 import java.io.IOException
 import java.io.InputStream
+import java.text.Normalizer
 import java.util.Locale
 
 //funcion para acceder a json
@@ -32,12 +33,20 @@ fun traducir(textoOriginal: String, traducciones: Map<String, String>): String {
     return traduccion
 }
 
-fun reproducirAudio(palabra: String, region: String, context: Context) {
-    val nombreArchivo = "audios/palabra_${palabra
+fun quitarAcentos(texto: String): String {
+    val textoNormalizado = Normalizer.normalize(texto, Normalizer.Form.NFD)
+    val patron = Regex("[\\p{InCombiningDiacriticalMarks}]")
+    return patron.replace(textoNormalizado, "")
+}
+
+fun reproducirAudio(estado: String, palabra: String, region: String, context: Context) {
+    val estadoFormateado = quitarAcentos(estado.lowercase().replace("(", "").replace(")", ""))
+    val regionFormateada = quitarAcentos(region.lowercase().replace(" ", "_"))
+
+    val nombreArchivo = "audios/$estadoFormateado/$regionFormateada/${palabra
         .trim()
         .lowercase()
-        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}" +
-            "_${region.toLowerCase(Locale.ROOT).replace(" ","")}.mp3"
+        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}.mp3"
     println("Nombre del archivo de audio: $nombreArchivo")
 
     try {

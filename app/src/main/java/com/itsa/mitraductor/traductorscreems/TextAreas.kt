@@ -82,7 +82,7 @@ fun TextAreaExample2(
             description = newDescription
             onValueChanged(newDescription)
         },
-        label = { Text("Ingresar Texto en Popoluca", fontSize = 20.sp) },
+        label = { Text("Ingresar Texto en Lengua Materna", fontSize = 20.sp) },
         textStyle = TextStyle(fontSize = 16.sp),
         modifier = Modifier
             .fillMaxWidth()

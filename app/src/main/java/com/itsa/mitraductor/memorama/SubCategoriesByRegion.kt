@@ -5,7 +5,7 @@ val subcategoriesByRegion = mapOf(
     "Sayula" to listOf("Animales","Frutas"),
     "Oluta" to listOf("Frutas","Animales"),
     "Texistepec" to listOf("Animales"),
-    "San Gabriel Chilac" to listOf("Animales"),
+    "San Gabriel Chilac" to listOf("Animales", "Familia"),
     "Ocotepec" to listOf("Animales")
     // Añade más regiones y sus respectivas subcategorías
 )

@@ -145,7 +145,7 @@ fun LetterButton(letter: String, onClick: (String) -> Unit, enabled: Boolean) {
     Button(
         onClick = { onClick(letter) },
         enabled = enabled,
-        colors = ButtonDefaults.buttonColors(containerColor = if (enabled) Color(0xFF6200EE) else Color.LightGray),
+        colors = ButtonDefaults.buttonColors(containerColor = if (enabled) Color(0xFFF8C69E) else Color.LightGray),
         modifier = Modifier.padding(4.dp).width(50.dp).height(40.dp)
     ) {
         Text(
