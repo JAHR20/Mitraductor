@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -41,7 +42,8 @@ fun ViewContainerContent(
     traducciones: Map<String, String>,
     estado: String,
     regionSeleccionada: String,
-    context: Context
+    context: Context,
+    paddingValues: PaddingValues
 ) {
     var textoBotonTraducir by remember { mutableStateOf("Traducir") }
     var isEditing by remember { mutableStateOf(false) }
@@ -68,7 +70,7 @@ fun ViewContainerContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = keyboardHeight.dp) // Ajustar el padding inferior según la altura del teclado
+            .padding(paddingValues) // Ajustar el padding inferior según la altura del teclado
     ) {
         LazyColumn(
             modifier = Modifier.weight(1f).padding(top = 5.dp),
@@ -76,7 +78,6 @@ fun ViewContainerContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             item {
-                Spacer(modifier = Modifier.height(65.dp))
                 if (isTextArea1Visible) {
                     Row {
                         TextArea(

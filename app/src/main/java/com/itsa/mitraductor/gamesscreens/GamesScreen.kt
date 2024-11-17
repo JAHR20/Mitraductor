@@ -10,12 +10,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.safeGestures
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -42,6 +46,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -53,6 +58,7 @@ import com.itsa.mitraductor.app.BottomMenuItem
 import com.itsa.mitraductor.app.MenuButton
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 import com.itsa.mitraductor.app.debounce
+
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -64,56 +70,58 @@ fun minigamesScreen(navController: NavController) {
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
+        //modifier = Modifier.padding(WindowInsets.safeDrawing.asPaddingValues()),
         topBar = {
             ToolbarWithBackButton(
                 title = "Juegos",
-                navController = navController
+                navController = navController,
             )
         },
         bottomBar = {
             NavigationBar(
                 content = {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(color = MaterialTheme.colorScheme.primary),
-                        horizontalArrangement = Arrangement.SpaceAround,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        BottomMenuItem(
-                            iconRes = R.drawable.translate_icon,
-                            text = "Traductor - Ikakpa'ap aŋmatyi",
-                            isSelected = selectedButton == MenuButton.traductor,
-                            onClick = {
-                                if (selectedButton != MenuButton.traductor) {
-                                    selectedButton = MenuButton.traductor
-                                    navController.popBackStack()
-                                    navController.navigate("estados")
-                                }
-                            },
-                            modifier = Modifier.weight(1f)
-                        )
-                        BottomMenuItem(
-                            iconRes = R.drawable.games_icon,
-                            text = "Juegos - Michkuyyaj",
-                            isSelected = selectedButton == MenuButton.minijuegos,
-                            onClick = { selectedButton = MenuButton.minijuegos },
-                            modifier = Modifier.weight(1f)
-                        )
-                        BottomMenuItem(
-                            iconRes = R.drawable.acercade_icon,
-                            text = "Acerca de - Tyi iniitypa'ap",
-                            isSelected = selectedButton == MenuButton.acercade,
-                            onClick = {
-                                if (selectedButton != MenuButton.acercade) {
-                                    selectedButton = MenuButton.acercade
-                                    navController.popBackStack()
-                                    navController.navigate("acercade")
-                                }
-                            },
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(color = MaterialTheme.colorScheme.primary),
+                            horizontalArrangement = Arrangement.SpaceAround,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            BottomMenuItem(
+                                iconRes = R.drawable.translate_icon,
+                                text = "Traductor - Ikakpa'ap aŋmatyi",
+                                isSelected = selectedButton == MenuButton.traductor,
+                                onClick = {
+                                    if (selectedButton != MenuButton.traductor) {
+                                        selectedButton = MenuButton.traductor
+                                        navController.popBackStack()
+                                        navController.navigate("estados")
+                                    }
+                                },
+                                modifier = Modifier.weight(1f)
+                            )
+                            BottomMenuItem(
+                                iconRes = R.drawable.games_icon,
+                                text = "Juegos - Michkuyyaj",
+                                isSelected = selectedButton == MenuButton.minijuegos,
+                                onClick = { selectedButton = MenuButton.minijuegos },
+                                modifier = Modifier.weight(1f)
+                            )
+                            BottomMenuItem(
+                                iconRes = R.drawable.acercade_icon,
+                                text = "Acerca de - Tyi iniitypa'ap",
+                                isSelected = selectedButton == MenuButton.acercade,
+                                onClick = {
+                                    if (selectedButton != MenuButton.acercade) {
+                                        selectedButton = MenuButton.acercade
+                                        navController.popBackStack()
+                                        navController.navigate("acercade")
+                                    }
+                                },
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
+
                 }
             )
         },
@@ -146,7 +154,7 @@ fun minigamesScreen(navController: NavController) {
                     }
                 }
             }
-        }
+        },
     )
 }
 
@@ -160,23 +168,15 @@ fun StateCard(state: String, onClick: () -> Unit) {
             .clickable { onClick() },
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.cardElevation(8.dp),
+
         //border = BorderStroke(4.dp, color=verde)
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-            Image(
-                painter = madera,
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.matchParentSize()
-            )
-            Column(
+        Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .fillMaxSize()
+                    .background(color = Color(0xFF092885))
                     //.background(MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f))
                     .padding(16.dp)
             ) {
@@ -205,6 +205,6 @@ fun StateCard(state: String, onClick: () -> Unit) {
                         .offset(x = -2.dp, y = -2.dp)
                 )
             }
-        }
+
     }
 }

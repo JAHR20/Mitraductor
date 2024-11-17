@@ -27,6 +27,7 @@ import com.itsa.mitraductor.media.startGameLoop
 import com.itsa.mitraductor.soupgame.SopaDeLetras
 import com.itsa.mitraductor.traductorscreems.MenuEstados
 import com.itsa.mitraductor.traductorscreems.MenuRegiones
+import com.itsa.mitraductor.traductorscreems.SignTranslateContainer
 import com.itsa.mitraductor.traductorscreems.TraductorScreen
 import com.itsa.mitraductor.traductorscreems.cargarTraducciones
 import com.itsa.mitraductor.traductorscreems.getResourceIdForRegion
@@ -232,6 +233,9 @@ fun Navigation(estadosRegionesMap: Map<String, List<String>>, context: Context) 
                     startGameLoop(context)
                 }
             }
+        }
+        composable("TraductorDeSenas") {
+            SignTranslateContainer(navController)
         }
     }
 }

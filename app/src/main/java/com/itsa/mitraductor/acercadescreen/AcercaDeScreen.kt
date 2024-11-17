@@ -51,7 +51,7 @@ fun AcercaDeScreen(navController: NavController) {
             topBar = {
                 ToolbarWithBackButton(
                     title = "Acerca de",
-                    navController = navController
+                    navController = navController,
                 )
             },
             bottomBar = {
@@ -59,8 +59,8 @@ fun AcercaDeScreen(navController: NavController) {
                     content = {
                         Row(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .background(color = MaterialTheme.colorScheme.primary),
+                                .background(color = MaterialTheme.colorScheme.primary)
+                                .fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceAround,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -94,10 +94,11 @@ fun AcercaDeScreen(navController: NavController) {
                                 modifier = Modifier.weight(1f)
                             )
                         }
-                    }
+
+            }
                 )
             },
-            content = {
+            content = {paddingValues ->
                 Box(modifier = Modifier.fillMaxSize()) {
                     Image(
                         painter = painterResource(id = R.drawable.logodejuego),
@@ -110,7 +111,7 @@ fun AcercaDeScreen(navController: NavController) {
                     LazyColumn(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(40.dp),
+                            .padding(paddingValues),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {

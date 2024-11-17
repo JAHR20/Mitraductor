@@ -11,6 +11,7 @@ fun getResourceIdForRegion(region: String): Int {
         "Region Oluta" -> R.raw.veracruz_regoluta_traducciones
         "Region San Gabriel Chilac" -> R.raw.puebla_regnorte_traducciones
         "Region Ocotepec" -> R.raw.oaxaca_regitsmo_traducciones
+        "Region Manzanillo" -> R.raw.colima_regmanzanillo_traducciones
         else -> R.raw.traducciones// Define un archivo JSON predeterminado si es necesario
     }
 }

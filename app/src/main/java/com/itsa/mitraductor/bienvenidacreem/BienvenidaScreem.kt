@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -37,6 +38,7 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
+import androidx.wear.compose.material.ButtonColors
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.debounce
 import kotlinx.coroutines.delay
@@ -101,6 +103,7 @@ fun BienvenidaScreen(navController: NavController) {
                 .align(Alignment.BottomEnd)
         ) {
             Button(
+                colors = ButtonDefaults.buttonColors(Color(0xFF092885)),
                 onClick = {
                     if (isButtonEnabled) {
                         isButtonEnabled = false
@@ -120,12 +123,13 @@ fun BienvenidaScreen(navController: NavController) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text("Continuar(Nɨkɨ)", fontSize = 20.sp)
+                    Text("Continuar(Nɨkɨ)", fontSize = 20.sp, color = Color.White)
                     Spacer(modifier = Modifier.width(8.dp))
                     Icon(
                         imageVector = ImageVector.vectorResource(id = R.drawable.icon_continuar),
                         contentDescription = null,
-                        modifier = Modifier.padding(start = 8.dp)
+                        modifier = Modifier.padding(start = 8.dp),
+                        tint = Color.White
                     )
                 }
             }

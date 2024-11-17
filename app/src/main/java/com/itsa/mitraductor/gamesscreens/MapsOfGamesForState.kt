@@ -36,5 +36,12 @@ val games = mapOf(
             "Medio" to listOf("Sopa de letras", "Ahorcado"),
             "Avanzado" to listOf("Crucigrama")
         )
+    ),
+    "Colima" to mapOf(
+        "Manzanillo" to mapOf(
+            "Básico" to listOf("Memorama", "Colorear", "Partes del cuerpo"),
+            "Medio" to listOf("Sopa de letras", "Ahorcado"),
+            "Avanzado" to listOf("Crucigrama")
+        )
     )
 )

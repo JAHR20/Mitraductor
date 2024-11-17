@@ -83,6 +83,7 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer:2.19.1")
     implementation("androidx.compose.animation:animation:1.6.7")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation("androidx.compose.material:material-icons-extended:1.7.4")
 
 
 }

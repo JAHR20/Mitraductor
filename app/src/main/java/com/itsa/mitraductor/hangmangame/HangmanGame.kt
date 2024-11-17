@@ -45,12 +45,12 @@ fun HangmanScreen(
         topBar = {
             ToolbarWithBackButton(
                 title = "Juego del ahorcado",
-                navController = navController // Pass NavController to the back button composable
+                navController = navController, // Pass NavController to the back button composable
             )
         },
-        content = {
+        content = {paddingValues ->
             LazyColumn(
-                modifier = Modifier.fillMaxSize(), // Set maximum size for LazyColumn
+                modifier = Modifier.fillMaxSize(). padding(paddingValues), // Set maximum size for LazyColumn
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
@@ -60,13 +60,11 @@ fun HangmanScreen(
                         is GameState.Lost -> R.drawable.game7 // or the image representing the lost state
                         is GameState.Won -> R.drawable.game0 // or the image representing the won state
                     }
-                    Spacer(modifier = Modifier.height(40.dp))
                     Image(
                         painter = painterResource(id = drawableResource),
                         contentDescription = null,
                         modifier = Modifier.fillMaxWidth().height(200.dp)
                     )
-
                     val currentImage = regionDataProvider.wordToImageMap[currentWord.value]
                     if (currentImage != null) {
                         Image(

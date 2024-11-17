@@ -169,3 +169,32 @@ fun loadWordsForIstmo(crosswordBoard: CrosswordBoard) {
     )
     // Agrega más palabras para la región de Sayula aquí si es necesario
 }
+
+
+fun loadWordsForManzanillo(crosswordBoard: CrosswordBoard) {
+    crosswordBoard.addWord("Nochtli", "Fruta ovalada de la planta nopal, con una piel espinosa y pulpa dulce, común en regiones desérticas.\n", 1, 1,
+        DirectionPalabra.HORIZONTAL
+    )
+    crosswordBoard.addWord("Tescatl", "Superficie que refleja la luz, permitiendo ver en ella imágenes de objetos y personas situados frente a ella.\n", 5, 4,
+        DirectionPalabra.HORIZONTAL
+    )
+    crosswordBoard.addWord("Tetl", "Material natural duro y resistente, formado por agregados minerales, empleado en pavimentos y edificaciones.\n", 10, 1,
+        DirectionPalabra.HORIZONTAL
+    )
+    crosswordBoard.addWord("Chichi", "Animal doméstico de cuatro patas, conocido por su lealtad, considerado el mejor amigo del hombre. \n", 10, 6,
+        DirectionPalabra.HORIZONTAL
+    )
+    crosswordBoard.addWord("Coscatl", "Accesorio que se lleva alrededor del cuello, usado tanto como adorno en joyería como para identificar animales domésticos.\n", 0, 2,
+        DirectionPalabra.VERTICAL
+    )
+    crosswordBoard.addWord("Nacatl", "Tejido muscular de animales, utilizado como alimento en la dieta humana. \n", 0, 10,
+        DirectionPalabra.VERTICAL
+    )
+    crosswordBoard.addWord("Etl", "Semilla comestible de la planta leguminosa, de forma ovalada o redonda, con variedades que incluyen negro, rojo, blanco y pinto.\n", 8, 4,
+        DirectionPalabra.VERTICAL
+    )
+    crosswordBoard.addWord("Tomin", "Medio de intercambio y unidad de cuenta aceptado por una sociedad para el pago de bienes, servicios y deudas.\n", 7, 8,
+        DirectionPalabra.VERTICAL
+    )
+    // Agrega más palabras para la región de Sayula aquí si es necesario
+}

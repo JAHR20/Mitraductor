@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -93,6 +94,20 @@ fun SopaDeLetras(navController: NavController, region: String) {
             "PALOMA" to "MUUXY",
             "ARROZ" to "AROOSK",
             "ELOTE" to "YAAW"
+        ),
+        "Manzanillo" to mapOf(
+            "ALACRAN" to "KOLO",
+            "PUMA" to "MISTLI",
+            "JICAMA" to "XIKAMATL",
+            "CHAYOTE" to "CHAYOHTLI",
+            "PEZ" to "AMICHIN",
+            "CACAO" to "KAKAWATL",
+            "ZAPOTE" to "SAPOHTLI",
+            "PAJARO" to "TOTOTL",
+            "CARACOL" to "XOKTLI",
+            "ARAÑA" to "TOKATL",
+
+
         )
         // Agrega más regiones y sus respectivos mapas de palabras aquí
     )
@@ -113,18 +128,15 @@ fun SopaDeLetras(navController: NavController, region: String) {
         topBar = {
             ToolbarWithBackButton(
                 title = "Sopa de Letras",
-                navController = navController // Pasa el NavController al composable del botón de retroceso
+                navController = navController, // Pasa el NavController al composable del botón de retroceso
             )
         },
 
-        content = {
+        content = { paddingValues ->
             Column(
-                modifier = Modifier.padding(5.dp),
+                modifier = Modifier.padding(paddingValues),
                 verticalArrangement = Arrangement.Center
             ) {
-
-                Spacer(modifier = Modifier.height(60.dp))
-                // Cuadro con las palabras a buscar
                 Text(
                     text = "Palabras a buscar:",
                     modifier = Modifier.padding(4.dp),

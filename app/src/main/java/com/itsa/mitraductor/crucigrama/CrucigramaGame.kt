@@ -18,12 +18,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.CustomKeyboard
 import com.itsa.mitraductor.app.KeyboardVisibilityObserver
 import com.itsa.mitraductor.app.ToolbarWithBackButton
@@ -46,6 +48,7 @@ fun CrosswordGame(navController: NavController, region: String) {
         "Texistepec" -> loadWordsForTexistepec(crosswordBoard)
         "San Gabriel Chilac" -> loadWordsForNorte(crosswordBoard)
         "Ocotepec" -> loadWordsForIstmo(crosswordBoard)
+        "Manzanillo" -> loadWordsForManzanillo(crosswordBoard)
         // Agrega más casos para otras regiones aquí si es necesario
     }
 
@@ -79,14 +82,14 @@ fun CrosswordGame(navController: NavController, region: String) {
         topBar = {
             ToolbarWithBackButton(
                 title = "Crucigrama",
-                navController = navController // Pasa el NavController al composable del botón de retroceso
+                navController = navController, // Pasa el NavController al composable del botón de retroceso
             )
         },
-        content = {
+        content = {paddingValues ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = 60.dp, bottom = keyboardHeight.dp) // Ajustar el padding inferior según la altura del teclado
+                    .padding(paddingValues) // Ajustar el padding inferior según la altura del teclado
             ) {
                 LazyColumn(
                     modifier = Modifier.weight(1f),

@@ -50,6 +50,10 @@ import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 import com.itsa.mitraductor.app.playAudio
 import com.itsa.mitraductor.traductorscreems.quitarAcentos
+import com.itsa.mitraductor.ui.theme.colorColima
+import com.itsa.mitraductor.ui.theme.colorOaxaca
+import com.itsa.mitraductor.ui.theme.colorPuebla
+import com.itsa.mitraductor.ui.theme.colorVeracruz
 import java.io.IOException
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -61,6 +65,13 @@ fun ColoringScreen(navController: NavController, estado:String, region: String) 
     val GoldColor = Color(0xFFFFD600)
     var selectedButton by remember { mutableStateOf(Color.Black) }
     val context = LocalContext.current
+    val colorestado= when (estado) {
+        "Veracruz" -> colorVeracruz
+        "Puebla" -> colorPuebla
+        "Oaxaca" -> colorOaxaca
+        "Colima" -> colorColima
+        else -> Color.Gray // Color predeterminado si no se encuentra
+    }
     val state = when(estado){
         "Puebla" -> "pueblanahuatl"
         "Oaxaca"-> "oaxacamixe"
@@ -94,7 +105,7 @@ fun ColoringScreen(navController: NavController, estado:String, region: String) 
         topBar = {
             ToolbarWithBackButton(
                 title = "Colorear",
-                navController = navController
+                navController = navController,
             )
         },
         content = {
@@ -230,7 +241,9 @@ fun ColoringScreen(navController: NavController, estado:String, region: String) 
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(5.dp)) {
-                            Button(onClick = { showDialog = true }) {
+                            Button(onClick = { showDialog = true }, colors = ButtonDefaults.buttonColors(
+                                colorestado
+                            )) {
                                 Text(text = "Seleccionar Dibujo")
                             }
 

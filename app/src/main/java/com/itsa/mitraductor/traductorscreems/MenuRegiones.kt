@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -34,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -58,7 +60,7 @@ fun MenuRegiones(
         topBar = {
             ToolbarWithBackButton(
                 title = "Regiones de $estado",
-                navController = navController
+                navController = navController,
             )
         },
         bottomBar = {
@@ -76,9 +78,9 @@ fun MenuRegiones(
                 }
             )
         },
-    ) {
+    ) {paddingValues ->
         LazyColumn(
-            modifier = Modifier.padding(top = 70.dp),
+            modifier = Modifier.padding(paddingValues),
             contentPadding = PaddingValues(all = 20.dp),
             verticalArrangement = Arrangement.spacedBy(5.dp)
         ) {
@@ -126,7 +128,7 @@ fun ListItemRow(item: String, onButtonClick: () -> Unit) {
         ) {
             // Aquí agregamos la imagen asociada al estado
             Image(
-                painter = painterResource(id = getIconResourceId(item)),
+                painter = getIconPainter(item),
                 contentDescription = "Icono de $item",
                 modifier = Modifier.size(48.dp)
             )

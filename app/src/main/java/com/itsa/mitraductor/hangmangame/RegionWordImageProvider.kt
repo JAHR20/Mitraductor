@@ -207,6 +207,39 @@ class OaxacaIstmoDataProvider : WordImageProvider {
 
 }
 
+class ColimaManzanilloDataProvider : WordImageProvider {
+    override val wordToImageMap: Map<String, Int> = mapOf(
+        // Asocia palabras con imágenes para la región Sayula
+        "KOWATL" to R.drawable.manzanillo_ahorcado_vivora,
+        "MASATL" to R.drawable.manzanillo_ahorcado_venado,
+        "TOKATL" to R.drawable.manzanillo_ahorcado_arana,
+        "AMICHIN" to R.drawable.manzanillo_ahorcado_pez,
+        "XOKTLI" to R.drawable.manzanillo_ahorcado_caracol,
+        "PESOHTLI" to R.drawable.manzanillo_ahorcado_tejon,
+        "KUAWTLI" to R.drawable.manzanillo_ahorcado_aguila,
+        "KIMICHIN" to R.drawable.manzanillo_ahorcado_raton,
+        "AYOTL" to R.drawable.manzanillo_ahorcado_tortuga,
+        "KOLO" to R.drawable.manzanillo_ahorcado_alacran,
+
+        // Agrega más asociaciones según sea necesario para la región 2
+    )
+
+    override val gameWords: List<String> = listOf(
+        // Palabras para la región Sayula
+        "KOWATL",//vivora
+        "MASATL",// venado
+        "TOKATL",//araña
+        "AMICHIN",//pez
+        "XOKTLI",//caracol
+        "PESOHTLI",//Tejon
+        "KUAWTLI",//aguila
+        "KIMICHIN",//raton
+        "AYOTL",//tortuga
+        "KOLO", //Alacran
+    )
+
+}
+
 // Agrega más clases para más regiones si es necesario
 
 // Define la función getRegionDataProvider para obtener el proveedor de datos de la región
@@ -218,6 +251,7 @@ fun getRegionDataProvider(region: String): WordImageProvider {
         "Texistepec" -> TexistepecRegionDataProvider()
         "San Gabriel Chilac" -> PueblanorteRegionDataProvider()
         "Ocotepec" -> OaxacaIstmoDataProvider()
+        "Manzanillo" -> ColimaManzanilloDataProvider()
         // Agrega más casos según lo necesites para otras regiones
         else -> throw IllegalArgumentException("Región no válida: $region")
     }

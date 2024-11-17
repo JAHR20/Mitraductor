@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -35,6 +36,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -43,6 +45,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
+import com.itsa.mitraductor.ui.theme.colorColima
+import com.itsa.mitraductor.ui.theme.colorOaxaca
+import com.itsa.mitraductor.ui.theme.colorPuebla
+import com.itsa.mitraductor.ui.theme.colorVeracruz
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -56,7 +62,7 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
         topBar = {
             ToolbarWithBackButton(
                 title = "$region - $category",
-                navController = navController
+                navController = navController,
             )
         },
         bottomBar = {
@@ -71,7 +77,8 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
                     ) {
 
                     }
-                }
+
+        }
             )
         },
         content = { paddingValues ->
@@ -82,7 +89,7 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
                     .padding(16.dp)
             ) {
                 items(gamesList) { game ->
-                    GameCard(game = game){
+                    GameCard(game = game, state = state){
                         if (isButtonEnabled) {
                             isButtonEnabled = false
                             navController.navigate("game/$state/$region/$category/$game")
@@ -100,9 +107,15 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
 }
 
 @Composable
-fun GameCard(game: String, onClick: () -> Unit) {
-    val madera: Painter = painterResource(id = R.drawable.madera)
+fun GameCard(game: String, state: String, onClick: () -> Unit) {
     var isNavigating by rememberSaveable { mutableStateOf(false) }
+    val colorestado= when (state) {
+        "Veracruz" -> colorVeracruz
+        "Puebla" -> colorPuebla
+        "Oaxaca" -> colorOaxaca
+        "Colima" -> colorColima
+        else -> Color.Gray // Color predeterminado si no se encuentra
+    }
 
     DisposableEffect(Unit) {
         onDispose {
@@ -117,21 +130,11 @@ fun GameCard(game: String, onClick: () -> Unit) {
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.cardElevation(4.dp),
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = Color.White)
-        ) {
-            Image(
-                painter = madera,
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.matchParentSize()
-            )
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
+                    .background(color = colorestado)
                     .fillMaxSize()
                     .padding(16.dp)
             ) {
@@ -152,6 +155,5 @@ fun GameCard(game: String, onClick: () -> Unit) {
                         .offset(x = -2.dp, y = -2.dp)
                 )
             }
-        }
     }
 }

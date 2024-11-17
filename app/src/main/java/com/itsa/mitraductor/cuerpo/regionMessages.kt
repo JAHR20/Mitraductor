@@ -48,6 +48,18 @@ val regionMessages = mapOf(
         "Pie" to "Mocshitl",
         "Pierna" to "Mometz",
         "Brazo" to "Ahkolli"
+    ),
+    "manzanillo" to mapOf(
+        "Cabeza" to "Tzontekomatl",
+        "Ojo" to "Ixtololotl",
+        "Nariz" to "Yakatzolli",
+        "Oreja" to "Nakastli",
+        "Mano" to "Maitl",
+        "Boca" to "Kamaktli",
+        "Rodilla" to "Tlankuaitl",
+        "Pie" to "Ikxitl",
+        "Pierna" to "Kotztlantli",
+        "Brazo" to "Ahkolli"
     )
 
 

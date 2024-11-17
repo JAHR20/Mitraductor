@@ -1,40 +1,61 @@
 import android.annotation.SuppressLint
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.HeartBroken
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.QuestionMark
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
+import androidx.compose.material.icons.filled.Timer
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.wear.compose.material.LocalContentColor
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 import com.itsa.mitraductor.memorama.EmojiViewModel
 import com.itsa.mitraductor.memorama.ImageModel
@@ -43,6 +64,12 @@ import com.itsa.mitraductor.memorama.getWordForRegion
 import com.itsa.mitraductor.memorama.subcategoriesByRegion
 import com.itsa.mitraductor.ui.theme.MusicViewModelFactory
 
+val levelConfig = mapOf(
+    1 to Pair(15, 60), // Nivel 1: 20 vidas, 60 segundos
+    2 to Pair(10, 50), // Nivel 2: 15 vidas, 50 segundos
+    3 to Pair(5, 40)  // Nivel 3: 10 vidas, 40 segundos
+)
+
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MemoramaGameComposable(navController: NavController, region: String) {
@@ -50,10 +77,18 @@ fun MemoramaGameComposable(navController: NavController, region: String) {
     val context = LocalContext.current
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     val musicViewModel: MusicViewModel = viewModel(factory = MusicViewModelFactory(lifecycle))
-
+    var currentLevel by remember { mutableIntStateOf(1) }
+    val (vidasInicial, tiempoInicial) = levelConfig[currentLevel] ?: Pair(20, 60) // Valores por defecto si no se encuentra el nivel
     val subcategories = subcategoriesByRegion[region] ?: listOf() // Obtén las subcategorías disponibles para la región
     var selectedSubcategory by remember { mutableStateOf(subcategories.firstOrNull() ?: "") }
     val lenguaMaterna = getWordForRegion(region)
+
+    LaunchedEffect(currentLevel) {
+        //val (vidasInicial, tiempoInicial) = levelConfig[currentLevel] ?: Pair(20, 60)
+        viewModel.setVidas(vidasInicial)
+        viewModel.setTiempoRestante(tiempoInicial)
+        //viewModel.loadImages(region, "Nivel $currentLevel")
+    }
 
     viewModel.audioToPlay.observeAsState().value?.let { audioFileName ->
         viewModel.playAudio(audioFileName, context)
@@ -68,108 +103,106 @@ fun MemoramaGameComposable(navController: NavController, region: String) {
 
     val cards: List<ImageModel> by viewModel.getImages().observeAsState(listOf())
     val allCardsMatched by viewModel.allCardsMatched.observeAsState(false)
+    val juegoTerminado by viewModel.juegoTerminado.observeAsState(false) // Observar el estado de juego terminado
+    val JuegoGanado by viewModel.juegoGanado.observeAsState(false)
     Scaffold(
         topBar = {
             ToolbarWithBackButton(
-                title = "Memorama de la lengua materna $lenguaMaterna",
-                navController = navController
+                title = "Memorama de la lengua $lenguaMaterna",
+                navController = navController,
             )
         },
-        content = {
-            Box(modifier = Modifier.padding(top = 70.dp)) {
-                if (allCardsMatched) {
-                    CongratsMessage(viewModel, region, selectedSubcategory)
-                } else {
-                    MainContent(cards, viewModel, region, selectedSubcategory, subcategories)
+        content = {paddingValues ->
+            Box(modifier = Modifier.padding(paddingValues)) {
+                when {
+                    allCardsMatched && currentLevel == 3 -> {
+                        CongratsMessage(viewModel, region, selectedSubcategory) {
+                            selectedSubcategory = "Nivel 1"
+                            currentLevel = 1
+                            viewModel.resetGame()
+                            viewModel.loadImages(region, selectedSubcategory)
+                        }
+                    }
+                    allCardsMatched && currentLevel < 3-> {
+                        // Espera a que las nuevas imágenes se carguen antes de avanzar de nivel
+                        NextLevel(viewModel, region, "Nivel ${currentLevel + 1}") {
+                            currentLevel += 1
+                            //val (vidasInicial, tiempoInicial) = levelConfig[currentLevel] ?: Pair(20, 60)
+                            selectedSubcategory = "Nivel $currentLevel"
+                            viewModel.loadImages(region, selectedSubcategory)
+                        }
+                    }
+                    juegoTerminado -> {
+                        // Mostrar mensaje de juego terminado
+                        LosseMessage(viewModel, region, selectedSubcategory){
+                            selectedSubcategory="Nivel 1"
+                            viewModel.resetGame()
+                            viewModel.loadImages(region, selectedSubcategory)
+                        }
+                    }
+                    cards.isEmpty() -> {
+                        // Mostrar mensaje de carga mientras se cargan las imágenes
+                        Text("Cargando cartas...")
+                    }
+                    else -> {
+                        // Mostrar el contenido principal del juego cuando las imágenes estén listas
+                        MainContent(cards, viewModel, region, selectedSubcategory, subcategories)
+                    }
                 }
             }
         }
     )
 }
-@Composable
-fun SubcategorySelectionButton(
-    subcategories: List<String>,
-    onSubcategorySelected: (String) -> Unit
-) {
-    var showDialog by remember { mutableStateOf(false) }
-
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(5.dp)
-    ) {
-        Button(onClick = { showDialog = true }) {
-            Text(text = "Seleccionar Subcategoría")
-        }
-
-        // AlertDialog para mostrar las opciones de subcategoría
-        if (showDialog) {
-            AlertDialog(
-                onDismissRequest = { showDialog = false },
-                title = { Text(text = "Seleccionar Subcategoría") },
-                text = {
-                    Column {
-                        subcategories.forEach { subcategory ->
-                            TextButton(onClick = {
-                                onSubcategorySelected(subcategory)
-                                showDialog = false
-                            }) {
-                                Text(text = subcategory)
-                            }
-                        }
-                    }
-                },
-                confirmButton = {
-                    Button(
-                        onClick = { showDialog = false }
-                    ) {
-                        Text("Cerrar")
-                    }
-                }
-            )
-        }
-    }
-}
-
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: String, subcategory: String, subcategories: List<String>) {
+    // Observa el número de vidas y el tiempo restante
+    val vidas by viewModel.vidas.observeAsState(initial = 15) // Cambia el valor inicial según tu lógica
+    val tiempoRestante by viewModel.tiempoRestante.observeAsState(initial = 60) // Cambia el valor inicial según tu lógica
     Scaffold(
         topBar = {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp) // Añadir padding horizontal si es necesario
+                    .padding(horizontal = 5.dp) // Añadir padding horizontal si es necesario
             ) {
-                // Botón de subcategorías centrado
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .fillMaxWidth()
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth().padding(5.dp) // Puedes agregar padding si lo necesitas
                 ) {
-                    SubcategorySelectionButton(
-                        subcategories = subcategories,
-                        onSubcategorySelected = { selectedSubcategory ->
-                            viewModel.loadImages(region, selectedSubcategory)
+                    Box(modifier = Modifier.weight(1f)) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Start // Alinear icono y texto al inicio
+                        ) {
+                            Icon(
+                                Icons.Filled.Favorite,
+                                contentDescription = "Vidas",
+                                modifier = Modifier.size(24.dp),
+                                tint = Color.Red
+                            )
+                            Text(text = " : $vidas", fontSize = 24.sp, color = MaterialTheme.colorScheme.onPrimaryContainer)
                         }
-                    )
+                    }
+                    Box(modifier = Modifier.weight(0.24f)) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Start // Alinear icono y texto al inicio
+                        ) {
+                            Icon(
+                                Icons.Filled.Timer,
+                                contentDescription = "Tiempo Restante",
+                                modifier = Modifier.size(24.dp),
+                                tint = Color.Blue
+                            )
+                            Text(text = " : $tiempoRestante", fontSize = 24.sp, color = MaterialTheme.colorScheme.onPrimaryContainer)
+                        }
+                    }
                 }
 
-                // Botón de refrescar a la derecha
-                IconButton(
-                    onClick = { viewModel.loadImages(region, subcategory) },
-                    modifier = Modifier
-                        .align(Alignment.CenterEnd)
-                        .padding(end = 8.dp) // Añadir padding al final si es necesario
-                ) {
-                    Icon(
-                        Icons.Filled.Refresh,
-                        contentDescription = "Reload Game"
-                    )
-                }
             }
         }
     ) {
@@ -196,42 +229,77 @@ fun CardsGrid(cards: List<ImageModel>, viewModel: EmojiViewModel, region: String
 
 @Composable
 fun CardItem(image: ImageModel, viewModel: EmojiViewModel, region: String, subcategory: String) {
-    Box(
-        modifier = Modifier
-            .padding(all = 7.dp)
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = Modifier
-                .size(150.dp)
-                .background(
-                    color = Color.Black.copy(alpha = if (image.isVisible) 0.4F else 0.0F),
-                    shape = RoundedCornerShape(10.dp)
-                )
-                .clickable {
-                    if (image.isVisible) {
-                        viewModel.updateShowVisibleCard(image.id, region,subcategory)
-                    }
-                }
+    // Estado de rotación basado en si la carta está seleccionada
+    val rotation by animateFloatAsState(
+        targetValue = if (image.isSelect) 180f else 0f,
+        animationSpec = tween(durationMillis = 600)
+    )
+    val rotationimg by animateFloatAsState(
+        targetValue = if (image.isSelect) -180f else 0f,
+        animationSpec = tween(durationMillis = 600)
+    )
 
-        ) {
-            if (image.isSelect) {
+    // Usamos Card en lugar de Box para mostrar la carta
+    if (image.isVisible) {
+    Card(
+        modifier = Modifier
+            .padding(all = 5.dp)
+            .size(150.dp)
+            .graphicsLayer {
+                rotationY = rotation
+                cameraDistance = 12f * density // Ajuste de distancia de cámara para efecto 3D
+            }
+            .clickable {
+                // Lógica de selección de la carta
+                if (image.isVisible) {
+                    viewModel.updateShowVisibleCard(image.id, region, subcategory)
+                }
+            }
+            .background(
+                color = Color.White.copy(alpha = if (image.isVisible) 0.4F else 0.0F),
+                //shape = RoundedCornerShape(12.dp)
+            ),
+        shape = RoundedCornerShape(12.dp),
+        elevation = CardDefaults.cardElevation(if (image.isVisible) 8.dp else 0.dp),
+    ) {
+        if (rotation <= 90f) {
+                // Mostrar reverso cuando la rotación es de 0 a 90 grados
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clip(RoundedCornerShape(12.dp)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        Icons.Filled.QuestionMark,
+                        contentDescription = "Inverso",
+                        modifier = Modifier.size(50.dp),
+                        tint = MaterialTheme.colorScheme.tertiary
+                    )
+                }
+            } else {
+                // Mostrar anverso cuando la rotación es de 90 a 180 grados
                 Image(
                     painter = painterResource(id = image.imageResId),
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxSize()
-                        .clip(RoundedCornerShape(10.dp))
+                        .clip(RoundedCornerShape(12.dp))
+                        .graphicsLayer {
+                            rotationY = rotationimg
+                        }
                 )
             }
         }
+    }else {
+        // Opción para que no haya nada si `image.isVisible` es falso
+        Spacer(modifier = Modifier.size(150.dp)) // Mantener el espacio sin mostrar el Card
     }
 }
 
 
 @Composable
-fun CongratsMessage(viewModel: EmojiViewModel, region: String, subcategory: String) {
+fun LosseMessage(viewModel: EmojiViewModel, region: String, subcategory: String, onCongratsMessage: () -> Unit) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -241,7 +309,8 @@ fun CongratsMessage(viewModel: EmojiViewModel, region: String, subcategory: Stri
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "¡Felicidades!",
+                text = "¡Ups, perdiste vuelve a intentarlo!",
+                textAlign = TextAlign.Center,
                 fontSize = 35.sp,
                 color = Color(0xFF6A1B9A),
                 modifier = Modifier.padding(bottom = 16.dp)
@@ -249,7 +318,7 @@ fun CongratsMessage(viewModel: EmojiViewModel, region: String, subcategory: Stri
             Spacer(modifier = Modifier.height(16.dp))
             println("Imágenes cargadas para la región: $region")
             IconButton(
-                onClick = { viewModel.loadImages(region,subcategory) },
+                onClick = { onCongratsMessage()},
                 modifier = Modifier
                     .padding(16.dp)
                     .size(56.dp)
@@ -263,5 +332,80 @@ fun CongratsMessage(viewModel: EmojiViewModel, region: String, subcategory: Stri
         }
     }
 }
+
+@Composable
+fun NextLevel(viewModel: EmojiViewModel, region: String, subcategory: String, onNextLevel: () -> Unit) {
+    
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "¡Felicidades avanza al siguiente nivel!",
+                textAlign = TextAlign.Center,
+                fontSize = 35.sp,
+                color = Color(0xFF6A1B9A),
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            println("Imágenes cargadas para la región: $region")
+            IconButton(
+                onClick = { onNextLevel()  },
+                modifier = Modifier
+                    .padding(16.dp)
+                    .size(56.dp)
+            ) {
+                Icon(
+                    Icons.Filled.PlayArrow,
+                    contentDescription = "Reload Game",
+                    modifier = Modifier.size(50.dp)
+                )
+            }
+        }
+    }
+}
+
+
+@Composable
+fun CongratsMessage(viewModel: EmojiViewModel, region: String, subcategory: String, onCongratsMessage: () -> Unit) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "¡felicidades! Lo haz hecho genial",
+                textAlign = TextAlign.Center,
+                fontSize = 35.sp,
+                color = Color(0xFF6A1B9A),
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            println("Imágenes cargadas para la región: $region")
+            IconButton(
+                onClick = { onCongratsMessage()},
+                modifier = Modifier
+                    .padding(16.dp)
+                    .size(56.dp)
+            ) {
+                Icon(
+                    Icons.Filled.Refresh,
+                    contentDescription = "Reload Game",
+                    modifier = Modifier.size(50.dp)
+                )
+            }
+        }
+    }
+}
+
+
+
 
 

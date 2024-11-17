@@ -64,15 +64,15 @@ fun Cuerpo(navController: NavController, estado : String, region : String) {
         topBar = {
             ToolbarWithBackButton(
                 title = "Partes del cuerpo",
-                navController = navController
+                navController = navController,
             )
         },
-        content = {
+        content = {paddingValues ->
 
             BoxWithConstraints(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = 40.dp),
+                    .padding(paddingValues),
                 contentAlignment = Alignment.Center
             ) {
                 val imageWidth = constraints.maxWidth

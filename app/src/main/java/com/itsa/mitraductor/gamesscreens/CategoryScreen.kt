@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -36,6 +37,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -44,11 +46,16 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
+import com.itsa.mitraductor.ui.theme.colorColima
+import com.itsa.mitraductor.ui.theme.colorOaxaca
+import com.itsa.mitraductor.ui.theme.colorPuebla
+import com.itsa.mitraductor.ui.theme.colorVeracruz
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
 fun CategorySelectionScreen(navController: NavController, state: String, region: String) {
+    val context = LocalContext.current
     val categories = listOf("Básico", "Medio", "Avanzado")
     var isButtonEnabled by remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
@@ -57,7 +64,7 @@ fun CategorySelectionScreen(navController: NavController, state: String, region:
         topBar = {
             ToolbarWithBackButton(
                 title = "$region - Categorías",
-                navController = navController
+                navController = navController,
             )
         },
         bottomBar = {
@@ -72,6 +79,7 @@ fun CategorySelectionScreen(navController: NavController, state: String, region:
                     ) {
 
                     }
+
                 }
             )
         },
@@ -83,7 +91,7 @@ fun CategorySelectionScreen(navController: NavController, state: String, region:
                     .padding(16.dp)
             ) {
                 items(categories) { category ->
-                    CategoryCard(category = category){
+                    CategoryCard(category = category, state = state){
                         if (isButtonEnabled) {
                             isButtonEnabled = false
                             navController.navigate("Juegos/$state/$region/$category")
@@ -101,9 +109,14 @@ fun CategorySelectionScreen(navController: NavController, state: String, region:
 }
 
 @Composable
-fun CategoryCard(category : String, onClick:()-> Unit) {
-    val madera: Painter = painterResource(id = R.drawable.madera)
-
+fun CategoryCard(category : String, state: String, onClick:()-> Unit) {
+    val colorestado= when (state) {
+        "Veracruz" -> colorVeracruz
+        "Puebla" -> colorPuebla
+        "Oaxaca" -> colorOaxaca
+        "Colima" -> colorColima
+        else -> Color.Gray // Color predeterminado si no se encuentra
+    }
     Card(
         modifier = Modifier
             .padding(8.dp)
@@ -112,21 +125,11 @@ fun CategoryCard(category : String, onClick:()-> Unit) {
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.cardElevation(8.dp),
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = Color.White)
-        ) {
-            Image(
-                painter = madera,
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.matchParentSize()
-            )
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
+                    .background(color = colorestado)
                     .fillMaxSize()
                     .padding(16.dp)
             ) {
@@ -147,6 +150,6 @@ fun CategoryCard(category : String, onClick:()-> Unit) {
                         .offset(x = -2.dp, y = -2.dp)
                 )
             }
-        }
+
     }
 }

@@ -8,7 +8,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
+import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -28,10 +30,10 @@ fun TraductorScreen(
         topBar = {
             ToolbarWithBackButton(
                 title = "Traductor para la $region",
-                navController = navController
+                navController = navController,
             )
         },
-    ) {
+    ) {paddingValues ->
         ViewContainerContent(
             isTextArea1Visible = isTextArea1Visible,
             textoOriginal = textoOriginal,
@@ -44,7 +46,8 @@ fun TraductorScreen(
             traducciones = traducciones, // Pasar traducciones como argumento
             regionSeleccionada = region, // Pasar la región seleccionada como argumento
             estado = estado,
-            context = context // Pasar context como argumento
+            context = context, // Pasar context como argumento
+            paddingValues = paddingValues
         )
     }
 }
