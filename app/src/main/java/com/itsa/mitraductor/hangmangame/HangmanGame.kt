@@ -44,7 +44,7 @@ fun HangmanScreen(
     Scaffold(
         topBar = {
             ToolbarWithBackButton(
-                title = "Juego del ahorcado",
+                title = "Ahorcado",
                 navController = navController, // Pass NavController to the back button composable
             )
         },

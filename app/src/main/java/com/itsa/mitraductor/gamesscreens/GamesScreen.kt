@@ -8,6 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -25,6 +26,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -78,52 +80,62 @@ fun minigamesScreen(navController: NavController) {
             )
         },
         bottomBar = {
-            NavigationBar(
-                content = {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(color = MaterialTheme.colorScheme.primary),
-                            horizontalArrangement = Arrangement.SpaceAround,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            BottomMenuItem(
-                                iconRes = R.drawable.translate_icon,
-                                text = "Traductor - Ikakpa'ap aŋmatyi",
-                                isSelected = selectedButton == MenuButton.traductor,
-                                onClick = {
-                                    if (selectedButton != MenuButton.traductor) {
-                                        selectedButton = MenuButton.traductor
-                                        navController.popBackStack()
-                                        navController.navigate("estados")
-                                    }
-                                },
-                                modifier = Modifier.weight(1f)
-                            )
-                            BottomMenuItem(
-                                iconRes = R.drawable.games_icon,
-                                text = "Juegos - Michkuyyaj",
-                                isSelected = selectedButton == MenuButton.minijuegos,
-                                onClick = { selectedButton = MenuButton.minijuegos },
-                                modifier = Modifier.weight(1f)
-                            )
-                            BottomMenuItem(
-                                iconRes = R.drawable.acercade_icon,
-                                text = "Acerca de - Tyi iniitypa'ap",
-                                isSelected = selectedButton == MenuButton.acercade,
-                                onClick = {
-                                    if (selectedButton != MenuButton.acercade) {
-                                        selectedButton = MenuButton.acercade
-                                        navController.popBackStack()
-                                        navController.navigate("acercade")
-                                    }
-                                },
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
-
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentPadding = PaddingValues(0.dp),
+                modifier = Modifier.height(80.dp)
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    BottomMenuItem(
+                        iconRes = R.drawable.translate_icon,
+                        // TEXTO LARGO RESTAURADO
+                        text = "Traductor - Ikakpa'ap aŋmatyi",
+                        isSelected = selectedButton == MenuButton.traductor,
+                        onClick = {
+                            if (selectedButton != MenuButton.traductor) {
+                                selectedButton = MenuButton.traductor
+                                navController.popBackStack()
+                                navController.navigate("estados")
+                            }
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
+                    BottomMenuItem(
+                        iconRes = R.drawable.games_icon,
+                        // TEXTO LARGO RESTAURADO
+                        text = "Juegos - Michkuyyaj",
+                        isSelected = selectedButton == MenuButton.minijuegos,
+                        onClick = {
+                            if (selectedButton != MenuButton.minijuegos) {
+                                selectedButton = MenuButton.minijuegos
+                                navController.popBackStack()
+                                if (navController.currentDestination?.route != "minijuegos") {
+                                    navController.navigate("minijuegos")
+                                }
+                            }
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
+                    BottomMenuItem(
+                        iconRes = R.drawable.acercade_icon,
+                        // TEXTO LARGO RESTAURADO
+                        text = "Acerca de - Tyi iniitypa'ap",
+                        isSelected = selectedButton == MenuButton.acercade,
+                        onClick = {
+                            if (selectedButton != MenuButton.acercade) {
+                                selectedButton = MenuButton.acercade
+                                navController.popBackStack()
+                                navController.navigate("acercade")
+                            }
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
                 }
-            )
+            }
         },
         content = { paddingValues ->
             Box(modifier = Modifier.fillMaxSize()) {

@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Scaffold
@@ -39,10 +41,17 @@ import com.itsa.mitraductor.app.BottomMenuItem
 import com.itsa.mitraductor.app.MenuButton
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 
+
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun AcercaDeScreen(navController: NavController) {
     var selectedButton by remember { mutableStateOf(MenuButton.acercade) }
+
+    fun navigateTo(destination: String) {
+        navController.popBackStack()
+        navController.navigate(destination)
+    }
+
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -55,48 +64,49 @@ fun AcercaDeScreen(navController: NavController) {
                 )
             },
             bottomBar = {
-                NavigationBar(
-                    content = {
-                        Row(
-                            modifier = Modifier
-                                .background(color = MaterialTheme.colorScheme.primary)
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceAround,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            BottomMenuItem(
-                                iconRes = R.drawable.translate_icon,
-                                text = "Traductor - Ikakpa'ap aŋmatyi",
-                                isSelected = selectedButton == MenuButton.traductor,
-                                onClick = {
-                                    selectedButton = MenuButton.traductor
-                                    navController.popBackStack()
-                                    navController.navigate("estados")
+                BottomAppBar(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentPadding = PaddingValues(0.dp),
+                    modifier = Modifier.height(80.dp) // 1. ESTO ARREGLA EL TAMAÑO
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        BottomMenuItem(
+                            iconRes = R.drawable.translate_icon,
+                            // 2. USAMOS EL TEXTO LARGO PARA QUE SE MUEVA (MARQUEE)
+                            text = "Traductor - Ikakpa'ap aŋmatyi",
+                            isSelected = selectedButton == MenuButton.traductor,
+                            onClick =
+                                {
+                                selectedButton = MenuButton.traductor
+                                navController.navigate("estados")
                                 },
-                                modifier = Modifier.weight(1f)
-                            )
-                            BottomMenuItem(
-                                iconRes = R.drawable.games_icon,
-                                text = "Juegos - Michkuyyaj",
-                                isSelected = selectedButton == MenuButton.minijuegos,
-                                onClick = {
-                                    selectedButton = MenuButton.minijuegos
-                                    navController.popBackStack()
-                                    navController.navigate("minijuegos")
-                                },
-                                modifier = Modifier.weight(1f)
-                            )
-                            BottomMenuItem(
-                                iconRes = R.drawable.acercade_icon,
-                                text = "Acerca de - Tyi iniitypa'ap",
-                                isSelected = selectedButton == MenuButton.acercade,
-                                onClick = { selectedButton = MenuButton.acercade },
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
-
-            }
-                )
+                            modifier = Modifier.weight(1f)
+                        )
+                        BottomMenuItem(
+                            iconRes = R.drawable.games_icon,
+                            text = "Juegos - Michkuyyaj",
+                            isSelected = selectedButton == MenuButton.minijuegos,
+                            onClick = {
+                                selectedButton = MenuButton.minijuegos
+                                navigateTo("minijuegos")
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                        BottomMenuItem(
+                            iconRes = R.drawable.acercade_icon,
+                            text = "Acerca de - Tyi iniitypa'ap",
+                            isSelected = selectedButton == MenuButton.acercade,
+                            onClick = {
+                                selectedButton = MenuButton.acercade
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                }
             },
             content = {paddingValues ->
                 Box(modifier = Modifier.fillMaxSize()) {
@@ -138,7 +148,16 @@ fun AcercaDeScreen(navController: NavController) {
                         }
                         item {
                             Text(
-                                text = "Versión: \n 1.0",
+                                text = "Versión:",
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = Color.Black
+                            )
+                        }
+                        item {
+                            Text(
+                                text = "1.0",
                                 textAlign = TextAlign.Center,
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = Color.Black
@@ -164,7 +183,16 @@ fun AcercaDeScreen(navController: NavController) {
                         }
                         item {
                             Text(
-                                text = "Desarrollado por: \n Equipo MICHUY IANNA",
+                                text = "Desarrollado por:",
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = Color.Black
+                            )
+                        }
+                        item {
+                            Text(
+                                text = "Equipo MICHUY IANNA",
                                 textAlign = TextAlign.Center,
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = Color.Black
@@ -177,6 +205,7 @@ fun AcercaDeScreen(navController: NavController) {
                             Text(
                                 text = "Contacto: ",
                                 textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Bold,
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = Color.Black
                             )
@@ -188,6 +217,7 @@ fun AcercaDeScreen(navController: NavController) {
                             Text(
                                 text = "Redes sociales: ",
                                 textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.Bold,
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = Color.Black
                             )

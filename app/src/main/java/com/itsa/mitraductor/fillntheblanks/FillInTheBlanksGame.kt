@@ -58,7 +58,7 @@ fun FillInTheBlanksGame(navController: NavController,region: String) {
     Scaffold(
         topBar = {
             ToolbarWithBackButton(
-                title = "A completa la oración",
+                title = "Completa la oración",
                 navController = navController, // Pasa el NavController al composable del botón de retroceso
             )
         },
@@ -73,7 +73,7 @@ fun FillInTheBlanksGame(navController: NavController,region: String) {
                                 .padding(16.dp)
                         ) {
                             Text(
-                                text = "Instrucción: Acompleta la oración con la opción correcta",
+                                text = "Instrucción: completa la oración con la opción correcta",
                                 style = TextStyle(
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 25.sp,

@@ -44,7 +44,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
@@ -55,7 +54,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.wear.compose.material.LocalContentColor
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 import com.itsa.mitraductor.memorama.EmojiViewModel
 import com.itsa.mitraductor.memorama.ImageModel
@@ -166,43 +164,53 @@ fun MainContent(cards: List<ImageModel>, viewModel: EmojiViewModel, region: Stri
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 5.dp) // Añadir padding horizontal si es necesario
+                    .padding(horizontal = 5.dp)
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
+                    // Esto empujará "Vidas" a la izquierda y "Tiempo" a la derecha
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth().padding(5.dp) // Puedes agregar padding si lo necesitas
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(5.dp)
                 ) {
-                    Box(modifier = Modifier.weight(1f)) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.Start // Alinear icono y texto al inicio
-                        ) {
-                            Icon(
-                                Icons.Filled.Favorite,
-                                contentDescription = "Vidas",
-                                modifier = Modifier.size(24.dp),
-                                tint = Color.Red
-                            )
-                            Text(text = " : $vidas", fontSize = 24.sp, color = MaterialTheme.colorScheme.onPrimaryContainer)
-                        }
+                    // --- LADO IZQUIERDO (Vidas) ---
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            Icons.Filled.Favorite,
+                            contentDescription = "Vidas",
+                            modifier = Modifier.size(28.dp),
+                            tint = Color.Red
+                        )
+                        // Sugerencia: Baja un poco el tamaño si sigue sin caber (ej. 20.sp)
+                        Text(
+                            text = " : $vidas",
+                            fontSize = 24.sp,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            maxLines = 1 // Asegura que no baje de línea
+                        )
                     }
-                    Box(modifier = Modifier.weight(0.24f)) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.Start // Alinear icono y texto al inicio
-                        ) {
-                            Icon(
-                                Icons.Filled.Timer,
-                                contentDescription = "Tiempo Restante",
-                                modifier = Modifier.size(24.dp),
-                                tint = Color.Blue
-                            )
-                            Text(text = " : $tiempoRestante", fontSize = 24.sp, color = MaterialTheme.colorScheme.onPrimaryContainer)
-                        }
+
+                    // --- LADO DERECHO (Tiempo) ---
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            Icons.Filled.Timer,
+                            contentDescription = "Tiempo Restante",
+                            modifier = Modifier.size(28.dp),
+                            tint = Color.Blue
+                        )
+                        Text(
+                            text = " : $tiempoRestante",
+                            fontSize = 24.sp,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            maxLines = 1 // Asegura que no baje de línea
+                        )
                     }
                 }
-
             }
         }
     ) {

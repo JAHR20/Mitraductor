@@ -3,7 +3,7 @@ package com.itsa.mitraductor.memorama
 val subcategoriesByRegion = mapOf(
     "Soteapan" to listOf("Nivel 1", "Nivel 2", "Nivel 3"),
     "Sayula" to listOf("Nivel 1", "Nivel 2"),
-    "Oluta" to listOf("Frutas","Animales"),
+    "Oluta" to listOf("Nivel 1","Nivel 2"),
     "Texistepec" to listOf("Nivel 1"),
     "San Gabriel Chilac" to listOf("Nivel 1", "Nivel 2"),
     "Ocotepec" to listOf("Nivel 1"),

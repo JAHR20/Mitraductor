@@ -46,7 +46,7 @@ import com.itsa.mitraductor.traductorscreems.quitarAcentos
 import com.itsa.mitraductor.ui.theme.MitraductorTheme
 import java.util.Locale
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedBoxWithConstraintsScope")
 @Composable
 fun Cuerpo(navController: NavController, estado : String, region : String) {
     val context = LocalContext.current
@@ -150,7 +150,7 @@ fun Cuerpo(navController: NavController, estado : String, region : String) {
                     dialogMessage?.let { message ->
                         AlertDialog(
                             onDismissRequest = { setDialogMessage(null) },
-                            title = { Text(text = "Tradución") },
+                            title = { Text(text = "Traducción") },
                             text = {
                                 Box(
                                     modifier = Modifier

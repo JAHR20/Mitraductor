@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -69,46 +70,46 @@ fun MenuEstados(
             )
         },
         bottomBar = {
-            NavigationBar(
-                content = {
-                    Row(
-                        modifier = Modifier
-                            .background(color = MaterialTheme.colorScheme.primary)
-                            .fillMaxSize(),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        BottomMenuItem(
-                            iconRes = R.drawable.translate_icon,
-                            text = "Traductor - Ikakpa'ap aŋmatyi",
-                            isSelected = selectedButton == MenuButton.traductor,
-                            onClick = { selectedButton = MenuButton.traductor },
-                            modifier = Modifier.weight(1f)
-                        )
-                        BottomMenuItem(
-                            iconRes = R.drawable.games_icon,
-                            text = "Juegos - Michkuyyaj",
-                            isSelected = selectedButton == MenuButton.minijuegos,
-                            onClick = {
-                                selectedButton = MenuButton.minijuegos
-                                navigateTo("minijuegos")
-                            },
-                            modifier = Modifier.weight(1f)
-                        )
-                        BottomMenuItem(
-                            iconRes = R.drawable.acercade_icon,
-                            text = "Acerca de - Tyi iniitypa'ap",
-                            isSelected = selectedButton == MenuButton.acercade,
-                            onClick = {
-                                selectedButton = MenuButton.acercade
-                                navigateTo("acercade")
-                            },
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
-
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentPadding = PaddingValues(0.dp),
+                modifier = Modifier.height(80.dp) // 1. ESTO ARREGLA EL TAMAÑO
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    BottomMenuItem(
+                        iconRes = R.drawable.translate_icon,
+                        // 2. USAMOS EL TEXTO LARGO PARA QUE SE MUEVA (MARQUEE)
+                        text = "Traductor - Ikakpa'ap aŋmatyi",
+                        isSelected = selectedButton == MenuButton.traductor,
+                        onClick = { selectedButton = MenuButton.traductor },
+                        modifier = Modifier.weight(1f)
+                    )
+                    BottomMenuItem(
+                        iconRes = R.drawable.games_icon,
+                        text = "Juegos - Michkuyyaj",
+                        isSelected = selectedButton == MenuButton.minijuegos,
+                        onClick = {
+                            selectedButton = MenuButton.minijuegos
+                            navigateTo("minijuegos")
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
+                    BottomMenuItem(
+                        iconRes = R.drawable.acercade_icon,
+                        text = "Acerca de - Tyi iniitypa'ap",
+                        isSelected = selectedButton == MenuButton.acercade,
+                        onClick = {
+                            selectedButton = MenuButton.acercade
+                            navigateTo("acercade")
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
                 }
-            )
+            }
         },
         content = {paddingValues ->
             Box(modifier = Modifier.fillMaxSize()) {

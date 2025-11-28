@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Scaffold
@@ -64,19 +65,19 @@ fun MenuRegiones(
             )
         },
         bottomBar = {
-            NavigationBar(
-                content = {
-                    Row(
-                        modifier = Modifier
-                            .background(color = MaterialTheme.colorScheme.primary)
-                            .fillMaxSize(),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentPadding = PaddingValues(0.dp), // Quitamos margenes internos
+                modifier = Modifier.height(80.dp) // LE DAMOS ALTURA FIJA para que no tape la pantalla
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
 
-                    }
                 }
-            )
+            }
         },
     ) {paddingValues ->
         LazyColumn(

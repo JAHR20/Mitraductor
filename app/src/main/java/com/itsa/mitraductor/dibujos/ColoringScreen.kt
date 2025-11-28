@@ -25,6 +25,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,6 +35,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
@@ -45,7 +47,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
-import androidx.wear.compose.material.Text
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
 import com.itsa.mitraductor.app.playAudio
@@ -318,10 +319,11 @@ fun ColoringScreen(navController: NavController, estado:String, region: String) 
                         contentDescription = null,
                         modifier = Modifier.fillMaxSize()
                     )
-
+                    
                     Canvas(
                         modifier = Modifier
                             .fillMaxSize()
+                            .clipToBounds()
                             .pointerInput(Unit) {
                                 detectDragGestures { change, dragAmount ->
                                     change.consume()
@@ -329,18 +331,23 @@ fun ColoringScreen(navController: NavController, estado:String, region: String) 
                                     val start = change.position - dragAmount
                                     val end = change.position
 
-                                    if (isEraserMode) {
-                                        val linesToRemove = lines.filter { line ->
-                                            line.isNear(start) || line.isNear(end)
+                                    val isInsideCanvas = end.y >= 0 && end.x >= 0 &&
+                                            end.y <= size.height && end.x <= size.width
+
+                                    if (isInsideCanvas) {
+                                        if (isEraserMode) {
+                                            val linesToRemove = lines.filter { line ->
+                                                line.isNear(start) || line.isNear(end)
+                                            }
+                                            lines.removeAll(linesToRemove)
+                                        } else {
+                                            val line = Line(
+                                                start = start,
+                                                end = end,
+                                                color = currentColor
+                                            )
+                                            lines.add(line)
                                         }
-                                        lines.removeAll(linesToRemove)
-                                    } else {
-                                        val line = Line(
-                                            start = start,
-                                            end = end,
-                                            color = currentColor
-                                        )
-                                        lines.add(line)
                                     }
                                 }
                             }

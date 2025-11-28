@@ -38,7 +38,6 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
-import androidx.wear.compose.material.ButtonColors
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.debounce
 import kotlinx.coroutines.delay
@@ -47,7 +46,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun BienvenidaScreen(navController: NavController) {
     val nombrejuego = "MICHUY IANNA"
-    val descripcionjuego = "Juego de apredizaje de lengua materna"
+    val descripcionjuego = "Juego de aprendizaje de lengua materna"
     var isButtonEnabled by remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
 

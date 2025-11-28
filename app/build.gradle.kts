@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
     kotlin("plugin.serialization")
 }
 
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.itsa.mitraductor"
-        minSdk = 25
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -23,8 +24,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -32,17 +33,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
@@ -52,38 +50,44 @@ android {
 }
 
 dependencies {
-
+    // Core
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.1")
     implementation("androidx.activity:activity-compose:1.9.0")
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+
+    // --- CORREGIDO: Sin versión, el BOM se encarga ---
+    implementation("androidx.compose.runtime:runtime-livedata")
+
+    // COMPOSE BOM
+    val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    // Librerías de Compose (El BOM controla las versiones)
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
-    //implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    implementation("androidx.wear.compose:compose-material:1.3.1")
-    implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
+
+    // Iconos extendidos
+    implementation("androidx.compose.material:material-icons-extended")
+
+    // Navegación
     implementation("androidx.navigation:navigation-compose:2.7.7")
-    //implementation("androidx.compose.material:material:1.2.0-alpha02")
+
+    // Otras librerías
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+
+    // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    //implementation("androidx.media3:media3-ui:1.3.1")
+
+    // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("androidx.compose.runtime:runtime:1.6.7" )
-    implementation("androidx.compose.runtime:runtime-livedata:1.6.7")
-    implementation("androidx.compose.foundation:foundation:1.6.7")
-    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
-    implementation("androidx.compose.animation:animation:1.6.7")
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-    implementation("androidx.compose.material:material-icons-extended:1.7.4")
-
-
 }
