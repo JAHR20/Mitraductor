@@ -70,8 +70,8 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
         bottomBar = {
             BottomAppBar(
                 containerColor = MaterialTheme.colorScheme.primary,
-                contentPadding = PaddingValues(0.dp), // Quitamos margenes internos
-                modifier = Modifier.height(80.dp) // LE DAMOS ALTURA FIJA para que no tape la pantalla
+                contentPadding = PaddingValues(0.dp),
+                modifier = Modifier.height(80.dp)
             ) {
                 Row(
                     modifier = Modifier.fillMaxSize(),
@@ -90,14 +90,18 @@ fun RegionGamesScreen(navController: NavController, state: String, region: Strin
                     .padding(16.dp)
             ) {
                 items(gamesList) { game ->
-                    GameCard(game = game, state = state){
+                    GameCard(game = game, state = state) {
                         if (isButtonEnabled) {
-                            isButtonEnabled = false
-                            navController.navigate("game/$state/$region/$category/$game")
-                            // Rehabilitar el botón después de un retraso
-                            coroutineScope.launch {
-                                delay(700) // 1 segundo, ajusta según sea necesario
-                                isButtonEnabled = true
+                            if (navController.currentBackStackEntry?.lifecycle?.currentState == androidx.lifecycle.Lifecycle.State.RESUMED) {
+                                isButtonEnabled = false
+                                navController.navigate("game/$state/$region/$category/$game") {
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                                coroutineScope.launch {
+                                    delay(700)
+                                    isButtonEnabled = true
+                                }
                             }
                         }
                     }

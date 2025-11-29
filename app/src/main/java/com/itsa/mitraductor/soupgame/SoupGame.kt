@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -23,6 +24,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.itsa.mitraductor.R
 import com.itsa.mitraductor.app.ToolbarWithBackButton
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlin.math.abs
 import kotlin.random.Random
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -112,17 +115,20 @@ fun SopaDeLetras(navController: NavController, region: String) {
         // Agrega más regiones y sus respectivos mapas de palabras aquí
     )
 
-    // Obtener las palabras de la región actual
     val palabrasABuscar = palabrasPorRegion[region] ?: emptyMap()
-
-    // Aquí puedes almacenar las letras seleccionadas por el usuario
     var letrasSeleccionadas by remember { mutableStateOf(listOf<Pair<Int, Int>>()) }
-
-    // Aquí puedes almacenar las palabras encontradas por el usuario
     var palabrasEncontradas by remember { mutableStateOf(mapOf<String, List<Pair<Int, Int>>>()) }
 
-    // Aquí puedes generar tu sopa de letras
-    var sopaDeLetras by remember { mutableStateOf(generarSopaDeLetras(palabrasABuscar.values.toList())) }
+    var sopaDeLetras by remember { mutableStateOf(emptyList<List<Char>>()) }
+    var isLoading by remember { mutableStateOf(true) }
+
+    LaunchedEffect(Unit) {
+        val nuevaSopa = withContext(Dispatchers.Default) {
+            generarSopaDeLetras(palabrasABuscar.values.toList())
+        }
+        sopaDeLetras = nuevaSopa
+        isLoading = false // Ya terminó, quitamos la carga
+    }
 
     Scaffold(
         topBar = {
@@ -133,173 +139,188 @@ fun SopaDeLetras(navController: NavController, region: String) {
         },
 
         content = { paddingValues ->
-            Column(
-                modifier = Modifier.padding(paddingValues),
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    text = "Palabras a buscar:",
-                    modifier = Modifier.padding(4.dp),
-                    style = TextStyle(
-                        fontFamily = FontFamily.SansSerif,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 30.sp,
-                        textAlign = TextAlign.Center,
-                        color = Color(0xFF6A1B9A)
-                    )
-                )
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                // Cuadro con las claves y las palabras a buscar
-                Card(
+            if (isLoading) {
+                Box(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(4.dp),
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
                 ) {
-                    val palabrasPorFila = 3 // Ajusta este número según tus necesidades
-                    val filasDePalabras = palabrasABuscar.toList().chunked(palabrasPorFila)
-                    Column(modifier = Modifier.padding(4.dp)) {
-                        filasDePalabras.forEach { filaDePalabras ->
-                            Row(
-                                modifier = Modifier.padding(vertical = 2.dp),
-                                horizontalArrangement = Arrangement.SpaceEvenly
-                            ) {
-                                filaDePalabras.forEach { (palabra, traduccion) ->
-                                    Text(
-                                        style = TextStyle(fontSize = 13.sp),
-                                        text = "  $palabra=",
-                                        color = Color.Black
-                                    )
-                                    Text(
-                                        style = TextStyle(fontSize = 13.sp),
-                                        text = traduccion,
-                                        color = if (palabrasEncontradas.keys.contains(traduccion)) Color(
-                                            0xFF32F110
-                                        ) else Color.Black
-                                    )
+                    CircularProgressIndicator()
+                }
+            } else {
+                Column(
+                    modifier = Modifier.padding(paddingValues),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        text = "Palabras a buscar:",
+                        modifier = Modifier.padding(4.dp),
+                        style = TextStyle(
+                            fontFamily = FontFamily.SansSerif,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 30.sp,
+                            textAlign = TextAlign.Center,
+                            color = Color(0xFF6A1B9A)
+                        )
+                    )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    // Cuadro con las claves y las palabras a buscar
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(4.dp),
+                    ) {
+                        val palabrasPorFila = 3 // Ajusta este número según tus necesidades
+                        val filasDePalabras = palabrasABuscar.toList().chunked(palabrasPorFila)
+                        Column(modifier = Modifier.padding(4.dp)) {
+                            filasDePalabras.forEach { filaDePalabras ->
+                                Row(
+                                    modifier = Modifier.padding(vertical = 2.dp),
+                                    horizontalArrangement = Arrangement.SpaceEvenly
+                                ) {
+                                    filaDePalabras.forEach { (palabra, traduccion) ->
+                                        Text(
+                                            style = TextStyle(fontSize = 13.sp),
+                                            text = "  $palabra=",
+                                            color = Color.Black
+                                        )
+                                        Text(
+                                            style = TextStyle(fontSize = 13.sp),
+                                            text = traduccion,
+                                            color = if (palabrasEncontradas.keys.contains(traduccion)) Color(
+                                                0xFF32F110
+                                            ) else Color.Black
+                                        )
+                                    }
                                 }
                             }
                         }
                     }
-                }
 
-                Spacer(modifier = Modifier.height(20.dp))
-                // Sopa de letras
-                LazyColumn {
-                    items(sopaDeLetras.size) { filaIndice ->
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            sopaDeLetras[filaIndice].forEachIndexed { columnaIndice, letra ->
-                                val estaSeleccionada =
-                                    letrasSeleccionadas.contains(
-                                        Pair(
-                                            filaIndice,
-                                            columnaIndice
-                                        )
-                                    )
-                                val esParteDePalabraEncontrada =
-                                    palabrasEncontradas.values.flatten()
-                                        .contains(Pair(filaIndice, columnaIndice))
-                                Text(
-                                    text = letra.toString(),
-                                    modifier = Modifier
-                                        .padding(4.dp)
-                                        .clickable(
-                                            enabled = !palabrasEncontradas.keys.containsAll(
-                                                palabrasABuscar.values
+                    Spacer(modifier = Modifier.height(20.dp))
+                    // Sopa de letras
+                    LazyColumn {
+                        items(sopaDeLetras.size) { filaIndice ->
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceEvenly
+                            ) {
+                                sopaDeLetras[filaIndice].forEachIndexed { columnaIndice, letra ->
+                                    val estaSeleccionada =
+                                        letrasSeleccionadas.contains(
+                                            Pair(
+                                                filaIndice,
+                                                columnaIndice
                                             )
-                                        ) {
-                                            if (estaSeleccionada && letrasSeleccionadas.last() == Pair(
-                                                    filaIndice,
-                                                    columnaIndice
+                                        )
+                                    val esParteDePalabraEncontrada =
+                                        palabrasEncontradas.values.flatten()
+                                            .contains(Pair(filaIndice, columnaIndice))
+                                    Text(
+                                        text = letra.toString(),
+                                        modifier = Modifier
+                                            .padding(4.dp)
+                                            .clickable(
+                                                enabled = !palabrasEncontradas.keys.containsAll(
+                                                    palabrasABuscar.values
                                                 )
                                             ) {
-                                                letrasSeleccionadas =
-                                                    letrasSeleccionadas.dropLast(1)
-                                            } else if (!estaSeleccionada && (letrasSeleccionadas.isEmpty() || esAdyacente(
-                                                    letrasSeleccionadas.last(),
-                                                    Pair(filaIndice, columnaIndice)
-                                                ))
-                                            ) {
-                                                if (letrasSeleccionadas.size < 2 || esMismaDireccion(
-                                                        letrasSeleccionadas,
-                                                        Pair(filaIndice, columnaIndice)
+                                                if (estaSeleccionada && letrasSeleccionadas.last() == Pair(
+                                                        filaIndice,
+                                                        columnaIndice
                                                     )
                                                 ) {
                                                     letrasSeleccionadas =
-                                                        letrasSeleccionadas + Pair(
-                                                            filaIndice,
-                                                            columnaIndice
+                                                        letrasSeleccionadas.dropLast(1)
+                                                } else if (!estaSeleccionada && (letrasSeleccionadas.isEmpty() || esAdyacente(
+                                                        letrasSeleccionadas.last(),
+                                                        Pair(filaIndice, columnaIndice)
+                                                    ))
+                                                ) {
+                                                    if (letrasSeleccionadas.size < 2 || esMismaDireccion(
+                                                            letrasSeleccionadas,
+                                                            Pair(filaIndice, columnaIndice)
                                                         )
+                                                    ) {
+                                                        letrasSeleccionadas =
+                                                            letrasSeleccionadas + Pair(
+                                                                filaIndice,
+                                                                columnaIndice
+                                                            )
+                                                    }
                                                 }
-                                            }
-                                            val palabraFormada =
-                                                letrasSeleccionadas.map { (fila, columna) -> sopaDeLetras[fila][columna] }
-                                                    .joinToString("")
-                                            if (palabraFormada in palabrasABuscar.values && palabraFormada !in palabrasEncontradas.keys) {
-                                                println("¡Has encontrado la palabra $palabraFormada!")
-                                                palabrasEncontradas =
-                                                    palabrasEncontradas + (palabraFormada to letrasSeleccionadas)
-                                                letrasSeleccionadas = listOf()
-                                            }
+                                                val palabraFormada =
+                                                    letrasSeleccionadas.map { (fila, columna) -> sopaDeLetras[fila][columna] }
+                                                        .joinToString("")
+                                                if (palabraFormada in palabrasABuscar.values && palabraFormada !in palabrasEncontradas.keys) {
+                                                    println("¡Has encontrado la palabra $palabraFormada!")
+                                                    palabrasEncontradas =
+                                                        palabrasEncontradas + (palabraFormada to letrasSeleccionadas)
+                                                    letrasSeleccionadas = listOf()
+                                                }
+                                            },
+                                        color = when {
+                                            esParteDePalabraEncontrada && !estaSeleccionada -> Color.Green
+                                            estaSeleccionada -> Color.Red
+                                            else -> Color.Black
                                         },
-                                    color = when {
-                                        esParteDePalabraEncontrada && !estaSeleccionada -> Color.Green
-                                        estaSeleccionada -> Color.Red
-                                        else -> Color.Black
-                                    },
+                                        style = TextStyle(
+                                            fontFamily = FontFamily(Font(R.font.robotomonobold)),
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = if (letra in listOf('Ɨ')) {
+                                                23.sp
+                                            } else if (letra in listOf('Ŋ')) {
+                                                19.sp
+                                            } else {
+                                                20.sp
+                                            },
+                                            textAlign = TextAlign.Center,
+                                            letterSpacing = if (letra in listOf('Ɨ')) {
+                                                0.06.em
+                                            } else {
+                                                0.em // No se aplica espaciado adicional para otras letras
+                                            }
+                                        )
+                                    )
+                                }
+                            }
+                        }
+
+                        // Si todas las palabras han sido encontradas, muestra un mensaje de felicitaciones y un botón para reiniciar el juego
+                        if (palabrasEncontradas.keys.containsAll(palabrasABuscar.values)) {
+                            item {
+                                Text(
+                                    "¡Felicidades, has encontrado todas las palabras!",
+                                    modifier = Modifier.padding(4.dp),
                                     style = TextStyle(
-                                        fontFamily = FontFamily(Font(R.font.robotomonobold)),
+                                        fontFamily = FontFamily.SansSerif,
                                         fontWeight = FontWeight.Bold,
-                                        fontSize = if (letra in listOf('Ɨ')) {
-                                            23.sp
-                                        } else if (letra in listOf('Ŋ')) {
-                                            19.sp
-                                        } else {
-                                            20.sp
-                                        },
+                                        fontSize = 22.sp,
                                         textAlign = TextAlign.Center,
-                                        letterSpacing = if (letra in listOf('Ɨ')) {
-                                            0.06.em
-                                        } else {
-                                            0.em // No se aplica espaciado adicional para otras letras
-                                        }
+                                        color = Color(0xFF00008B)
                                     )
                                 )
                             }
-                        }
-                    }
-
-                // Si todas las palabras han sido encontradas, muestra un mensaje de felicitaciones y un botón para reiniciar el juego
-                if (palabrasEncontradas.keys.containsAll(palabrasABuscar.values)) {
-                    item {
-                        Text(
-                            "¡Felicidades, has encontrado todas las palabras!",
-                            modifier = Modifier.padding(4.dp),
-                            style = TextStyle(
-                                fontFamily = FontFamily.SansSerif,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 22.sp,
-                                textAlign = TextAlign.Center,
-                                color = Color(0xFF00008B)
-                            )
-                        )
-                    }
-                    item {
-                        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                            Button(onClick = {
-                                letrasSeleccionadas = listOf()
-                                palabrasEncontradas = mapOf()
-                                sopaDeLetras = generarSopaDeLetras(palabrasABuscar.values.toList())
-                            }) {
-                                Text("Reiniciar juego")
+                            item {
+                                Box(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Button(onClick = {
+                                        letrasSeleccionadas = listOf()
+                                        palabrasEncontradas = mapOf()
+                                        sopaDeLetras =
+                                            generarSopaDeLetras(palabrasABuscar.values.toList())
+                                    }) {
+                                        Text("Reiniciar juego")
+                                    }
+                                }
                             }
                         }
                     }
-                }
                 }
             }
         }
